@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Selectbox Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">            
+        <div>
+            <label for="selLocation">Where do you want to live?</label>
+            <select name="location" id="selLocation" size="5" multiple>
+                <option value="Sunnyvale, CA">Sunnyvale</option>
+                <option value="Los Angeles, CA">Los Angeles</option>
+                <option value="Mountain View, CA">Mountain View</option>
+                <option value="">China</option>
+                <option>Australia</option>
+            </select>
+        </div>
+        <fieldset>
+            <legend>Add a location</legend>
+            <label for="txtText">What should the text be?</label>
+            <input type="text" id="txtText" value="" /><br />
+            <label for="txtValue">What should the value be?</label>
+            <input type="text" id="txtValue" value="" /><br />
+            <input type="button" value="Add using DOM" id="btnAdd1" />
+            <input type="button" value="Add using Option" id="btnAdd2" />
+        </fieldset>
+        <fieldset>
+            <legend>Remove a location</legend>
+            <input type="button" value="Remove using DOM" id="btnRemove1" />
+            <input type="button" value="Remove using remove()" id="btnRemove2" />
+            <input type="button" value="Remove using null" id="btnRemove3" />
+        </fieldset>
+        <input type="button" value="Get selected options" id="btnSelected" />
+    </form>     
+    <script type="text/javascript">
+        (function(){
+
+            function getSelectedOptions(selectbox){
+                var result = new Array();
+                var option = null;
+                
+                for (var i=0, len=selectbox.options.length; i < len; i++){
+                    option = selectbox.options[i];
+                    if (option.selected){
+                        result.push(option);
+                    }
+                }
+                
+                return result;            
+            }
+            
+            var btn1 = document.getElementById("btnAdd1");
+            var btn2 = document.getElementById("btnAdd2");
+            var btn3 = document.getElementById("btnSelected");
+            var btn4 = document.getElementById("btnRemove1");
+            var btn5 = document.getElementById("btnRemove2");
+            var btn6 = document.getElementById("btnRemove3");
+            
+            EventUtil.addHandler(btn1, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                var textTextbox = document.getElementById("txtText");
+                var valueTextbox = document.getElementById("txtValue");
+                
+                var newOption = document.createElement("option");
+                newOption.appendChild(document.createTextNode(textTextbox.value));
+                newOption.setAttribute("value", valueTextbox.value);
+                
+                selectbox.appendChild(newOption);
+            
+            });
+
+            EventUtil.addHandler(btn2, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                var textTextbox = document.getElementById("txtText");
+                var valueTextbox = document.getElementById("txtValue");
+                var newOption = new Option(textTextbox.value, valueTextbox.value);
+
+                selectbox.appendChild(newOption);
+                //selectbox.add(newOption, undefined);
+            });
+
+            EventUtil.addHandler(btn3, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                var selectedOptions = getSelectedOptions(selectbox);
+                var message = "";
+                
+                for (var i=0, len=selectedOptions.length; i < len; i++){
+                    message += "Selected index: " + selectedOptions[i].index + "\nSelected text: " + selectedOptions[i].text + "\nSelected value: " + selectedOptions[i].value + "\n\n";
+                }
+                
+                alert(message);
+                
+            });
+            
+            EventUtil.addHandler(btn4, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                selectbox.removeChild(selectbox.options[0]);
+            });
+            
+            EventUtil.addHandler(btn5, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                selectbox.remove(0);
+            });
+            
+            EventUtil.addHandler(btn6, "click", function(event){
+                var selectbox = document.getElementById("selLocation");
+                selectbox.options[0] = null;
+            });
+            
+        })();
+    
+    </script>
+</body>
+</html>

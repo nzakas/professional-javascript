@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Custom Drop Target Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Try dragging the image over the square.</p>
+    <img id="smiley" src="smile.gif" />
+    <div style="width: 100px; height: 100px; float: right; background: red" id="droptarget"></div>
+    <div id="output"></div>
+    <script type="text/javascript">
+        var droptarget = document.getElementById("droptarget");
+        
+        function handleEvent(event){
+            document.getElementById("output").innerHTML += event.type + "<br />";
+            if (event.type == "dropenter" || event.type == "dragover"){
+                EventUtil.preventDefault(event);
+            }
+        }
+
+        EventUtil.addHandler(droptarget, "dragenter", handleEvent);
+        EventUtil.addHandler(droptarget, "dragover", handleEvent);
+        EventUtil.addHandler(droptarget, "dragleave", handleEvent);
+        EventUtil.addHandler(droptarget, "drop", handleEvent);
+        
+        //Firefox 3
+        EventUtil.addHandler(droptarget, "dragdrop", handleEvent);
+        EventUtil.addHandler(droptarget, "dragexit", handleEvent);
+
+    </script>
+</body>
+</html>

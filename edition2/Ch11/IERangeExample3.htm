@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>IE Range Example</title>
+        <script type="text/javascript">
+            function useRanges() {
+                var range = document.body.createTextRange();
+                var p1 = document.getElementById("p1");
+                range.findText("Hello");
+                range.pasteHTML("<em>Howdy</em>");
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> world!</p>
+        <input type="button" value="Use Ranges" onclick="useRanges()" />  
+        <p><strong>Note:</strong> This example uses Internet Explorer ranges and will only work on Internet Explorer.</p>
+      
+    </body>
+</html>

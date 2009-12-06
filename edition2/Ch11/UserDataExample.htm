@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>User Data Example</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var div = document.createElement("div");
+        div.setUserData("name", "Nicholas", function(operation, key, value, src, dest){
+            if (operation == 1){
+                dest.setUserData(key, value, function(){});
+            }
+        });
+        
+        var newDiv = div.cloneNode(true);
+        alert(newDiv.getUserData("name"));    //"Nicholas"
+
+    </script>
+
+</body>
+</html>

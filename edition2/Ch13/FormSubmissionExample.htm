@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Form Submission Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">
+        <p>This button will submit the form. If the form is submitted, an alert will be displayed.</p>
+        <input type="submit" value="Submit Form" />    
+    </form>
+    <p>This button determines if the form can be submitted.</p>
+    <input type="button" value="Block submission" id="myBtn" />
+    <p>This button always submits the form.</p>
+    <input type="button" value="Force Submit Form" id="myForceBtn" />
+      
+    <script type="text/javascript">
+        (function(){
+            function handleSubmitEvent(event){
+                event = EventUtil.getEvent(event);
+                EventUtil.preventDefault(event);                
+            }
+            
+            var btn = document.getElementById("myBtn");
+            EventUtil.addHandler(btn, "click", function(event){
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                
+                var form = document.getElementById("myForm");
+                if (target.value == "Block submission"){
+                    EventUtil.addHandler(form, "submit", handleSubmitEvent);
+                    target.value = "Allow submission";
+                } else {
+                    EventUtil.removeHandler(form, "submit", handleSubmitEvent);
+                    target.value = "Block submission";
+                }
+            });
+            
+            var forceBtn = document.getElementById("myForceBtn");
+            EventUtil.addHandler(forceBtn, "click", function(event){
+                var form = document.getElementById("myForm");
+                form.submit();
+            });
+        
+        })();
+
+    </script>
+</body>
+</html>

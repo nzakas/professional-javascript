@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>RegExp Constructor Properties Example</title>
+    <script type="text/javascript">
+    
+        var text = "this has been a short summer";
+        var pattern = /(.)hort/g;
+        
+        /*
+         * Note: Opera doesn't support input, lastMatch, lastParen, or multiline.
+         * Internet Explorer doesn't support multiline.
+         */        
+        if (pattern.test(text)){
+            alert(RegExp.input);               //this has been a short summer
+            alert(RegExp.leftContext);         //this has been a            
+            alert(RegExp.rightContext);        // summer
+            alert(RegExp.lastMatch);           //short
+            alert(RegExp.lastParen);           //s
+            alert(RegExp.multiline);           //false
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Custom Video Player Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Note: The <code>video</code> element isn't supported in any browser as of July 2008. This example for illustrative purposes only.</code>
+    <div class="mediaplayer">
+        <div class="video">
+            <video id="player" src="movie.mov" poster="mymovie.jpg" 
+                   width="300" height="200">
+                Video player not available.
+            </video>
+        </div>
+        <div class="controls">
+            <input type="button" value="Play" id="video-btn" />
+            <span id="curtime">0</span>/<span id="duration">0</duration>
+        </div>
+    </div>
+    <script type="text/javascript">
+            
+        //get references to the elements
+        var player = document.getElementById("player");
+        var btn = document.getElementById("video-btn");
+        var curtime = document.getElementById("curtime");
+        var duration = document.getElementById("duration");
+        
+        //attach event handler to button
+        EventUtil.addHandler(btn, "click", function(event){
+            if (player.paused){
+                player.play();
+                btn.value = "Pause";
+            } else {
+                player.pause();
+                btn.value = "Play";
+            }
+        });
+        
+        //initialize the UI when loaded
+        EventUtil.addHandler(player, "load", function(event){
+            duration.innerHTML = player.duration;
+        });
+        
+        //update the current time periodically
+        setInterval(function(){
+            curtime.innerHTML = player.currentTime;
+        }, 250);    
+    
+    </script>
+</body>
+</html>

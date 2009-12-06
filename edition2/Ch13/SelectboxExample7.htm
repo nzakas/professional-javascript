@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Listbox Shift Example</title>
+        <script type="text/javascript" src="EventUtil.js"></script>
+    </head>
+    <body>
+        <form>
+            <select id="selLocations" size="5">
+                <option value="Sunnyvale, CA">Sunnyvale</option>
+                <option value="Los Angeles, CA">Los Angeles</option>
+                <option value="Mountain View, CA">Mountain View</option>
+                <option value="">China</option>
+                <option>Australia</option>
+            </select><br />
+            Click the "Shift Up" or "Shift Down" button to move the item with this position:<br />
+            <input type="text" id="txtIndex" value="0" /><br />
+            <input type="button" value="Shift Up" id="btnUp" />
+            <input type="button" value="Shift Down" id="btnDown" />
+        </form>
+        <script type="text/javascript">
+        (function(){
+       
+            var selectbox = document.getElementById("selLocations");
+            
+            EventUtil.addHandler(selectbox, "change", function(event){
+                
+                alert(0);
+            });        
+         
+       
+        })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>UI Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <a href="http://www.nczonline.net" id="myLink">Nicholas' site</a>
+    <div id="myOutput">
+    
+    </div>
+    <script type="text/javascript">
+    (function(){
+        var link = document.getElementById("myLink");
+        
+        EventUtil.addHandler(link, "DOMFocusIn", function(event){
+            document.getElementById("myOutput").innerHTML += "Focus in<br />";
+        });
+
+        EventUtil.addHandler(link, "DOMFocusOut", function(event){
+            document.getElementById("myOutput").innerHTML += "Focus out<br />";
+        });
+
+        EventUtil.addHandler(link, "DOMActivate", function(event){
+            document.getElementById("myOutput").innerHTML += "Activate<br />";
+        });
+
+    })();
+    </script>
+</body>
+</html>

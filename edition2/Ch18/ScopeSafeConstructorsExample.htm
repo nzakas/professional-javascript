@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Scope-Safe Constructors Example</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        function Person(name, age, job){
+            this.name = name;
+            this.age = age;
+            this.job = job;
+        }
+        
+        var person1 = new Person("Nicholas", 29, "Software Engineer");
+        alert(person1.name);     //"Nicholas"
+        alert(person1.age);      //29
+        alert(person1.job);      //"Software Engineer"
+
+        var person2 = Person("Nicholas", 29, "Software Engineer");
+        alert(person2);         //undefined
+        alert(window.name);     //"Nicholas"
+        alert(window.age);      //29
+        alert(window.job);      //"Software Engineer"
+
+    </script>
+</body>
+</html>

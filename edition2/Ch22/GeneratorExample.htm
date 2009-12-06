@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Generator Example</title>
+</head>
+<body>
+    <p>This is known to work only in Firefox 2+.</p>
+    <script type="application/javascript;version=1.7">
+        function myNumbers(){
+            for (var i=0; i < 10; i++){
+                yield i * 2;
+            }        
+        }
+        
+        var generator = myNumbers();
+        
+        try {
+            while(true){
+                document.write(generator.next() + "<br />");
+            }
+        } catch(ex){
+            
+        }
+        
+        generator.close();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Textbox Get Selected Text Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Select some text in the textbox.</p>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">        
+        <div>
+            <label for="comments">Type something:</label><br />
+            <input type="text" id="txtStuff" name="stuff" value="Default value" />
+        </div>
+        <input type="submit" value="Submit Form" id="submit-btn" />
+    </form>     
+    <script type="text/javascript">
+        (function(){
+        
+            function getSelectedText(textbox){
+                if (document.selection){
+                    return document.selection.createRange().text;
+                } else {
+                    return textbox.value.substring(textbox.selectionStart, 
+                                                   textbox.selectionEnd);
+                }
+            }
+                          
+            EventUtil.addHandler(window, "load", function(event){
+                var textbox = document.forms[0].elements[0];
+    
+                EventUtil.addHandler(textbox, "select", function(event){
+                    alert(getSelectedText(textbox));
+                });
+    
+                textbox.focus();
+            });               
+        })();
+    
+    </script>
+</body>
+</html>

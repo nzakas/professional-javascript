@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Block Level Scopes Example</title>
+</head>
+<body>
+    <script type="application/javascript;version=1.7">
+        var num = 5;
+        
+        let (num=10, multiplier=2){
+            alert(num * multiplier);    //20
+        }
+        
+        alert(num);   //5
+
+        var result = let(num=10, multiplier=2) num * multiplier;
+        alert(result);  //20
+
+
+    </script>
+</body>
+</html>

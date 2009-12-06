@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>getBoundingClientRect() Example</title>
+    <script type="text/javascript">
+    
+        function getElementLeft(element){
+            var actualLeft = element.offsetLeft;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualLeft += current.offsetLeft;
+                current = current.offsetParent;
+            }
+        
+            return actualLeft;
+        }
+    
+        function getElementTop(element){
+            var actualTop = element.offsetTop;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualTop += current. offsetTop;
+                current = current.offsetParent;
+            }
+        
+            return actualTop;
+        }
+    
+    function getBoundingClientRect(element){
+    
+        var scrollTop = document.documentElement.scrollTop;
+        var scrollLeft = document.documentElement.scrollLeft;
+        
+        if (element.getBoundingClientRect){
+            if (typeof arguments.callee.offset != "number"){
+                var temp = document.createElement("div");
+                temp.style.cssText = "position:absolute;left:0;top:0;";
+                document.body.appendChild(temp);
+                arguments.callee.offset = -temp.getBoundingClientRect().top - scrollTop;
+                document.body.removeChild(temp);
+                temp = null;
+            }
+    
+            var rect = element.getBoundingClientRect();
+            var offset = arguments.callee.offset;
+    
+            return {
+                left: rect.left + offset,
+                right: rect.right + offset,
+                top: rect.top + offset,
+                bottom: rect.bottom + offset
+    
+            };
+        } else {
+    
+            var actualLeft = getElementLeft(element);
+            var actualTop = getElementTop(element);
+    
+           return {
+                left: actualLeft - scrollLeft,
+                right: actualLeft + element.offsetWidth - scrollLeft,
+                top: actualTop - scrollTop,
+                bottom: actualTop + element.offsetHeight - scrollTop
+            }
+        }
+    }
+
+    
+        function getDimensions(){
+            var rect = getBoundingClientRect(document.getElementById("myDiv"));
+            alert("left: " + rect.left + "\nright: " + rect.right  + "\ntop: " + rect.top + "\nbottom: " + rect.bottom);        
+        }
+        
+        
+    
+
+    </script>
+</head>
+<body style="padding: 10px; margin: 0">
+    <div style="margin: 20px">
+        <div style="padding: 20px">
+            <div id="myDiv" style="width: 100px; height: 50px; background-color: red; border: 1px solid black"></div>
+        </div>
+    </div>
+    <input type="button" value="Get Element Dimensions" onclick="getDimensions()" />
+
+    
+</body>
+</html>

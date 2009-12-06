@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Assert Example</title>
+</head>
+<body>
+    <p>The following code will throw an error.</p>
+    <script type="text/javascript">
+    
+        function assert(condition, message){
+            if (!condition){
+                throw new Error(message);
+            }
+        }
+    
+        function divide(num1, num2){
+            assert(typeof num1 == "number" && typeof num2 == "number", 
+                   "divide(): Both arguments must be numbers.");
+            return num1 / num2;
+        }
+
+        var result = divide(10, 23);
+        result = divide("hi", 3);
+
+    </script>
+</body>
+</html>

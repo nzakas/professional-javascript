@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Function Example 8</title>
+    <script type="text/javascript">
+        function doAdd(num1, num2) {
+            if(arguments.length == 1) {
+                alert(num1 + 10);
+            } else if (arguments.length == 2) {
+                alert(arguments[0] + num2);
+            }
+        }
+
+        
+        doAdd(10);        //20
+        doAdd(30, 20);    //50
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

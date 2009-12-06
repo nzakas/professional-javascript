@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Listbox Shift Example</title>
+        <script type="text/javascript" src="EventUtil.js"></script>
+    </head>
+    <body>
+        <form>
+            <select id="selLocations" size="5">
+                <option value="Sunnyvale, CA">Sunnyvale</option>
+                <option value="Los Angeles, CA">Los Angeles</option>
+                <option value="Mountain View, CA">Mountain View</option>
+                <option value="">China</option>
+                <option>Australia</option>
+            </select><br />
+            Click the "Shift Up" or "Shift Down" button to move the item with this position:<br />
+            <input type="text" id="txtIndex" value="0" /><br />
+            <input type="button" value="Shift Up" id="btnUp" />
+            <input type="button" value="Shift Down" id="btnDown" />
+        </form>
+        <script type="text/javascript">
+        (function(){
+       
+            var btnUp = document.getElementById("btnUp");
+            var btnDown = document.getElementById("btnDown");
+            
+            EventUtil.addHandler(btnUp, "click", function(event){
+                var selectbox = document.getElementById("selLocations");
+                var textbox = document.getElementById("txtIndex");
+                var optionToMove = selectbox.options[parseInt(textbox.value, 10)];
+                
+                if (optionToMove.index > 0){
+                    selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index-1]);
+                }
+            });        
+       
+            EventUtil.addHandler(btnDown, "click", function(event){
+                var selectbox = document.getElementById("selLocations");
+                var textbox = document.getElementById("txtIndex");
+                var optionToMove = selectbox.options[parseInt(textbox.value, 10)];
+                
+                selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index+2]);
+
+            });        
+       
+        })();
+        </script>
+    </body>
+</html>

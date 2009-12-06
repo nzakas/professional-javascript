@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Continue Statement Example 2</title>
+    <script type="text/javascript">
+        var num = 0;
+        
+        outermost:
+        for (var i=0; i < 10; i++) {
+             for (var j=0; j < 10; j++) {
+                if (i == 5 && j == 5) {
+                    continue outermost;
+                }
+                num++;
+            }
+        }
+        
+        alert(num);    //95
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

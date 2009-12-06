@@ -1,0 +1,48 @@
+<html>
+ <head>
+    <title>Canvas Text Example</title>
+ </head>
+ <body>
+    <p>Not all browsers support the <code>canvas</code> tag. Firefox 1.5, Safari 2.0, and Opera 9.0 do.</p>
+    <p>Text support has not yet been added to most browsers.</p>
+    <canvas id="drawing" width="200" height="200">Your browser doesn't support the canvas tag.</canvas>
+    <script type="text/javascript">
+        window.onload = function(){
+            var drawing = document.getElementById("drawing");
+            
+            //make sure <canvas> is completely supported
+            if (drawing.getContext){
+            
+                var context = drawing.getContext("2d");
+                
+                //start the path
+                context.beginPath();
+                
+                //draw outer circle
+                context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+                
+                //draw inner circle
+                context.moveTo(194, 100);
+                context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+                
+                //draw hour hand
+                context.moveTo(100,100);
+                context.lineTo(100, 15);
+                
+                //draw minute hand
+                context.moveTo(100, 100);
+                context.lineTo(35, 100);
+                
+                context.stroke();
+                
+                //add some text - not supported by all browsers
+                context.font = "bold 10px Arial";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
+                context.strokeText("12", 100, 80);
+            }                
+        };
+
+    </script>
+    </body>
+</html>

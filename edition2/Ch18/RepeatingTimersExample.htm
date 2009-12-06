@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Repeating Timers Example</title>
+</head>
+<body>
+    <div id="myDiv" style="position:absolute;width:100px;height:100px;left:0px;top:10px;background:red;"></div>
+
+    <script type="text/javascript">
+        setTimeout(function(){
+        
+           var div = document.getElementById("myDiv");
+           var left = parseInt(div.style.left) + 5;
+           div.style.left = left + "px";
+        
+           if (left < 200){
+               setTimeout(arguments.callee, 50);
+           }
+        
+        }, 50);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>OrientationChange Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv">Calculating orientation...</div>
+    <div>This will only work on Safari on the iPhone or iPod Touch.</div>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(event){
+            var div = document.getElementById("myDiv");
+            div.innerHTML = "Current orientation is " + window.orientation;
+            
+            EventUtil.addHandler(window, "orientationchange", function(event){
+                div.innerHTML = "Current orientation is " + window.orientation;
+            });
+        });
+
+    </script>
+</body>
+</html>

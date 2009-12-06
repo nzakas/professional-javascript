@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Attribute Change Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <p>This example shows the use of mutation events. Not all browsers support this. Safari 3 is known to support mutation events.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(event){
+            var list = document.getElementById("myList");
+                        
+            EventUtil.addHandler(document, "DOMSubtreeModified", function(event){
+                alert(event.type);
+                alert(event.target);
+            });
+            EventUtil.addHandler(document, "DOMAttrModified", function(event){
+                alert(event.type);
+                alert(event.target);
+                alert(event.relatedNode);
+                alert(event.attrName);
+                alert(event.attrChange);
+                alert(event.prevValue);
+                alert(event.newValue);
+            });     
+            
+            list.setAttribute("customname", "value");
+        });
+
+    </script>
+</body>
+</html>

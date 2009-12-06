@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>CSS Rules Example</title>
+    <style type="text/css">
+        div.box {
+            background-color: blue;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+    
+        function insertRule(sheet, selectorText, cssText, position){
+            if (sheet.insertRule){
+                sheet.insertRule(selectorText + "{" + cssText + "}", position);
+            } else if (sheet.addRule){
+                sheet.addRule(selectorText, cssText, position);
+            }
+        }
+        
+        function deleteRule(sheet, index){
+            if (sheet.deleteRule){
+                sheet.deleteRule(index);
+            } else if (sheet.removeRule){
+                sheet.removeRule(index);
+            }
+        }
+            
+        function addNewRule(){        
+            var sheet = document.styleSheets[0];
+            insertRule(sheet, "body", "background-color: silver;", 0);       
+            //Note: Opera < 9.5 doesn't add the rule in the correct location     
+        }
+        
+        function removeFirstRule(){
+            var sheet = document.styleSheets[0];
+            deleteRule(sheet, 0);           
+        }
+
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+    <input type="button" value="Add CSS Rule" onclick="addNewRule()" />
+    <input type="button" value="Remove CSS Rule" onclick="removeFirstRule()" />
+    
+</body>
+</html>

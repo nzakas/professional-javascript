@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>DOM Level 3 Load Save Example</title>
+</head>
+<body>
+    <p>This example is known to work only in Opera.</p>
+    <script type="text/javascript">
+    
+        var implementation = document.implementation;
+        var parser = implementation.createLSParser(implementation.MODE_ASYNCHRONOUS, null);
+        
+        //load event will never get called
+        parser.addEventListener("load", function(event){
+            var xmldom = event.newDocument;
+            var input = event.input;
+
+            alert(xmldom.documentElement.tagName);  //"root"
+            alert(xmldom.documentElement.firstChild.tagName); //"child"
+            
+            var anotherChild = xmldom.createElement("child");
+            xmldom.documentElement.appendChild(anotherChild);
+            
+            var children = xmldom.getElementsByTagName("child");
+            alert(children.length);   //2
+        }, false);
+        
+        parser.domConfig.setParameter("error-handler", function(ex){
+            alert("Parsing error!");
+        });
+        
+        parser.parseURI("example.xml");
+        
+    </script>
+</body>
+</html>

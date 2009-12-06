@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Unload Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Unload event example - navigate to another page or close this tab/window to fire the event.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "unload", function(event){
+            alert("Unloaded");
+        });
+    </script>
+</body>
+</html>

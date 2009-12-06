@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Attributes Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+        XML.ignoreComments = false;
+        XML.ignoreProcessingInstructions = false;
+
+        var employees = <employees>
+            <?Dont forget the donuts?>
+            <employee position="Software Engineer">
+                <name>Nicholas C. Zakas</name>
+            </employee>
+            <!-- just added -->
+            <employee position="Salesperson">
+                <name>Jim Smith</name>
+            </employee>
+        </employees>;
+
+                        
+        alert(employees.nodeKind());
+        alert(employees.*[0].nodeKind());
+        alert(employees.employee[0].@position.nodeKind());
+        alert(employees.employee[0].nodeKind());
+        alert(employees.child(2).nodeKind());
+        alert(employees.employee[0].name.*[0].nodeKind());
+    </script>
+</body>
+</html>

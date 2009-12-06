@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Querying Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+    
+        var employees =  <employees>
+                            <employee position="Software Engineer">
+                                <name>Nicholas C. Zakas</name>
+                            </employee>
+                            <employee position="Salesperson">
+                                <name>Jim Smith</name>
+                            </employee>
+                        </employees>;
+                        
+        var cats = employees.cat;
+        alert(cats.length());     //0 
+        
+        var allDescendants = employees..*;     //get all descendants of <employees/>
+        alert(allDescendants);
+        
+        var employees2 = employees.employee.parent();
+        
+        alert(employees.contains(employees2));
+    </script>
+</body>
+</html>

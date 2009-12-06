@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Dynamic Prototype Pattern Example</title>
+    <script type="text/javascript">
+                    
+        function Person(name, age, job){
+        
+            //properties
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            
+            //methods
+            if (typeof this.sayName != "function"){
+            
+                Person.prototype.sayName = function(){
+                    alert(this.name);
+                };
+                
+            }
+        }
+
+        var person = new Person("Nicholas", 29, "Software Engineer");
+        person.sayName();
+
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

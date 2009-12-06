@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Prototype Pattern Example 4</title>
+    <script type="text/javascript">
+            
+        function Person(){
+        }
+        
+        Person.prototype.name = "Nicholas";
+        Person.prototype.age = 29;
+        Person.prototype.job = "Software Engineer";
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+        
+        var person1 = new Person();
+        var person2 = new Person();
+        
+        alert(person1.hasOwnProperty("name"));  //false
+        alert("name" in person1);  //true
+        
+        person1.name = "Greg";
+        alert(person1.name);   //"Greg" – from instance
+        alert(person1.hasOwnProperty("name"));  //true
+        alert("name" in person1);  //true
+        
+        alert(person2.name);   //"Nicholas" – from prototype
+        alert(person2.hasOwnProperty("name"));  //false
+        alert("name" in person2);  //true
+        
+        delete person1.name;
+        alert(person1.name);   //"Nicholas" - from the prototype
+        alert(person1.hasOwnProperty("name"));  //false
+        alert("name" in person1);  //true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

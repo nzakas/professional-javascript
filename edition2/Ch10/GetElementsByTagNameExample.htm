@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>getElementsByTagName() Example</title>
+</head>
+<body>
+    <!-- document header -->
+    <div class="hd">
+        <h1>Document header</h1>
+    </div>
+    
+    <!-- document body -->
+    <div class="bd">
+        <p>The body of the document.</p>    
+    </div>
+    
+    <!-- document footer -->
+    <div class="ft">
+        <p>Document footer</p>
+    </div>
+    <input type="button" value="Get All Elements" onclick="getAllElements()" />
+    <script type="text/javascript">
+        function getAllElements(){
+            var elements = document.getElementsByTagName("*"); //12 in most browsers, 15 in IE because it includes comments
+            alert(elements.length);
+            alert(elements[4].outerHTML);
+        }
+    
+    </script>
+</body>
+</html>

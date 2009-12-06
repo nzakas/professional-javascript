@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Iterator Example</title>
+</head>
+<body>
+    <script type="application/javascript;version=1.7">
+        
+        var person = {
+            name: "Nicholas",
+            age: 29
+        };
+        
+        var iterator = new Iterator(person);
+
+        
+        try {
+            while(true){
+                let value = iterator.next();
+                document.write(value.join(":") + "<br />");
+            }
+        } catch(ex){
+            
+        }
+        
+
+
+    </script>
+</body>
+</html>

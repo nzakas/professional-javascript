@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>DOMParser Example</title>
+</head>
+<body>
+    <p>This example will not work in Internet Explorer.</p>
+    <script type="text/javascript">
+    
+        var parser = new DOMParser();
+        var xmldom = parser.parseFromString("<root>", "text/xml");  //should cause a parse error
+        var errors = xmldom.getElementsByTagName("parsererror");
+        
+        if (errors.length > 0){
+            var serializer = new XMLSerializer();            
+            alert("XML Parsing Error:" + serializer.serializeToString(xmldom, "text/xml"));            
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Load Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(){
+            var image = document.createElement("img");
+            EventUtil.addHandler(image, "load", function(event){
+                event = EventUtil.getEvent(event);
+                alert(EventUtil.getTarget(event).src);
+            });
+            document.body.appendChild(image);
+            image.src = "smile.gif";            
+        });
+    </script>
+</body>
+</html>

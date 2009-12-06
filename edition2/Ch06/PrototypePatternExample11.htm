@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Prototype Pattern Example 9</title>
+    <script type="text/javascript">
+                    
+                    
+        alert(typeof Array.prototype.sort);         //"function"
+        alert(typeof String.prototype.substring);   //"function"
+
+        String.prototype.startsWith = function (text) {
+            return this.indexOf(text) == 0;
+        };
+        
+        var msg = "Hello world!";
+        alert(msg.startsWith("Hello"));   //true
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

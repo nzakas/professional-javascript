@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>IE XPath Example</title>
+        <script type="text/javascript">
+        function createDocument(){
+            if (typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.DOMDocument.6.0", "MSXML2.DOMDocument.3.0",
+                                "MSXML2.DOMDocument"];
+        
+                for (var i=0,len=versions.length; i < len; i++){
+                    try {
+                        var xmldom = new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        return xmldom;
+                    } catch (ex){
+                        //skip
+                    }
+                }
+            }
+        
+            return new ActiveXObject(arguments.callee.activeXString);
+        }              
+        </script>        
+    </head>
+    <body>
+        <p>This example gets all nodes matching the expression <code>employee/name</code>.</p>
+        <script type="text/javascript">
+            var xmldom = createDocument();
+            xmldom.async = false;
+            xmldom.load("employees.xml");
+            
+            var names = xmldom.documentElement.selectNodes("employee/name");
+            
+            var message = "There are " + names.length + " matching nodes.\n";
+            
+            for (var i=0, len=names.length; i < names.len; i++) {
+                message += names[i].xml + "\n";
+            }
+            
+            alert(message);
+            
+        </script>
+ 
+ 
+    </body>
+</html>

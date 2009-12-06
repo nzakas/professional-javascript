@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Throttling Example</title>
+</head>
+<body>
+    <div id="myDiv" style="background:red;"></div>
+
+    <script type="text/javascript">
+        function throttle(method, scope) {
+            clearTimeout(method.tId);
+            method.tId= setTimeout(function(){
+                method.call(scope);
+            }, 100);
+        }
+    
+        function resizeDiv(){
+            var div = document.getElementById("myDiv");
+            div.style.height = div.offsetWidth + "px";
+        }
+        
+        window.onresize = function(){
+            throttle(resizeDiv);
+        };
+
+
+
+    </script>
+</body>
+</html>

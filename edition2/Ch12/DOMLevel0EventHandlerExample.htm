@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>DOM Level 0 Event Handler Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <input type="button" id="myRemoveBtn" value="Remove Event Handler" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(){
+            alert(this.id);
+        };
+        
+        var removeBtn = document.getElementById("myRemoveBtn");
+        removeBtn.onclick = function(){
+            btn.onclick = null;
+        };
+    </script>
+</body>
+</html>

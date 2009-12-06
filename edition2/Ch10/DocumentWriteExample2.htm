@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>document.write() Example 2</title>
+</head>
+<body>
+    <p>Because the string &quot;</script>&quot; is included with <code>document.write()</code>,
+    the script tag is closed before reaching its natural end. That means you'll see some extra
+    text here:</p>
+    <script type="text/javascript">
+        document.write("<script type=\"text\javascript\" src=\"file.js\">" +   
+            "</script>");
+    </script>
+</body>
+</html>

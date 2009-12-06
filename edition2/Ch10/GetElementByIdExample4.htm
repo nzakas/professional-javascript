@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>getElementById() Example 4</title>
+</head>
+<body>
+    <input type="text" value="Form field" name="myElement" />
+    <div id="myElement">This <code>div</code> should be retrieved by clicking the button.</div>
+    <input type="button" value="Get 'myElement'" onclick="getElement()" />
+    <script type="text/javascript">
+        function getDiv(){
+            alert(document.getElementById("myElement").tagName);   //"INPUT" in IE, "DIV" in other browsers
+        }
+    
+    </script>
+</body>
+</html>

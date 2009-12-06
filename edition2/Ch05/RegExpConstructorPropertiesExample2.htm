@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>RegExp Constructor Properties Example 2</title>
+    <script type="text/javascript">
+    
+        var text = "this has been a short summer";
+        var pattern = /(.)hort/g;
+        
+        /*
+         * Note: Opera doesn't support short property names.
+         * Internet Explorer doesn't support multiline.
+         */        
+        if (pattern.test(text)){
+            alert(RegExp.$_);               //this has been a short summer
+            alert(RegExp["$`"]);            //this has been a            
+            alert(RegExp["$'"]);            // summer
+            alert(RegExp["$&"]);            //short
+            alert(RegExp["$+"]);            //s
+            alert(RegExp["$*"]);            //false
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

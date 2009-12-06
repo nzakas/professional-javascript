@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>NodeIterator Example</title>
+        <script type="text/javascript">
+
+           function makeList() {
+                var div = document.getElementById("div1");
+                var filter = function(node){
+                    return (node.tagName.toLowerCase() == "li") ? 
+                        NodeFilter.FILTER_ACCEPT : 
+                        NodeFilter.FILTER_SKIP;
+                };
+
+                var iterator = document.createNodeIterator(div, NodeFilter.SHOW_ELEMENT, filter, false);
+                //For Firefox: iterator = document.createTreeWalker(div, NodeFilter.SHOW_ELEMENT, filter, false);
+               
+                var output = document.getElementById("text1");
+                var node = iterator.nextNode();
+                while (node !== null) {
+                    output.value += node.tagName + "\n";
+                    node = iterator.nextNode();
+                }
+
+           }
+
+        </script>
+    </head>
+    <body>
+        <p><strong>Note:</strong> The <code>NodeIterator</code> object has only been implemented in Opera (version 7.6 and higher) and Safari (version 1.3 and higher). It has not been implemented in Internet Explorer or Firefox (so this example won't work). In Firefox, you can use the <code>TreeWalker</code> instead.</p>
+        <div id="div1">
+            <p><b>Hello</b> world!</p>
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <li>List item 3</li>
+            </ul>
+        </div>
+        <textarea rows="10" cols="40" id="text1"></textarea><br />
+        <input type="button" value="Make List" onclick="makeList()" />
+    </body>
+</html>

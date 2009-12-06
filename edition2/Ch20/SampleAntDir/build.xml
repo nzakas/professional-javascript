@@ -1,0 +1,53 @@
+<project name="JavaScript Project" default="js.concatenate">
+
+    <!-- the directory to output to -->
+    <property name="build.dir" value="./js" />
+
+    <!-- the directory containing the source files -->
+    <property name="src.dir" value="./dev/src" />
+    
+    <!-- the location of the rhino jar file -->
+    <property name="rhino.jar" value="c:/java/rhino/rhino-1.6R7.jar" />
+    
+    <!-- the location of the YUI compressor jar file -->
+    <property name="yuicompressor.jar" value="c:/java/yuicompressor/yuicompressor-2.3.5.jar" />
+    
+    <!-- the location of the jslint file -->
+    <property name="jslint.js" value="c:/java/rhino/jslint.js" />
+
+    <!-- target to run everything -->
+    <target name="all" depends="js.concatenate,js.verify,js.compress"/>
+
+    <!-- Target to concatenate all JS files -->
+    <!-- Credit: Julien Lecomte, http://www.julienlecomte.net/blog/2007/09/16/ -->
+    <target name="js.concatenate">
+        <concat destfile="${build.dir}/output.js">
+            <filelist dir="${src.dir}/js" files="a.js, b.js"/>
+            <fileset dir="${src.dir}/js" includes="*.js" excludes="a.js, b.js"/>
+        </concat>
+    </target>
+    
+    <!-- Target to run YUI Compressor on output file -->
+    <!-- Credit: Julien Lecomte, http://www.julienlecomte.net/blog/2007/09/16/ -->
+    <target name="js.compress">
+        <apply executable="java" parallel="false">
+            <fileset dir="${build.dir}" includes="output.js"/>
+            <arg line="-jar"/>
+            <arg path="${yuicompressor.jar}"/>
+            <arg line="-o ${build.dir}/output-min.js"/>
+            <srcfile/>
+        </apply>
+    </target>
+
+    <!-- Target to run JSLint on output file -->
+    <target name="js.verify">
+        <apply executable="java" parallel="false">
+            <fileset dir="${build.dir}" includes="output.js"/>
+            <arg line="-jar"/>
+            <arg path="${rhino.jar}"/>
+            <arg path="${jslint.js}" />
+            <srcfile/>
+        </apply>
+    </target>
+
+</project>

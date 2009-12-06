@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>MouseWheel Event Example</title>
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv">Try scrolling your mouse wheel (IE, Safari, and Opera).</div>
+    <script type="text/javascript">
+        EventUtil.addHandler(document, "mousewheel", function(event){
+            event = EventUtil.getEvent(event);
+            var delta = (client.engine.opera && client.engine.opera < 9.5 ? -event.wheelDelta : event.wheelDelta);
+            alert(delta);
+        });
+
+    </script>
+</body>
+</html>

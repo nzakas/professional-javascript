@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Scroll Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p style="height: 10000px">Scroll event example - scroll the browser window.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "scroll", function(event){
+            if (document.compatMode == "CSS1Compat"){
+                alert(document.documentElement.scrollTop);
+            } else {
+                alert(document.body.scrollTop);
+            }
+        });
+    </script>
+</body>
+</html>

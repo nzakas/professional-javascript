@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Communication Error Example</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function addQueryStringArg(url, name, value){
+            if (url.indexOf("?") == -1){
+                url += "?";
+            } else {
+                url += "&";
+            }
+            
+            url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+            return url;
+        }
+
+        var url = "http://www.somedomain.com";
+        var newUrl = addQueryStringArg(url, "redir", "http://www.someotherdomain.com?a=b&c=d");
+        alert(newUrl);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>HTML Elements Example</title>
+</head>
+<body>
+    <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr">Some text</div>
+    <input type="button" value="Get Values" onclick="getValues()" />
+    <input type="button" value="Set Values" onclick="setValues()" />
+    <p>Try clicking &quot;Get Values&quot;, then &quot;Set Values&quot;, then &quot;Get Values&quot; again.</p>
+    <script type="text/javascript">
+        var div = null;
+        function getValues(){
+            if (div == null) {
+                div = document.getElementById("myDiv");
+            }
+            alert(div.id);         //"myDiv"
+            alert(div.className);  //"bd"
+            alert(div.title);      //"Body text"
+            alert(div.lang);       //"en"
+            alert(div.dir);        //"ltr"
+        }    
+        
+        function setValues(){
+            if (div == null) {
+                div = document.getElementById("myDiv");
+            }
+        
+            div.id = "someOtherId";
+            div.className = "ft";
+            div.title = "Some other text";
+            div.lang = "fr";
+            div.dir ="rtl";        
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>DOM Level 2 Event Handler Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <input type="button" id="myRemoveBtn" value="Remove Event Handler" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        var handler = function(){
+            alert(this.id);
+        };
+        btn.addEventListener("click", handler, false); 
+        
+        var removeBtn = document.getElementById("myRemoveBtn");
+        removeBtn.onclick = function(){
+            btn.removeEventListener("click", handler, false);  //works!
+        };
+        
+    </script>
+</body>
+</html>

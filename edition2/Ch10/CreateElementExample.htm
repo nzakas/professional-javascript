@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Create Element Example</title>
+</head>
+<body>
+    <style type="text/css">
+        .box {
+            width: 32px;
+            height: 32px;
+            background-color: red;
+        }
+    </style>
+    <input type="button" value="Create Element" onclick="createNewElement()" />
+
+    <script type="text/javascript">
+        function createNewElement(element){
+            var div = document.createElement("div");
+            div.id = "myNewDiv";
+            div.className = "box";
+            document.body.appendChild(div);
+            
+        }
+
+    </script>
+</body>
+</html>

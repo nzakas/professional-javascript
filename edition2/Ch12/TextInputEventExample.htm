@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>TextInput Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="text" id="myText" />
+    <p>This example only works in browsers that support the <code>textInput</code> event.</p>
+    <script type="text/javascript">
+        var textbox = document.getElementById("myText");
+        EventUtil.addHandler(textbox, "textInput", function(event){
+            event = EventUtil.getEvent(event);
+            alert(event.data);     
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>XMLList Type Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+    
+        var employees =  <employee position="Software Engineer">
+                                <name>Nicholas C. Zakas</name>
+                            </employee> +
+                            <employee position="Salesperson">
+                                <name>Jim Smith</name>
+                            </employee>;
+                        
+        alert(employees.length());
+        alert(employees[0].name);
+        alert(employees.toXMLString());
+
+    </script>
+</body>
+</html>

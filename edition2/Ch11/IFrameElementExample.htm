@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>DOM Level 2 IFrame Example</title>
+</head>
+<body>
+    <iframe id="myIFrame" src="javascript:false"></iframe>
+    <script type="text/javascript">
+        var iframe = document.getElementById("myIFrame");
+        var iframeDoc = iframe.contentDocument;   //won't work in IE
+        alert(iframeDoc);
+    </script>
+</body>
+</html>

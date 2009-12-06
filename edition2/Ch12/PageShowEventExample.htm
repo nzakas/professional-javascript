@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>PageShow/PageHide Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>This example uses the <code>pageshow</code> and <code>pagehide</code> events. Navigate to another page and then hit the Back button to see it in use.</p>
+    <script type="text/javascript">
+    (function(){
+        var showCount = 0;
+        EventUtil.addHandler(window, "load", function(){
+            alert("Load fired");            
+        });
+        EventUtil.addHandler(window, "pageshow", function(event){
+            showCount++;
+            alert("Show has been fired " + showCount + " times. Persisted? " + event.persisted);            
+        });
+        EventUtil.addHandler(window, "pagehide", function(event){
+            alert("Hiding. Persisted? " + event.persisted);            
+        });
+    })();
+    </script>
+</body>
+</html>

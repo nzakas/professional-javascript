@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Textbox Select Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>The textbox will receive focus as soon as the page loads. All of the default text will be highlighted. You can then start typing.</p>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">        
+        <div>
+            <label for="comments">Type something:</label><br />
+            <textarea rows="10" cols="50">blah</textarea>
+            <input type="text" id="txtStuff" name="stuff" value="Default value" />
+        </div>
+        <input type="submit" value="Submit Form" id="submit-btn" />
+    </form>     
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(event){
+            var textbox = document.forms[0].elements[0];
+            
+            EventUtil.addHandler(textbox, "focus", function(event){
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                
+                target.select();
+            });
+
+            textbox.focus();
+        });               
+
+    
+    </script>
+</body>
+</html>

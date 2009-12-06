@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Constructor Stealing Example</title>
+    <script type="text/javascript">
+                    
+        function SuperType(name){
+            this.name = name;
+        }
+
+        function SubType(){  
+            //inherit from SuperType passing in an argument
+            SuperType.call(this, "Nicholas");
+            
+            //instance property
+            this.age = 29;
+        }
+
+        var instance = new SubType();
+        alert(instance.name);    //"Nicholas";
+        alert(instance.age);     //29
+       
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

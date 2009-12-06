@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>IE XML DOM Example</title>
+</head>
+<body>
+    <p>This example is known to work only in Internet Explorer.</p>
+    <script type="text/javascript">
+    
+        function createDocument(){
+            if (typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.DOMDocument.6.0", "MSXML2.DOMDocument.3.0",
+                                "MSXML2.DOMDocument"];
+        
+                for (var i=0,len=versions.length; i < len; i++){
+                    try {
+                        var xmldom = new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        return xmldom;
+                    } catch (ex){
+                        //skip
+                    }
+                }
+            }
+        
+            return new ActiveXObject(arguments.callee.activeXString);
+        }
+    
+    
+        var xmldom = createDocument();
+        xmldom.async = true;
+        
+        xmldom.onreadystatechange = function(){
+            if (xmldom.readyState == 4){
+                if (xmldom.parseError != 0){
+                    alert("An error occurred:\nError Code: "
+                          + xmldom.parseError.errorCode + "\n"
+                          + "Line: " + xmldom.parseError.line + "\n"
+                          + "Line Pos: " + xmldom.parseError.linepos + "\n"
+                          + "Reason: " + xmldom.parseError.reason);
+                } else {
+        
+                    alert(xmldom.documentElement.tagName);  //"root"
+                    alert(xmldom.documentElement.firstChild.tagName); //"child"
+                    
+                    var anotherChild = xmldom.createElement("child");
+                    xmldom.documentElement.appendChild(anotherChild);
+                    
+                    var children = xmldom.getElementsByTagName("child");
+                    alert(children.length);   //2        
+                    
+                    alert(xmldom.xml);                        
+                }                
+            }
+        };
+        
+        xmldom.load("example.xml");
+        
+    </script>
+</body>
+</html>

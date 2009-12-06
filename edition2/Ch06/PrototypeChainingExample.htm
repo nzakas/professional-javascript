@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Prototype Chaining Example</title>
+    <script type="text/javascript">
+                    
+        function SuperType(){
+            this.property = true;
+        }
+        
+        SuperType.prototype.getSuperValue = function(){
+            return this.property;
+        };
+        
+        function SubType(){
+            this.subproperty = false;
+        }
+        
+        //inherit from SuperType
+        SubType.prototype = new SuperType();
+        
+        SubType.prototype.getSubValue = function (){
+            return this.subproperty;
+        };
+        
+        var instance = new SubType();
+        alert(instance.getSuperValue());   //true
+       
+        alert(instance instanceof Object);      //true
+        alert(instance instanceof SuperType);   //true
+        alert(instance instanceof SubType);     //true
+
+        alert(Object.prototype.isPrototypeOf(instance));    //true
+        alert(SuperType.prototype.isPrototypeOf(instance)); //true
+        alert(SubType.prototype.isPrototypeOf(instance));   //true
+        
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

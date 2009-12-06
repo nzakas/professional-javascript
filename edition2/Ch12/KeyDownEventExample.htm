@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Keydown Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="text" id="myText" />
+    <script type="text/javascript">
+        var textbox = document.getElementById("myText");
+        EventUtil.addHandler(textbox, "textInput", function(event){
+            event = EventUtil.getEvent(event);
+            alert(event.data);     
+        });
+    </script>
+</body>
+</html>

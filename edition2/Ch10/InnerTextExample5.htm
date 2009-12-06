@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>InnerText Example 5</title>
+</head>
+<body>
+    <div id="content">
+        <p>This is a <strong>paragraph</strong> with a list following it.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <input type="button" value="Replace InnerText Simple" onclick="replaceTextSimple()" />
+    <input type="button" value="Replace InnerText Complex" onclick="replaceTextComplex()" />
+
+    <script type="text/javascript">
+        function getInnerText(element){
+            return (typeof element.textContent == "string") ? 
+                element.textContent : element.innerText;
+        }
+        
+        function setInnerText(element, text){
+            if (typeof element.textContent == "string"){
+                element.textContent = text;
+            } else {
+                element.innerText = text;
+            }
+        }
+    
+        function replaceTextSimple(){
+            var div = document.getElementById("content");            
+            setInnerText(div, "Hello world!");
+            alert(getInnerText(div));
+        }
+
+        function replaceTextComplex(){
+            var div = document.getElementById("content");            
+            setInnerText(div, "Hello & welcome, <b>\"reader\"!</b>");
+            alert(getInnerText(div));
+        }
+
+    </script>
+</body>
+</html>

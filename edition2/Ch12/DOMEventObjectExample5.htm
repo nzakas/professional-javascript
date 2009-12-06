@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>DOM Event Object Example</title>
+</head>
+<body>
+    <input type="button" value="Click Me" id="myBtn" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(event){
+            alert("Clicked");
+            event.stopPropagation();
+        };
+        
+        document.body.onclick = function(event){
+            alert("Body clicked");
+        };
+    </script>
+</body>
+</html>

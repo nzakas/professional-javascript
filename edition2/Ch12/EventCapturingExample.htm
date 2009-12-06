@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Event Capturing Example</title>
+    <script type="text/javascript">
+    
+        window.onload = function(){
+            window.addEventListener("click", function(){
+                alert("Window");
+            }, true);
+            
+            document.addEventListener("click", function(){
+                alert("Document");
+            }, true);
+            
+            document.documentElement.addEventListener("click", function(){
+                alert("Html");
+            }, true);
+            
+            document.body.addEventListener("click", function(){
+                alert("Body");
+            }, true);
+            document.getElementById("myDiv").addEventListener("click", function(){
+                alert("Div");
+            }, true);
+        }
+    
+
+    </script>
+</head>
+<body>
+    <div id="myDiv">Click Me</div>
+    <p>This won't work in Internet Explorer.</p>
+    
+</body>
+</html>

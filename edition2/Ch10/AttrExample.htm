@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Attr Example</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <input type="button" value="Assign Attribute" onclick="assignAttribute()" />
+
+    <script type="text/javascript">
+        function assignAttribute(){
+            var element = document.getElementById("myDiv");
+            var attr = document.createAttribute("align");
+            attr.value = "left";
+            element.setAttributeNode(attr);
+            
+            alert(element.attributes["align"].value);       //"left"
+            alert(element.getAttributeNode("align").value); //"left"
+            alert(element.getAttribute("align"));           //"left"
+
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>IE XSLT Example</title>   
+        <script type="text/javascript">
+        
+            function createDocument(){
+                if (typeof arguments.callee.activeXString != "string"){
+                    var versions = ["MSXML2.DOMDocument.6.0", "MSXML2.DOMDocument.3.0",
+                                    "MSXML2.DOMDocument"];
+            
+                    for (var i=0,len=versions.length; i < len; i++){
+                        try {
+                            var xmldom = new ActiveXObject(versions[i]);
+                            arguments.callee.activeXString = versions[i];
+                            return xmldom;
+                        } catch (ex){
+                            //skip
+                        }
+                    }
+                }
+            
+                return new ActiveXObject(arguments.callee.activeXString);
+            }         
+            
+            window.onload = function () {
+                var xmldom = createDocument();
+                var xsltdom = createDocument();
+                
+                xmldom.async = false;
+                xsltdom.async = false;
+                
+                xmldom.load("employees.xml");
+                xsltdom.load("employees.xslt");
+
+                var result = xmldom.documentElement.transformNode(xsltdom);
+                var div = document.getElementById("divResult");
+                alert(result);
+                div.innerHTML = result;
+
+            }
+        </script>           
+    </head>
+    <body>
+        <p>This example loads employees.xml and transforms it using employees.xslt. 
+        The resulting code is then displayed.</p>
+        <div id="divResult"></div>
+    </body>
+</html>

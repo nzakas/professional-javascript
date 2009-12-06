@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>DOM Level 2 Core Example</title>
+</head>
+<body>
+    <p>This example will not work in Internet Explorer.</p>
+    <script type="text/javascript">
+    
+        var xmldom = document.implementation.createDocument("", "root", null);
+        
+        alert(xmldom.documentElement.tagName);  //"root"
+       
+        var child = xmldom.createElement("child");
+        xmldom.documentElement.appendChild(child);
+
+
+    </script>
+</body>
+</html>

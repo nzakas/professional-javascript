@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Privileged Method Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function Person(name){
+            
+                this.getName = function(){
+                    return name;
+                };
+            
+                this.setName = function (value) {
+                    name = value;
+                };
+            }
+            
+            var person = new Person("Nicholas");
+            alert(person.getName());   //"Nicholas"
+            person.setName("Greg");
+            alert(person.getName());   //"Greg"
+
+
+        </script>
+     
+    </body>
+</html>

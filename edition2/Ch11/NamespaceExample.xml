@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Example XHTML page</title>
+        <script type="text/javascript"><![CDATA[
+            function getElementInfo(){
+                var html = document.documentElement;
+                var svg = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", "svg")[0];
+                
+                alert(html.namespaceURI);
+                alert(html.prefix);
+                alert(html.localName);
+                alert(html.tagName);
+                
+                alert(svg.namespaceURI);
+                alert(svg.prefix);
+                alert(svg.localName);
+                alert(svg.tagName);
+
+            }
+        
+        ]]></script>
+    </head>
+    <body>
+        <s:svg xmlns:s="http://www.w3.org/2000/svg" version="1.1"
+             viewBox="0 0 100 100" style="width:100%; height:100%" onclick="getElementInfo()">
+            <s:rect x="0" y="0" width="100" height="100" style="fill:red" />
+         </s:svg>
+    </body>
+</html>

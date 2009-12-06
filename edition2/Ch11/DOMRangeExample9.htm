@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>DOM Range Example</title>
+        <script type="text/javascript">
+            function compare() {
+                var range1 = document.createRange();
+                var range2 = document.createRange();
+                var p1 = document.getElementById("p1");
+                
+                range1.selectNodeContents(p1);
+                range2.selectNodeContents(p1);
+                range2.setEndBefore(p1.lastChild);
+                
+                alert(range1.compareBoundaryPoints(Range.START_TO_START, range2));  //outputs 0
+                alert(range1.compareBoundaryPoints(Range.END_TO_END, range2));      //outputs 1
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> World</p>
+        <input type="button" value="Compare Ranges" onclick="compare()" />  
+        <p><strong>Note:</strong> This example uses DOM ranges and will only work in browsers that support DOM ranges. This example will fail in Internet Explorer.</p>
+      
+    </body>
+</html>

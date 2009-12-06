@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Simulating DOM Mouse Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="button" value="Click me" id="myBtn" />
+    <input type="button" value="Send click to the other button" id="myBtn2" />
+    <p>This example works in DOM-compliant browsers (not IE).</p>
+    <script type="text/javascript">
+    
+    (function(){
+        var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("myBtn2");
+        
+        EventUtil.addHandler(btn, "click", function(event){
+            alert("Clicked!");
+            alert(event.screenX);   //100
+        });
+
+        EventUtil.addHandler(btn2, "click", function(event){
+            //create event object
+            var event = document.createEvent("MouseEvents");
+            
+            //initialize the event object
+            event.initMouseEvent("click", true, true, document.defaultView, 0, 100, 0, 0, 0, false, 
+                                 false, false, false, 0, btn2);
+            
+            //fire the event
+            btn.dispatchEvent(event);
+
+        });
+
+    })();
+    </script>
+</body>
+</html>

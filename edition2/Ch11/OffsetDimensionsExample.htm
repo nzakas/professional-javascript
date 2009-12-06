@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Offset Dimensions Example</title>
+    <script type="text/javascript">
+    
+        function getElementLeft(element){
+            var actualLeft = element.offsetLeft;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualLeft += current.offsetLeft;
+                current = current.offsetParent;
+            }
+        
+            return actualLeft;
+        }
+    
+        function getElementTop(element){
+            var actualTop = element.offsetTop;
+            var current = element.offsetParent;
+        
+            while (current !== null){        
+                actualTop += current. offsetTop;
+                current = current.offsetParent;
+            }
+        
+            return actualTop;
+        }
+    
+    
+        function getOffsetHeight(){
+            alert(document.getElementById("myDiv").offsetHeight);
+        }
+    
+        function getOffsetWidth(){
+            alert(document.getElementById("myDiv").offsetWidth);
+        }
+    
+        function getOffsetLeft(){
+            alert(document.getElementById("myDiv").offsetLeft);
+        }
+    
+        function getOffsetTop(){
+            alert(document.getElementById("myDiv").offsetTop);
+        }
+        
+        function getActualLeft(){
+            alert(getElementLeft(document.getElementById("myDiv")));
+        }
+        
+        function getActualTop(){
+            alert(getElementTop(document.getElementById("myDiv")));
+        }
+        
+        
+    
+
+    </script>
+</head>
+<body>
+    <div style="margin: 20px">
+        <div style="padding: 20px">
+            <div id="myDiv" style="width: 100px; height: 50px; background-color: red; border: 1px solid black"></div>
+        </div>
+    </div>
+    <input type="button" value="Get Offset Height" onclick="getOffsetHeight()" />
+    <input type="button" value="Get Offset Width" onclick="getOffsetWidth()" />
+    <input type="button" value="Get Offset Left" onclick="getOffsetLeft()" />
+    <input type="button" value="Get Offset Top" onclick="getOffsetTop()" />
+    <br />
+    <input type="button" value="Get Actual Left" onclick="getActualLeft()" />
+    <input type="button" value="Get Actual Top" onclick="getActualTop()" />
+    
+</body>
+</html>

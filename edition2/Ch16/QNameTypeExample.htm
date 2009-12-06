@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>QName Type Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+    
+        var wrox = new Namespace("wrox", "http://www.wrox.com/");
+        var wroxMessage = new QName(wrox, "message");    //represents "wrox:message"
+        
+        alert(wroxMessage.uri);        //"http://www.wrox.com/"
+        alert(wroxMessage.localName);  //"message"
+        alert(wroxMessage);            //"http://www.wrox.com/::message"
+
+    </script>
+</body>
+</html>

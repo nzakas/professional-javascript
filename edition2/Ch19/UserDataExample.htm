@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>UserData Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Name: <span id="name-value">(none)</span><br />
+    Book: <span id="book-value">(none)</span></p>
+    <input type="button" value="Delete Data" id="delete-btn" />
+    <p>Refresh the page to see the values. Click &quot;Delete Data&quot; to remove them.</p>
+    <p>This example requires Internet Explorer to work.</p>
+    <div id="dataStore" style="behavior:url(#default#userData)"></div>
+    <script type="text/javascript">
+        
+        EventUtil.addHandler(window, "load", function(){
+
+            var dataStore = document.getElementById("dataStore");
+            dataStore.load("BookInfo");
+            document.getElementById("name-value").innerHTML = dataStore.getAttribute("name");
+            document.getElementById("book-value").innerHTML = dataStore.getAttribute("book");
+        
+            EventUtil.addHandler(document.getElementById("delete-btn"), "click", function(){
+                dataStore.removeAttribute("name");
+                dataStore.removeAttribute("book");      
+                dataStore.save("BookInfo");
+                //SubCookieUtil.unsetAll("data");      
+            })
+            
+            //set some cookies
+            dataStore.setAttribute("name", "Nicholas");
+            dataStore.setAttribute("book", "Professional JavaScript");
+            dataStore.save("BookInfo");
+        });
+
+
+
+    </script>
+</body>
+</html>

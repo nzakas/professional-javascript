@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>XDomainRequest Example</title>
+</head>
+<body>
+    <p>This example must be run on a server to work properly and will only work in IE8 and higher.</p>
+    <script type="text/javascript">
+    
+        var xdr = new XDomainRequest();
+        xdr.onload = function(){
+            alert(xdr.responseText);
+        };
+        xdr.onerror = function(){
+            alert("Error!");
+        };
+        
+        //you'll need to replace this URL with something that works
+        xdr.open("get", "http://www.somewhere-else.com/xdr.php");
+        xdr.send(null);    
+
+    </script>
+</body>
+</html>

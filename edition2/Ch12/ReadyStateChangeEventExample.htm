@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Ready State Change Event Example</title>
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv">readystatechange example - works only in IE and somewhat in Opera</div>
+    <script type="text/javascript">
+
+        EventUtil.addHandler(document, "readystatechange", function(event){
+            if (document.readyState == "interactive" || document.readyState == "complete"){
+                EventUtil.removeHandler(document, "readystatechange", arguments.callee); 
+                alert("Content loaded");                      
+            }
+        });
+        EventUtil.addHandler(window, "load", function(event){
+            alert("Window loaded");
+        });
+
+    </script>
+    <img src="smile.gif" />
+</body>
+</html>

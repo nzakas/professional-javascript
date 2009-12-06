@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Cross-Browser Event Object Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <a href="http://www.nczonline.net/" id="myLink">Click Me</a>
+    <p>This link will not navigate when clicked.</p>
+    <script type="text/javascript">
+        var link = document.getElementById("myLink");
+        link.onclick = function(event){
+            event = EventUtil.getEvent(event);
+            EventUtil.preventDefault(event);
+        };    
+    </script>
+</body>
+</html>

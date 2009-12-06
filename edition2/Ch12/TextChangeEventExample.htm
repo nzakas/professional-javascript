@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Text Change Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv">Hello world!</div>
+    <p>This example shows the use of mutation events. Not all browsers support this. Safari 3 is known to support mutation events.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(event){
+            var div = document.getElementById("myDiv");
+                        
+            EventUtil.addHandler(document, "DOMSubtreeModified", function(event){
+                alert(event.type);
+                alert(event.target);
+            });
+            EventUtil.addHandler(document, "DOMCharacterDataModified", function(event){
+                alert(event.type);
+                alert(event.target);
+                alert(event.prevValue);
+                alert(event.newValue);
+            });     
+            
+            div.firstChild.nodeValue = "Some new text";
+        });
+
+    </script>
+</body>
+</html>

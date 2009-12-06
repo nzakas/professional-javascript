@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Drag and Drop Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Try dragging the image over the textbox.</p>
+    <img id="smiley" src="smile.gif" />
+    <input type="text" id="droptarget" value="" />
+    <div id="output"></div>
+    <script type="text/javascript">
+        var droptarget = document.getElementById("droptarget");
+        
+        function handleEvent(event){
+            document.getElementById("output").innerHTML += event.type + "<br />";
+        }
+
+        EventUtil.addHandler(droptarget, "dragenter", handleEvent);
+        EventUtil.addHandler(droptarget, "dragover", handleEvent);
+        EventUtil.addHandler(droptarget, "dragleave", handleEvent);
+        EventUtil.addHandler(droptarget, "drop", handleEvent);
+        
+        //Firefox 3
+        EventUtil.addHandler(droptarget, "dragdrop", handleEvent);
+        EventUtil.addHandler(droptarget, "dragexit", handleEvent);
+
+    </script>
+</body>
+</html>

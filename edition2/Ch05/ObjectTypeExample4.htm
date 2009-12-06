@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Object Type Example 4</title>
+    <script type="text/javascript">
+        function displayInfo(args) {
+            var output = "";
+        
+            if (typeof args.name == "string"){
+                output += "Name: " + args.name + "\n";
+            }
+        
+            if (typeof args.age == "number") {
+                output += "Age: " + args.age + "\n";
+            }
+        
+            alert(output);
+        }
+        
+        displayInfo({ 
+            name: "Nicholas", 
+            age: 29
+        });
+        
+        displayInfo({
+            name: "Greg"
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

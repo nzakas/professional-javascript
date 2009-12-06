@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Touch Events Example</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+    <p>Touch anywhere on the screen. This only works on an iPhone or iPod Touch running iPhone 2.x software.</p>
+    <div id="output"> 
+    </div>
+    <script type="text/javascript">
+        function handleTouchEvent(event){
+            
+            //only for one touch
+            if (event.touches.length == 1){
+        
+                var output = document.getElementById("output");
+                switch(event.type){
+                    case "touchstart":
+                        output.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                        break;
+                    case "touchend":
+                        output.innerHTML += "<br>Touch ended (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                        break;
+                    case "touchmove":
+                        event.preventDefault();  //prevent scrolling
+                        output.innerHTML += "<br>Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                        break;
+                }
+            }
+        }
+        
+        document.addEventListener("touchstart", handleTouchEvent, false);
+        document.addEventListener("touchend", handleTouchEvent, false);
+        document.addEventListener("touchmove", handleTouchEvent, false);
+
+    </script>
+</body>
+</html>

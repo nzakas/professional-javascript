@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Button Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <div id="myDiv" style="background-color:red;height:100px;width:100px">Click me</div>
+    <script type="text/javascript">
+        var div = document.getElementById("myDiv");
+        EventUtil.addHandler(div, "mousedown", function(event){
+            event = EventUtil.getEvent(event);
+            alert(EventUtil.getButton(event));       
+        });
+    </script>
+</body>
+</html>

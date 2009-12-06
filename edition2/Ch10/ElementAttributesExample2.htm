@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Element Attributes Example 2</title>
+</head>
+<body>
+    <div id="myDiv" my_special_attribute="hello!" align="left">Some text</div>
+    <input type="button" value="Get Values" onclick="getValues()" />
+
+    <p>Try clicking &quot;Get Values&quot;.</p>
+    <script type="text/javascript">
+        var div = null;
+        function getValues(){
+            if (div == null) {
+                div = document.getElementById("myDiv");
+            }
+            alert(div.id);                     //"myDiv"
+            alert(div.my_special_attribute);   //"hello!" (IE only)
+            alert(div.align);                  //"left"
+        }    
+
+    </script>
+</body>
+</html>

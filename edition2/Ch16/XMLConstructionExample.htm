@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>XML Construction Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+        var tagName = "color";
+        var color = "red";
+        var xml = <{tagName}>{color}</{tagName}>;
+        
+        alert(xml.toXMLString());  //"<color>red</color>"
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Keypress Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="text" id="myText" />
+    <script type="text/javascript">
+        var textbox = document.getElementById("myText");
+        EventUtil.addHandler(textbox, "keypress", function(event){
+            event = EventUtil.getEvent(event);
+            alert(EventUtil.getCharCode(event));     
+        });
+    </script>
+</body>
+</html>

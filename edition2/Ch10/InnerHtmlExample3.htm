@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>InnerHtml Example</title>
+</head>
+<body>
+    <div id="content"></div>
+    <p>This works in IE only.</p>
+    <input type="button" value="Set InnerHTML" onclick="setInnerHTML()" />
+    
+    <script type="text/javascript">
+        function setInnerHTML(){
+            var div = document.getElementById("content");
+            div.innerHTML = "<div>&nbsp;</div><script defer>alert('hi');</scr" + "ipt>";
+            div.removeChild(div.firstChild);
+        }
+
+    </script>
+</body>
+</html>

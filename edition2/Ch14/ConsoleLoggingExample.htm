@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Console Logging Example</title>
+</head>
+<body>
+    <p>Open the console for your browser to see the messages.</p>
+    <script type="text/javascript">
+        function log(message){
+            if (typeof console == "object"){
+                console.log(message);
+            } else if (typeof opera == "object"){
+                opera.postError(message);
+            } else if (typeof java == "object" && typeof java.lang == "object"){
+                java.lang.System.out.println(message);
+            }
+        }
+        
+        function sum(num1, num2){
+            log("Entering sum(), arguments are " + num1 + "," + num2);
+        
+            log("Before calculation");
+            var result = num1 + num2;
+            log("After calculation");
+        
+            log("Exiting sum()");
+            return result;
+        }
+        
+        var result = sum(10, 23);
+
+    </script>
+</body>
+</html>

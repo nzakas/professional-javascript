@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Array Type Example 2</title>
+    <script type="text/javascript">
+        
+        var colors = ["red", "blue", "green"]; //creates an array with three strings
+        var names = [];                        //creates an empty array
+        var values = [1,2,];                   //AVOID! Creates an array with 2 or 3 items
+        var options = [,,,,,];                 //AVOID! creates an array with 5 or 6 items
+        
+        alert(colors.length);    //3
+        alert(names.length);     //0
+        alert(values.length);    //2 (FF, Safari, Opera) or 3 (IE)
+        alert(options.length);   //5 (FF, Safari, Opera) or 6 (IE)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

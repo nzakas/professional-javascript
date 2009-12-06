@@ -1,0 +1,46 @@
+<html>
+ <head>
+    <title>Canvas Transform Example</title>
+ </head>
+ <body>
+    <p>Not all browsers support the <code>canvas</code> tag. Firefox 1.5, Safari 2.0, and Opera 9.0 do.</p>
+    <canvas id="drawing" width="200" height="200">Your browser doesn't support the canvas tag.</canvas>
+    <script type="text/javascript">
+        window.onload = function(){
+            var drawing = document.getElementById("drawing");
+            
+            //make sure <canvas> is completely supported
+            if (drawing.getContext){
+            
+                var context = drawing.getContext("2d");
+                
+                //start the path
+                context.beginPath();
+                
+                //draw outer circle
+                context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+                
+                //draw inner circle
+                context.moveTo(194, 100);
+                context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+
+                //move center to (100,100)
+                context.translate(100, 100);
+                context.rotate(1);
+                
+                //draw hour hand
+                context.moveTo(0,0);
+                context.lineTo(0, -85);
+                
+                //draw minute hand
+                context.moveTo(0, 0);
+                context.lineTo(-65, 0);
+                
+                context.stroke();
+
+            }                
+        };
+
+    </script>
+    </body>
+</html>

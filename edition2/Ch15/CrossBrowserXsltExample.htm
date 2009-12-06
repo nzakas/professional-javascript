@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Cross-Browser XSLT Example</title>   
+        <script type="text/javascript">
+            
+            function transform(context, xslt){
+                if (typeof XSLTProcessor != "undefined"){
+                    var processor = new XSLTProcessor();
+                    processor.importStylesheet(xslt);
+            
+                    var result = processor.transformToDocument(context);
+                    return (new XMLSerializer()).serializeToString(result);
+            
+                } else if (typeof context.transformNode != "undefined") {
+                    return context.transformNode(xslt);
+                } else {
+                    throw new Error("No XSLT processor available.");
+                }
+            }
+            
+            window.onload = function () {
+                //use XHR to load
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("get", "employees.xml", false);
+                xmlhttp.send(null);
+                var xmldom = xmlhttp.responseXML;
+                
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("get", "employees.xslt", false);
+                xmlhttp.send(null);
+                var xsltdom = xmlhttp.responseXML; 
+
+                var result = transform(xmldom, xsltdom);
+                alert(result);
+
+            }
+        </script>           
+    </head>
+    <body>
+        <p>This example will work in IE 7+ as well as Firefox 1.0+, Safari 3.0+, and Opera 9.0+. For IE, you may have to run this example on a server.</p>
+        <div id="divResult"></div>
+    </body>
+</html>

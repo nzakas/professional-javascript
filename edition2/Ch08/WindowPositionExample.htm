@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Window Position Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var leftPos = (typeof window.screenLeft == "number") ? 
+                              window.screenLeft : window.screenX;
+            var topPos = (typeof window.screenTop == "number") ? 
+                              window.screenTop : window.screenY;
+
+            alert("Left: " + leftPos);
+            alert("Top: " + topPos);
+        </script>
+    </body>
+</html>

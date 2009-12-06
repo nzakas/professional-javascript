@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Window Open Example 2</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function openNewWindow(){
+                var win = window.open('http://www.wrox.com/', 'wroxWindow', 'width=300,height=300,left=10,top=10');
+                win.resizeTo(500,500);
+                win.moveTo(100,100);
+            }
+            
+            window.open("http://www.wrox.com");
+        </script>
+        <p>This will open a new window/tab:
+        <input type="button" value="Go to Wrox.com" onclick="openNewWindow()" /></p>
+     
+    </body>
+</html>

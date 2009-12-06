@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Parsing and Serialization Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+    
+        var employees = <employees>
+            <employee position="Software Engineer">
+                <name>Nicholas C. Zakas</name>
+            </employee>
+            <employee position="Salesperson">
+                <name>Jim Smith</name>
+            </employee>
+        </employees>;
+        
+        var settings = XML.settings();
+        alert(settings.ignoreWhitespace);    //true
+        alert(settings.ignoreComments);      //true
+        
+        settings.prettyIndent = 8;
+        
+        XML.setSettings(settings);
+        
+        alert(employees);
+
+    </script>
+</body>
+</html>

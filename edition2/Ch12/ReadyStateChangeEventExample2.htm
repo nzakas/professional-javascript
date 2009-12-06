@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>ReadyStateChange Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>This example loads a JavaScript file and a CSS file dynamically. The script code works in IE and Opera while the CSS code works only in IE.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(){
+        
+            //create a new <script/> element.
+            var script = document.createElement("script");
+            EventUtil.addHandler(script, "readystatechange", function(event){
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                if (target.readyState == "loaded" || target.readyState == "complete"){
+                    EventUtil.removeHandler(target, "readystatechange", arguments.callee);
+                    alert("Script Loaded");
+                }
+            });
+            script.src = "example.js";
+            document.body.appendChild(script);
+            
+            //create a new <link/> element
+            var link = document.createElement("link");
+            link.type = "text/css";
+            link.rel= "stylesheet";
+            
+            EventUtil.addHandler(link, "readystatechange", function(event){
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                if (target.readyState == "loaded" || target.readyState == "complete"){
+                    EventUtil.removeHandler(target, "readystatechange", arguments.callee);
+                    alert("CSS Loaded");
+                }
+            });
+            link.href = "example.css";
+            document.getElementsByTagName("head")[0].appendChild(link);
+            
+        });
+    </script>
+</body>
+</html>

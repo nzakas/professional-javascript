@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Function Type call() Method Example</title>
+    <script type="text/javascript">
+        
+        function sum(num1, num2){
+            return num1 + num2;
+        }
+        
+        function callSum(num1, num2){
+            return sum.call(this, num1, num2);
+        }
+        
+        alert(callSum(10,10));   //20
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

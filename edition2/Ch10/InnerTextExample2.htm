@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>InnerText Example 2</title>
+</head>
+<body>
+    <div id="content">
+        <p>This is a <strong>paragraph</strong> with a list following it.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <input type="button" value="Set InnerText" onclick="setInnerText()" />
+
+    <script type="text/javascript">
+        function setInnerText(){
+            var div = document.getElementById("content");
+            div.innerText = "Hello world!";   //works in IE, Safari, and Opera
+        }
+
+    </script>
+</body>
+</html>

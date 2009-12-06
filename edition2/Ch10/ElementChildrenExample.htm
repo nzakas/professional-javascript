@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Create Element Example</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <input type="button" value="Count Child Nodes" onclick="countChildren()" />
+
+    <script type="text/javascript">
+        function countChildren(){
+            var ul = document.getElementById("myList");
+            alert(ul.childNodes.length);   //3 in IE, 7 in others
+        }
+
+    </script>
+</body>
+</html>

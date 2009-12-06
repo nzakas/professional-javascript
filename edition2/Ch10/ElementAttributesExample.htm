@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Element Attributes Example</title>
+</head>
+<body>
+    <style type="text/css">
+        .change {
+            color: red;
+        }
+    
+    </style>
+    <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my_special_attribute="hello!">Some text</div>
+    <input type="button" value="Get Values" onclick="getValues()" />
+    <input type="button" value="Set Values" onclick="setValues()" />
+    <p>Try clicking &quot;Get Values&quot;, then &quot;Set Values&quot;, then &quot;Get Values&quot; again.</p>
+    <script type="text/javascript">
+        var div = null;
+        function getValues(){
+            if (div == null) {
+                div = document.getElementById("myDiv");
+            }
+            alert(div.getAttribute("id"));         //"myDiv"
+            alert(div.getAttribute("class"));      //"bd"
+            alert(div.getAttribute("title"));      //"Body text"
+            alert(div.getAttribute("lang"));       //"en"
+            alert(div.getAttribute("dir"));        //"ltr"
+            alert(div.getAttribute("my_special_attribute"));   //"hello!"
+        }    
+        
+        function setValues(){
+            if (div == null) {
+                div = document.getElementById("myDiv");
+            }
+        
+            div.setAttribute("id", "someOtherId");
+            div.setAttribute("class", "ft");
+            div.setAttribute("title", "Some other text");
+            div.setAttribute("lang","fr");
+            div.setAttribute("dir", "rtl");        
+            div.setAttribute("class", "change");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>DOM Level 3 Load Save Example</title>
+</head>
+<body>
+    <p>This example is known to work only in Opera.</p>
+    <script type="text/javascript">
+    
+        var implementation = document.implementation;
+        var serializer = implementation.createLSSerializer();
+        serializer.domConfig.setParameter("format-pretty-print", true);
+        var xml = "";
+        
+        try {
+            xml = serializer.writeToString("blah");  //throws error
+            alert(xml);
+        } catch (ex){
+            alert("Serialization error occurred.");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Function Type Example</title>
+    <script type="text/javascript">
+    
+        function sum(num1, num2){
+            return num1 + num2;
+        }        
+        alert(sum(10,10));    //20
+        
+        var anotherSum = sum;        
+        alert(anotherSum(10,10));  //20
+        
+        sum = null;        
+        alert(anotherSum(10,10));  //20
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

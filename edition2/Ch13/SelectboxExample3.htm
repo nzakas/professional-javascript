@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Selectbox Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">            
+        <div>
+            <label for="selLocation">Where do you want to live?</label>
+            <select name="location" id="selLocation" size="5" multiple>
+                <option value="Sunnyvale, CA">Sunnyvale</option>
+                <option value="Los Angeles, CA">Los Angeles</option>
+                <option value="Mountain View, CA">Mountain View</option>
+                <option value="">China</option>
+                <option>Australia</option>
+            </select>
+        </div>
+        <div>
+            <input type="button" value="Select first option" id="btnFirst" />
+            <input type="button" value="Select second option" id="btnSecond" />
+            <input type="button" value="Get selected options" id="btnSelected" />
+        </div>
+    </form>     
+    <script type="text/javascript">
+        (function(){
+
+            function getSelectedOptions(selectbox){
+                var result = new Array();
+                var option = null;
+                
+                for (var i=0, len=selectbox.options.length; i < len; i++){
+                    option = selectbox.options[i];
+                    if (option.selected){
+                        result.push(option);
+                    }
+                }
+                
+                return result;            
+            }
+
+            var btn1 = document.getElementById("btnFirst");
+            var btn2 = document.getElementById("btnSecond");
+            var btn3 = document.getElementById("btnSelected");
+            var selectbox = document.getElementById("selLocation");
+
+            EventUtil.addHandler(btn1, "click", function(event){
+                selectbox.options[0].selected = true;
+            });
+            EventUtil.addHandler(btn2, "click", function(event){
+                selectbox.options[1].selected = true;
+            });
+            EventUtil.addHandler(btn3, "click", function(event){
+                var selectedOptions = getSelectedOptions(selectbox);
+                var message = "";
+                
+                for (var i=0, len=selectedOptions.length; i < len; i++){
+                    message += "Selected index: " + selectedOptions[i].index + "\nSelected text: " + selectedOptions[i].text + "\nSelected value: " + selectedOptions[i].value + "\n\n";
+                }
+                
+                alert(message);
+                
+            });
+            
+        })();
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Offline Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Try disconnecting your network while viewing this page. In IE8, Firefox 3, and Opera 9.5, the events should fire.</p>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "offline", function(){
+            alert("You just went offline.");
+        });
+        
+        EventUtil.addHandler(window, "online", function(){
+            alert("You just went online.");
+        });
+    </script>
+</body>
+</html>

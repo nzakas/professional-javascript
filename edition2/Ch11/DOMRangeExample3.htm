@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>DOM Range Example</title>
+        <script type="text/javascript">
+            function useRanges() {
+                var p1 = document.getElementById("p1");
+                var helloNode = p1.firstChild.firstChild;
+                var worldNode = p1.lastChild;
+                var range = document.createRange();
+                
+                range.setStart(helloNode, 2);
+                range.setEnd(worldNode, 3);
+                
+                document.getElementById("txtStartContainer1").value = range.startContainer.nodeValue;
+                document.getElementById("txtStartOffset1").value = range.startOffset;
+                document.getElementById("txtEndContainer1").value = range.endContainer.nodeValue;
+                document.getElementById("txtEndOffset1").value = range.endOffset;
+                document.getElementById("txtCommonAncestor1").value = range.commonAncestorContainer.tagName;
+
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> world!</p>
+        <input type="button" value="Use Ranges" onclick="useRanges()" />        
+        <table border="0">
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>range1</legend>
+                    Start Container: <input type="text" id="txtStartContainer1" /><br />
+                    Start Offset: <input type="text" id="txtStartOffset1" /><br />
+                    End Container: <input type="text" id="txtEndContainer1" /><br />
+                    End Offset: <input type="text" id="txtEndOffset1" /><br />
+                    Common Ancestor: <input type="text" id="txtCommonAncestor1" /><br />    
+                </fieldset>
+            </td>
+
+        </tr>
+        </table>
+        <p><strong>Note:</strong> This example uses DOM ranges and will only work in browsers that support DOM ranges. This example will fail in Internet Explorer.</p>
+
+    </body>
+</html>

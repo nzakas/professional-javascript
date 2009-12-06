@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>RegExp exec() Example</title>
+    <script type="text/javascript">
+        var text = "mom and dad and baby";
+        
+        var pattern = /mom( and dad( and baby)?)?/gi;
+        var matches = pattern.exec(text);
+        
+        alert(matches.index);    //0
+        alert(matches.input);    //"mom and dad and baby"
+        alert(matches[0]);       //"mom and dad and baby"
+        alert(matches[1]);       //" and dad and baby"
+        alert(matches[2]);       //" and baby"
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

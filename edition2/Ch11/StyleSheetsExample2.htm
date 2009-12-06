@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Style Sheets Example</title>
+    <link rel="stylesheet" title="blah" type="text/css" href="stylesheet1.css" />
+    <link rel="alternate stylesheet" type="text/css" href="stylesheet2.css" />    
+    <style type="text/css">
+        #myDiv {
+            background-color: blue;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+    
+        function getStyleSheet(element){
+            return element.sheet || element.styleSheet;
+        }
+
+    
+        function outputStyleSheet(){            
+            //get the style sheet for the first <link/> element
+            var link = document.getElementsByTagName("link")[0];
+            var sheet = getStyleSheet(link);
+            alert(sheet.href);
+        }
+    </script>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <input type="button" value="Output Style Sheet" onclick="outputStyleSheet()" />
+    
+    
+</body>
+</html>

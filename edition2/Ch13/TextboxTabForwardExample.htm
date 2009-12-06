@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Textbox Tab Forward Example</title>
+        <script type="text/javascript" src="EventUtil.js"></script>
+    </head>
+    <body>
+        <form method="post" action="javascript:alert('Form submitted!')">
+            <p>Enter your telephone number:</p>
+            <input type="text" name="tel1" id="txtTel1" size="3" maxlength="3" />
+            <input type="text" name="tel2" id="txtTel2" size="3" maxlength="3" />
+            <input type="text" name="tel3" id="txtTel3" size="4" maxlength="4" />
+
+            <input type="submit" value="Submit" />
+        </form>
+        <script type="text/javascript">
+        (function(){
+       
+            function tabForward(event){            
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+                
+                if (target.value.length == target.maxLength){
+                    var form = target.form;
+                    
+                    for (var i=0, len=form.elements.length; i < len; i++) {
+                        if (form.elements[i] == target) {
+                            form.elements[i+1].focus();
+                            return;
+                        }
+                    }
+                }
+            }
+                        
+            var textbox1 = document.getElementById("txtTel1");
+            var textbox2 = document.getElementById("txtTel2");
+            var textbox3 = document.getElementById("txtTel3");
+            
+            EventUtil.addHandler(textbox1, "keyup", tabForward);        
+            EventUtil.addHandler(textbox2, "keyup", tabForward);        
+            EventUtil.addHandler(textbox3, "keyup", tabForward);        
+                
+        })();
+        </script>
+    </body>
+</html>

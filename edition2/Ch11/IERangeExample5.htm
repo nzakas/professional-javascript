@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>IE Range Example</title>
+        <script type="text/javascript">
+            function useRanges() {
+                var range1 = document.body.createTextRange();
+                var range2 = document.body.createTextRange();
+                range1.findText("Hello World");
+                range2.findText("Hello");
+                alert(range1.compareEndPoints("StartToStart", range2));  //outputs 0
+                alert(range1.compareEndPoints("EndToEnd", range2));      //outputs 1;
+
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> world!</p>
+        <input type="button" value="Use Ranges" onclick="useRanges()" />    
+        <p><strong>Note:</strong> This example uses Internet Explorer ranges and will only work on Internet Explorer.</p>
+    
+    </body>
+</html>

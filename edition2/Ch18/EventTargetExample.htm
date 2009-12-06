@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Event Target Example</title>
+    <script type="text/javascript" src="EventTarget.js"></script>
+</head>
+<body>
+    <div id="myDiv" style="background:red;"></div>
+
+    <script type="text/javascript">
+        
+        function handleMessage(event){
+            alert("Message received: " + event.message);
+        }
+
+        var target = new EventTarget();
+        
+        target.addHandler("message", handleMessage);
+
+        target.fire({ type: "message", message: "Hello world!"});
+        
+        target.removeHandler("message", handleMessage);
+
+        target.fire({ type: "message", message: "Hello world!"});
+
+
+    </script>
+</body>
+</html>

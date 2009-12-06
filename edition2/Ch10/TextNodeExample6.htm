@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Text Node Example 5</title>
+    <style type="text/css">
+        .message {
+            font-weight: bold;
+            color: #0f0;
+        }
+    
+    </style>
+</head>
+<body>
+    <input type="button" value="Add Node" onclick="addNode()" />
+
+    <script type="text/javascript">
+        function addNode(){
+        
+            var element = document.createElement("div");
+            element.className = "message";
+            
+            var textNode = document.createTextNode("Hello world!");
+            element.appendChild(textNode);
+            
+            document.body.appendChild(element);
+            
+            var newNode = element.firstChild.splitText(5);
+            alert(element.firstChild.nodeValue);  //"Hello"
+            alert(newNode.nodeValue);             //" world!"
+            alert(element.childNodes.length);     //2
+
+            
+        }
+
+    </script>
+</body>
+</html>

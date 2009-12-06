@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>DOM Event Object Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(event){
+            alert(event.currentTarget === this);
+            alert(event.target === this);
+        };        
+    </script>
+</body>
+</html>

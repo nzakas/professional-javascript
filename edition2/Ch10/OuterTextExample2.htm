@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>OuterText Example 2</title>
+</head>
+<body>
+    <div id="content">
+        <p>This is a <strong>paragraph</strong> with a list following it.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+    <p>After clicking &quot;Set OuterText&quot;, the element no longer exists and cannot be accessed. Click &quot;Get Element&quot; to see.</p>
+    <input type="button" value="Set OuterText" onclick="getOuterText()" />
+    <input type="button" value="Get Element" onclick="getElement()" />
+    
+    <script type="text/javascript">
+        function getOuterText(){
+            var div = document.getElementById("content");
+            div.outerText = "Hello world!";  //works in IE, Safari, and Opera
+        }
+
+        function getElement(){
+            alert(document.getElementById("content"));
+        }
+    </script>
+</body>
+</html>

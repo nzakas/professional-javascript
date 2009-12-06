@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>DOM XPath Example</title>   
+         
+    </head>
+    <body>
+        <p>This example gets all nodes matching the expression <code>employee/name</code>.</p>
+        <p>This example won't work in Internet Explorer.</p>
+        <script type="text/javascript">
+            var xmldom = (new DOMParser()).parseFromString("<employees><employee title=\"Software Engineer\"><name>Nicholas C. Zakas</name></employee><employee title=\"Salesperson\"><name>Jim Smith</name></employee></employees>", "text/xml");
+            var serializer = new XMLSerializer();
+            var result = xmldom.evaluate("employee/name", xmldom.documentElement, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+
+                       
+            var message = "";
+            var count = 0;
+            
+            var element = result.iterateNext();
+            while (element) {
+                message += serializer.serializeToString(element) + "\n";
+                count++;
+                element = result.iterateNext()
+            }
+            
+            message = "There are " + count + " matching nodes.\n" + message;
+            
+            alert(message);
+            
+        </script>
+ 
+ 
+    </body>
+</html>

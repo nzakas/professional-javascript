@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Form Fields Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">
+        <ul>
+            <li><input type="radio" name="color" value="red" />Red</li>
+            <li><input type="radio" name="color" value="green" />Green</li>
+            <li><input type="radio" name="color" value="blue" />Blue</li>
+        </ul>
+        <input type="submit" value="Submit Form" name="submit-btn" />
+        <button type="button">Whatever</button>
+    </form>     
+    <script type="text/javascript">
+        (function(){
+            var form = document.forms[0];
+            
+            //Code to prevent multiple form submissions
+            EventUtil.addHandler(form, "submit", function(event){
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+            
+                //get the submit button
+                var btn = target.elements["submit-btn"];
+            
+                //disable it
+                btn.disabled = true;
+                
+            });
+
+        })();
+
+    </script>
+</body>
+</html>

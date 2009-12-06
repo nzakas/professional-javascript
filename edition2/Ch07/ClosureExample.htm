@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Closure Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function createFunctions(){
+                var result = new Array();
+                
+                for (var i=0; i < 10; i++){
+                    result[i] = function(){
+                        return i;
+                    };
+                }
+                
+                return result;
+            }
+            
+            var funcs = createFunctions();
+            
+            //every function outputs 10
+            for (var i=0; i < funcs.length; i++){
+                document.write(funcs[i]() + "<br />");
+            }
+
+        </script>
+     
+    </body>
+</html>

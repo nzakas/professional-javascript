@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Dynamic Script Example 2</title>
+</head>
+<body>
+    <p>You should see an alert saying &quot;hi&quot; after clicking the button.</p>
+    <input type="button" value="Add Script" onclick="addScript()" />
+
+    <script type="text/javascript">
+    
+        function loadScriptString(code){
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            try {
+                script.appendChild(document.createTextNode(code));
+            } catch (ex){
+                script.text = code;
+            }
+            document.body.appendChild(script);
+        }
+    
+        function addScript(){
+            loadScriptString("function sayHi(){alert('hi');}");
+            sayHi();
+        }
+
+    </script>
+</body>
+</html>

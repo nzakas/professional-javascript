@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Internet Explorer Event Handler Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <p>This example works only in Internet Explorer.</p>
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.attachEvent("onclick", function(){
+            alert("Clicked");
+        });
+        btn.attachEvent("onclick", function(){
+            alert("Hello world!");
+        });
+
+    </script>
+</body>
+</html>

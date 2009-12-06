@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Cross-Browser Event Object Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            
+            alert(target.tagName);
+        };
+        
+        EventUtil.addHandler(btn, "click", function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            
+            alert(target.tagName);
+        });
+      
+    </script>
+</body>
+</html>

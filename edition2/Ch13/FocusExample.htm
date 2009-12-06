@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Focus Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>The textbox will receive focus as soon as the page loads. You can then start typing.</p>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">        
+        <div>
+            <label for="comments">Any comments?</label><br />
+            <textarea rows="10" cols="50" id="comments" name="comments"></textarea>
+        </div>
+        <input type="submit" value="Submit Form" id="submit-btn" />
+    </form>     
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(event){
+            document.forms[0].elements[0].focus();
+        });               
+
+    </script>
+</body>
+</html>

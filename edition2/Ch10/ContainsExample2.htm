@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Contains Example 2</title>
+    <script type="text/javascript" src="client.js"></script>
+</head>
+<body>
+
+    <input type="button" value="Does html contain body?" onclick="getContains()" />
+
+    <script type="text/javascript">
+    
+        function contains(refNode, otherNode){
+            if (typeof refNode.contains == "function" && 
+                    (!client.engine.webkit || client.engine.webkit >= 522)){
+                return refNode.contains(otherNode);
+            } else if (typeof refNode.compareDocumentPosition == "function"){
+                return !!(refNode.compareDocumentPosition(otherNode) & 16);
+            } else {
+                var node = otherNode.parentNode;
+                do {
+                    if (node === refNode){
+                        return true;
+                    } else {
+                        node = node.parentNode;
+                    }
+                } while (node !== null);
+                return false;
+            }
+        }
+    
+        function getContains(){
+            alert(contains(document.documentElement, document.body));
+            
+        }
+
+    </script>
+</body>
+</html>

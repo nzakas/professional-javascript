@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Scroll Dimensions Example</title>
+    <script type="text/javascript">
+    
+        function scrollToTop(element){
+            if (element.scrollTop != 0){
+                element.scrollTop = 0;
+            }
+        }
+    
+    
+        function getDocumentDimensions(){
+            var docHeight = Math.max(document.documentElement.scrollHeight,
+                                     document.documentElement.clientHeight);
+            
+            var docWidth = Math.max(document.documentElement.scrollWidth,
+                                    document.documentElement.clientWidth);
+            alert("Client: Width: " + document.documentElement.clientWidth + "\nheight: " + document.documentElement.clientHeight);
+            alert("Scroll: Width: " + document.documentElement.scrollWidth + "\nheight: " + document.documentElement.scrollHeight);
+        }
+    
+        function setScrollTop(){
+            scrollToTop(document.documentElement);
+        }
+        
+        function getScrollTop(){
+            alert(document.documentElement.scrollTop);
+        }
+        
+    
+
+    </script>
+</head>
+<body>
+<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas hendrerit tortor at felis. Nam volutpat mollis augue. In mattis nisl vel leo. Aliquam erat volutpat. Proin pede purus, ultricies eu, faucibus et, pellentesque interdum, felis. Suspendisse rhoncus odio non tortor. Aenean augue quam, pellentesque sit amet, accumsan nec, cursus quis, nisl. Donec tortor magna, interdum non, aliquet non, facilisis id, libero. Proin nunc erat, molestie eu, porta nec, scelerisque ac, neque. Suspendisse dictum urna mollis felis. Nulla facilisi. Etiam arcu velit, facilisis eu, dignissim in, eleifend at, est. Vestibulum eros metus, euismod ac, gravida quis, vehicula eu, dui.
+</p>
+<p>
+Vivamus magna neque, elementum nec, iaculis vitae, faucibus vel, tortor. Pellentesque magna orci, tempus vel, pellentesque vel, ultrices ac, tellus. Mauris eget nunc. Donec consequat, mauris ut consectetuer consectetuer, felis sapien egestas lectus, nec faucibus nisl massa et felis. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis eget nisl. Nulla sit amet ligula at lorem posuere dapibus. Suspendisse potenti. Aliquam auctor. Fusce nonummy, lectus a vulputate cursus, quam dui feugiat arcu, congue consectetuer purus dui eget risus. Nullam a nunc. In nibh eros, ultricies placerat, tempor ut, lobortis quis, lectus. Vivamus accumsan volutpat augue. Mauris vel sem.
+</p>
+<p>
+Nunc congue, elit venenatis placerat hendrerit, nibh augue laoreet turpis, sed fringilla massa nulla a sem. Nunc tristique eros sed odio. Cras egestas sapien at metus. In sit amet quam ut elit sollicitudin accumsan. Pellentesque blandit, lorem sed ultrices facilisis, metus mi dignissim libero, vel pulvinar magna metus et ante. Etiam at odio eget lacus facilisis porta. Curabitur viverra consequat odio. Aliquam luctus augue sed urna. Vestibulum vitae erat at mi mattis fringilla. Mauris quis nibh sit amet nibh dapibus commodo. Maecenas sit amet eros a elit hendrerit mattis. Aliquam vitae metus id eros nonummy commodo. Aliquam posuere. Nunc dictum sodales quam. Aliquam erat volutpat. Vivamus aliquam congue ipsum. In in felis. Aenean vel dui.
+</p>
+<p>
+Donec in libero sit amet lectus dapibus dapibus. Duis iaculis. Etiam auctor molestie dui. Suspendisse justo arcu, sollicitudin et, vehicula in, facilisis quis, diam. Quisque vel magna at elit aliquet cursus. Nullam sed magna. Duis scelerisque nibh nec odio. Sed sollicitudin. Integer mi. Donec augue. Mauris metus.
+</p>
+<p>
+Vivamus sagittis consectetuer odio. Nulla eget ipsum. Nam lorem magna, condimentum at, ullamcorper non, condimentum ut, massa. Quisque porttitor interdum ligula. Aliquam volutpat. Etiam ac nunc in enim hendrerit sodales. Nulla faucibus, nisi vitae tempor auctor, magna magna accumsan metus, in sagittis leo magna eu turpis. Etiam facilisis leo in ligula. Suspendisse in augue nec massa lacinia blandit. Morbi et eros. Suspendisse eu justo. Sed ac mi eu lacus ultrices viverra. Nunc adipiscing nunc ultrices libero. Vestibulum id ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ac urna ac nisl consequat lacinia. Duis egestas purus eget odio volutpat facilisis. Integer fermentum, felis ac lacinia dignissim, tellus nisl aliquet odio, a pretium purus nunc sed ligula.
+</p>
+    <input type="button" value="Get Document Dimensions" onclick="getDocumentDimensions()" />
+    <input type="button" value="Set Scroll Top" onclick="setScrollTop()" />
+    <input type="button" value="Get Scroll Top" onclick="getScrollTop()" />
+    
+</body>
+</html>

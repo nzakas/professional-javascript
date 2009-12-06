@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Block Scope Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function outputNumbers(count){
+            
+                (function () {
+                    for (var i=0; i < count; i++){
+                        alert(i);
+                    }
+                })();
+                
+                alert(i);   //causes an error
+            }
+
+            outputNumbers(5);
+        </script>
+     
+    </body>
+</html>

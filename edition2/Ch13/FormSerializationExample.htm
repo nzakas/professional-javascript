@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>Form Serialization Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">
+        <ul>
+            <li><input type="radio" name="color" value="red" />Red</li>
+            <li><input type="radio" name="color" value="green" />Green</li>
+            <li><input type="radio" name="color" value="blue" />Blue</li>
+        </ul>
+        <fieldset>
+            <legend>Locations</legend>
+            <div>
+                <label for="selLocation">Where do you want to live?</label>
+                <select name="location" id="selLocation">
+                    <option value="Sunnyvale, CA">Sunnyvale</option>
+                    <option value="Los Angeles, CA">Los Angeles</option>
+                    <option value="Mountain View, CA">Mountain View</option>
+                    <option value="">China</option>
+                    <option>Australia</option>
+                </select>
+            </div>
+            <div>
+                <label for="selLocation2">Where do you want to work?</label>
+                <select name="location2" id="selLocation2" multiple size="5">
+                    <option value="Sunnyvale, CA">Sunnyvale</option>
+                    <option value="Los Angeles, CA">Los Angeles</option>
+                    <option value="Mountain View, CA">Mountain View</option>
+                    <option value="">China</option>
+                    <option>Australia</option>
+                </select>
+            </div>
+        </fieldset>
+        <div>
+            <label for="comments">Any other comments?</label><br />
+            <textarea rows="10" cols="50" id="comments" name="comments"></textarea>
+        </div>
+        <input type="button" value="Serialize Form" id="serialize-btn" />
+    </form>     
+    <script type="text/javascript">
+        function serialize(form){        
+            var parts = new Array();
+            var field = null;
+            
+            for (var i=0, len=form.elements.length; i < len; i++){
+                field = form.elements[i];
+            
+                switch(field.type){
+                    case "select-one":
+                    case "select-multiple":
+                        for (var j=0, optLen = field.options.length; j < optLen; j++){
+                            var option = field.options[j];
+                            if (option.selected){
+                                var optValue = "";
+                                if (option.hasAttribute){
+                                    optValue = (option.hasAttribute("value") ? option.value : option.text);
+                                } else {
+                                    optValue = (option.attributes["value"].specified ? option.value : option.text);
+                                }
+                                parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(optValue));
+                            }
+                        }
+                        break;
+                        
+                    case undefined:     //fieldset
+                    case "file":        //file input
+                    case "submit":      //submit button
+                    case "reset":       //reset button
+                    case "button":      //custom button
+                        break;
+                        
+                    case "radio":       //radio button
+                    case "checkbox":    //checkbox
+                        if (!field.checked){
+                            break;
+                        }
+                        /* falls through */
+                                    
+                    default:
+                        parts.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+                }
+            }        
+            return parts.join("&");
+        }
+        
+        var btn = document.getElementById("serialize-btn");
+        EventUtil.addHandler(btn, "click", function(event){
+            var form = document.forms[0];
+            alert(serialize(form));
+        });
+
+    </script>
+</body>
+</html>

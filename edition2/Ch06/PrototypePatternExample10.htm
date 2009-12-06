@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Prototype Pattern Example 8</title>
+    <script type="text/javascript">
+                    
+        function Person(){
+        }
+        
+        var person = new Person();
+                
+        Person.prototype = {
+            constructor: Person,
+            name : "Nicholas",
+            age : 29,
+            job : "Software Engineer",
+            sayName : function () {
+                alert(this.name);
+            }
+        };
+        
+        person.sayName();   //error
+
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CDataSection Node Example</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml" />
+</head>
+<body>
+    <div id="myDiv"><![CDATA[This is some content.]]></div>
+    <input type="button" value="Get CData Section" onclick="getCDataSection()" />
+
+    <script type="text/javascript">
+        function getCDataSection(){
+        
+            var div = document.getElementById("myDiv");
+            var cdata = div.firstChild;
+            alert(cdata.nodeType);
+            alert(cdata.nodeValue);
+            
+        }
+
+    </script>
+</body>
+</html>

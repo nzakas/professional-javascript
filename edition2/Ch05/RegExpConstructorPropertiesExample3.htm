@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>RegExp Constructor Properties Example 2</title>
+    <script type="text/javascript">
+    
+        var text = "this has been a short summer";
+        var pattern = /(..)or(.)/g;
+              
+        if (pattern.test(text)){
+            alert(RegExp.$1);       //sh
+            alert(RegExp.$2);       //t
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

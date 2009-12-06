@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Style Object Example</title>
+</head>
+<body>
+    <div id="myDiv" style="background-color: blue; width: 10px; height: 25px"></div>
+    <input type="button" value="Get Styles" onclick="getStyles()" />      
+    <input type="button" value="Change Styles" onclick="changeStyles()" />    
+ 
+    <script type="text/javascript">
+        function changeStyles(){
+            var myDiv = document.getElementById("myDiv");
+            
+            //set the background color
+            myDiv.style.backgroundColor = "red";
+            
+            //change the dimensions
+            myDiv.style.width = "100px";
+            myDiv.style.height = "200px";
+            
+            //assign a border
+            myDiv.style.border = "1px solid black";
+        }
+        
+        function getStyles(){
+            var myDiv = document.getElementById("myDiv");
+            alert(myDiv.style.backgroundColor);
+            alert(myDiv.style.width);
+            alert(myDiv.style.height);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>InnerHtml Example</title>
+</head>
+<body>
+    <div id="content"></div>
+    <input type="button" value="Set InnerHTML" onclick="setInnerHTML()" />
+    
+    <script type="text/javascript">
+        function setInnerHTML(){
+            var div = document.getElementById("content");
+            
+            //Opera, Firefox, and IE
+            div.innerHTML = "_<style type=\"text/css\">body {background-color: red; }</style>";
+            div.removeChild(div.firstChild);
+            
+            //Safari
+            document.getElementsByTagName("head")[0].appendChild(div.firstChild);
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>DOM XPath Example</title>        
+    </head>
+    <body>
+        <p>This example determines if any nodes match the expression <code>employee/name</code>.</p>
+        <script type="text/javascript">
+            var xmldom = (new DOMParser()).parseFromString("<employees><employee title=\"Software Engineer\"><name>Nicholas C. Zakas</name></employee><employee title=\"Salesperson\"><name>Jim Smith</name></employee></employees>", "text/xml");
+            var result = xmldom.evaluate("employee/name", xmldom.documentElement, null, XPathResult.BOOLEAN_TYPE, null);
+
+            alert(result.booleanValue);
+            
+        </script>
+ 
+ 
+    </body>
+</html>

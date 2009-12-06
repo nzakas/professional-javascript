@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Simulating IE Keyboard Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="text" value="" id="myTextbox" />
+    <input type="button" value="Send keypress to the textbox" id="myBtn" />
+    <p>This example works in IE though no text will appear in the textbox.</p>
+    <script type="text/javascript">
+    
+    (function(){
+        var btn = document.getElementById("myBtn");
+        var textbox = document.getElementById("myTextbox");
+        
+        EventUtil.addHandler(textbox, "keypress", function(event){
+            event = EventUtil.getEvent(event);
+            var charCode = EventUtil.getCharCode(event);
+            alert(charCode);
+        });
+
+        EventUtil.addHandler(btn, "click", function(event){
+
+            //create event object
+            var event = document.createEventObject();
+            
+            //initialize the event object
+            event.altKey = false;
+            event.ctrlKey = false;
+            event.shiftKey = false;
+            event.keyCode = 65;
+            
+            //fire the event
+            textbox.fireEvent("onkeypress", event);
+
+        });
+
+    })();
+    </script>
+</body>
+</html>

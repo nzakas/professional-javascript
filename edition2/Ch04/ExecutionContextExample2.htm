@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Execution Context Example 2</title>
+    <script type="text/javascript">
+          
+        var color = "blue";
+        
+        function changeColor(){
+            var anotherColor = "red";
+        
+            function swapColors(){
+                var tempColor = anotherColor;
+                anotherColor = color;
+                color = tempColor;
+                
+                //color, anotherColor, and tempColor are all accessible here
+            }
+        
+            //color and anotherColor are accessible here, but not tempColor        
+            swapColors();
+        }
+        
+        changeColor();
+
+        //anotherColor and tempColor aren't accessible here, but color is
+        alert("Color is now " + color);
+      
+    </script>
+
+</head>
+<body>
+  
+</body>
+</html>

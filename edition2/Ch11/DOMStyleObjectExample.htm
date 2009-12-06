@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>DOM Style Object Example</title>
+</head>
+<body>
+    <div id="myDiv" style="background-color: blue; width: 10px; height: 25px"></div>
+    <input type="button" value="Get Styles" onclick="getStyles()" />    
+    <input type="button" value="Get CSS" onclick="getCSS()" />    
+    <input type="button" value="Change Styles" onclick="changeStyles()" />    
+    <input type="button" value="Change CSS" onclick="changeCSS()" /><br />    
+    <input type="button" value="Enumerate" onclick="enumerateCSS()" />    
+    <input type="button" value="Enumerate CSS Values" onclick="enumerateCSSValues()" /><br />
+    <input type="button" value="Remove Border" onclick="removeBorder()" />    
+    
+    <script type="text/javascript">
+        function changeStyles(){
+            var myDiv = document.getElementById("myDiv");
+            
+            //set the background color
+            myDiv.style.setProperty("background-color", "red", "");;
+            
+            //change the dimensions
+            myDiv.style.setProperty("width", "100px", "");
+            myDiv.style.setProperty("height", "200px", "");
+            
+            //assign a border
+            myDiv.style.setProperty("border", "1px solid black", "");
+        }
+        
+        function getStyles(){
+            var myDiv = document.getElementById("myDiv");
+            alert(myDiv.style.getPropertyValue("background-color"));
+            alert(myDiv.style.getPropertyValue("width"));
+            alert(myDiv.style.getPropertyValue("height"));
+        }
+        
+        function getCSS(){
+            var myDiv = document.getElementById("myDiv");
+            alert(myDiv.style.cssText);
+        }
+        
+        function changeCSS(){
+            var myDiv = document.getElementById("myDiv");
+            myDiv.style.cssText ="width: 25px; height: 100px; background-color: green";
+        }
+
+        function enumerateCSS(){
+            var myDiv = document.getElementById("myDiv");
+            var props = new Array();
+            for (var i=0, len=myDiv.style.length; i < len; i++){
+                var prop = myDiv.style[i];     //or myDiv.style.item(i)
+                var value = myDiv.style.getPropertyValue(prop);
+                props.push(prop + " : " + value); 
+            }
+            alert(props.join("\n"));
+        
+        }
+        
+        function enumerateCSSValues(){
+            var myDiv = document.getElementById("myDiv");
+            var props = new Array();
+            for (var i=0, len=myDiv.style.length; i < len; i++){
+                var prop = myDiv.style[i];     //or myDiv.style.item(i)
+                var value = myDiv.style.getPropertyCSSValue(prop);
+                props.push(prop + " : " + value.cssText + " (" + value.cssValueType + ")"); 
+            }
+            alert(props.join("\n"));
+        
+        }
+        
+        function removeBorder(){
+            var myDiv = document.getElementById("myDiv");
+            myDiv.style.removeProperty("border");
+        }
+    </script>
+</body>
+</html>

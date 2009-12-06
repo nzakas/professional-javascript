@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>DOMParser Example</title>
+</head>
+<body>
+    <p>This example will not work in Internet Explorer.</p>
+    <script type="text/javascript">
+    
+        var parser = new DOMParser();
+        var xmldom = parser.parseFromString("<root><child/></root>", "text/xml");
+        
+        alert(xmldom.documentElement.tagName);  //"root"
+        alert(xmldom.documentElement.firstChild.tagName); //"child"
+        
+        var anotherChild = xmldom.createElement("child");
+        xmldom.documentElement.appendChild(anotherChild);
+        
+        var children = xmldom.getElementsByTagName("child");
+        alert(children.length);   //2
+
+    </script>
+</body>
+</html>

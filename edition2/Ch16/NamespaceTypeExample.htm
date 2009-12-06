@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Namespace Type Example</title>
+</head>
+<body>
+    <p>This example only works in Firefox 1.5+.</p>
+    <script type="text/javascript;e4x=1">
+    
+        var ns = new Namespace("http://www.wrox.com");    //default namespace
+        var wrox = new Namespace("wrox", "http://www.wrox.com");  //wrox namespace
+        
+        alert(ns.uri);
+        alert(ns.prefix);
+        alert(wrox.uri);
+        alert(wrox.prefix);
+    </script>
+</body>
+</html>

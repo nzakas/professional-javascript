@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Textbox Partial Selection Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Select some text in the textbox.</p>
+    <form method="post" action="javascript:alert('Form submitted!')" id="myForm">        
+        <div>
+            <label for="comments">Type something:</label><br />
+            <input type="text" id="txtStuff" name="stuff" value="Default value" />
+        </div>
+        <input type="button" value="Select some text" id="select-btn" />
+    </form>     
+    <script type="text/javascript">
+        (function(){
+        
+            function selectText(textbox, startIndex, stopIndex){
+                if (textbox.setSelectionRange){
+                    textbox.setSelectionRange(startIndex, stopIndex);
+                } else if (textbox.createTextRange){
+                    var range = textbox.createTextRange();
+                    range.collapse(true);
+                    range.moveStart("character", startIndex);
+                    range.moveEnd("character", stopIndex - startIndex);
+                    range.select();                    
+                }
+                textbox.focus();
+            }
+                          
+            var btn = document.getElementById("select-btn");
+            EventUtil.addHandler(btn, "click", function(event){
+                var textbox = document.forms[0].elements[0];
+                selectText(textbox, 4, 7);
+            });
+            
+            
+        })();
+    
+    </script>
+</body>
+</html>

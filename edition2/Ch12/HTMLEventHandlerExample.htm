@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>HTML Event Handler Example</title>
+</head>
+<body>
+    <input type="button" value="Click Me" onclick="alert('Clicked')" />
+    <input type="button" value="Click Me" onclick="alert(&quot;Clicked&quot;)" />
+    <script type="text/javascript">
+        function showMessage(){
+            alert("Hello world!");
+        }
+    </script>
+    <input type="button" value="Click Me" onclick="showMessage()" />
+    <input type="button" value="Click Me" onclick="try{showMessage();}catch(ex){}" />
+</body>
+</html>

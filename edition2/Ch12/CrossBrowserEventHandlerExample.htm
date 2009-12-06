@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Cross-Browser Event Handler Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <input type="button" id="myRemoveBtn" value="Remove Event Handler" />
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        var handler = function(){
+            alert("Clicked");
+        };
+        EventUtil.addHandler(btn, "click", handler); 
+        
+        var removeBtn = document.getElementById("myRemoveBtn");
+        EventUtil.addHandler(removeBtn, "click", function(){
+            EventUtil.removeHandler(btn, "click", handler); 
+        });
+        
+    </script>
+</body>
+</html>

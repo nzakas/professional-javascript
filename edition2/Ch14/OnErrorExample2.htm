@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>OnError Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        EventUtil.addHandler(window, "load", function(){
+            var image = new Image();
+            EventUtil.addHandler(image, "load", function(event){
+                alert("Image loaded!");
+            });
+            EventUtil.addHandler(image, "error", function(event){
+                alert("Image not loaded!");
+            });
+            image.src = "smilex.gif";  //doesn't exist          
+        });
+    </script>
+</body>
+</html>

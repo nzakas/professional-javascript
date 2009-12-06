@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>SubCookies Example</title>
+    <script type="text/javascript" src="SubCookieUtil.js"></script>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Name: <span id="name-value">(none)</span><br />
+    Book: <span id="book-value">(none)</span></p>
+    <input type="button" value="Delete Cookies" id="delete-btn" />
+    <p>Refresh the page to see the values. Click &quot;Delete Cookies&quot; to remove them.</p>
+
+    <script type="text/javascript">
+        
+        EventUtil.addHandler(window, "load", function(){
+
+            document.getElementById("name-value").innerHTML = SubCookieUtil.get("data", "name");
+            document.getElementById("book-value").innerHTML = SubCookieUtil.get("data", "book");
+        
+            EventUtil.addHandler(document.getElementById("delete-btn"), "click", function(){
+                SubCookieUtil.unset("data", "name");
+                SubCookieUtil.unset("data", "book");      
+                //SubCookieUtil.unsetAll("data");      
+            })
+            
+            //set some cookies
+            SubCookieUtil.set("data", "name", "Nicholas");
+            SubCookieUtil.set("data", "book", "Professional JavaScript");
+        });
+
+
+
+    </script>
+</body>
+</html>

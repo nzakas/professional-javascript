@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Selectbox Example</title>
+        <script type="text/javascript" src="EventUtil.js"></script>
+    </head>
+    <body>
+        <form>
+            <select id="selLocations1" size="5">
+                <option value="Sunnyvale, CA">Sunnyvale</option>
+                <option value="Los Angeles, CA">Los Angeles</option>
+                <option value="Mountain View, CA">Mountain View</option>
+                <option value="">China</option>
+                <option>Australia</option>
+            </select>
+            <select id="selLocations2" size="5"></select>
+            <p>Click the "Move" button to move the item with this position to the second list:<br />
+            <input type="text" id="txtIndex" value="0" /><br />
+            <input type="button" value="Move" id="btnMove" /></p>
+       </form>
+        <script type="text/javascript">
+            (function(){
+                
+                var btn = document.getElementById("btnMove");
+                
+                EventUtil.addHandler(btn, "click", function(event){
+                    var selectbox1 = document.getElementById("selLocations1");
+                    var selectbox2 = document.getElementById("selLocations2");
+                    var textbox = document.getElementById("txtIndex");
+                    
+                    selectbox2.appendChild(selectbox1.options[parseInt(textbox.value, 10)]);
+        
+                });
+    
+            })();
+        
+        </script>       
+    </body>
+</html>

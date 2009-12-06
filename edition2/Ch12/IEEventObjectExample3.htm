@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>IE Event Object Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="button" value="Click Me" id="myBtn" />
+    <p>This example works only in Internet Explorer.</p>
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function(){
+            alert("Clicked");
+            window.event.cancelBubble = true;
+        };
+        
+        document.body.onclick = function(event){
+            alert("Body clicked");
+        };
+    </script>
+</body>
+</html>

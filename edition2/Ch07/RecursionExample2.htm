@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Recursion Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function factorial(num){
+                if (num <= 1){
+                    return 1;
+                } else {
+                    return num * arguments.callee(num-1);
+                }
+            }
+
+            var anotherFactorial = factorial;
+            factorial = null;
+            alert(anotherFactorial(4));  //24
+
+
+        </script>
+     
+    </body>
+</html>

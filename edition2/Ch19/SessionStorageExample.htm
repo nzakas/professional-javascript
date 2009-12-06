@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Session Storage Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <p>Name: <span id="name-value">(none)</span><br />
+    Book: <span id="book-value">(none)</span></p>
+    <input type="button" value="Delete Data" id="delete-btn" />
+    <input type="button" value="See All" id="see-btn" />
+    <p>Refresh the page to see the values. Click &quot;Delete Data&quot; to remove them.</p>
+    <p>This example requires Internet Explorer 8, Firefox 2, or WebKit 525+ (r32942) to work.<br />
+       This example must be run from a server; it won't work when run locally.</p>
+    <script type="text/javascript">
+        
+        EventUtil.addHandler(window, "load", function(){
+
+            document.getElementById("name-value").innerHTML = sessionStorage.name;
+            document.getElementById("book-value").innerHTML = sessionStorage.book;
+        
+            EventUtil.addHandler(document.getElementById("delete-btn"), "click", function(){
+                //these don't work in webkit
+                //delete sessionStorage.name;
+                //delete sessionStorage.book;
+                sessionStorage.removeItem("name");
+                sessionStorage.removeItem("book");    
+            });
+            
+            EventUtil.addHandler(document.getElementById("see-btn"), "click", function(){
+                for (var i=0, len = sessionStorage.length; i < len; i++){
+                    var key = sessionStorage.key(i);
+                    var value = sessionStorage.getItem(key);
+                    alert(key + "=" + value);
+                }            
+            });
+            
+            //set some data
+            sessionStorage.name =  "Nicholas";
+            sessionStorage.book = "Professional JavaScript";
+        });
+
+
+
+    </script>
+</body>
+</html>

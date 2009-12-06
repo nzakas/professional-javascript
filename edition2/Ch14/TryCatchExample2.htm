@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Try-Catch Example</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function testFinally(){
+            try {
+                return 2;
+            } catch (error){
+                return 1;
+            } finally {
+                return 0;
+            }
+        }
+        
+        function testWithoutFinally(){
+            try {
+                return 2;
+            } catch (error){
+                return 1;
+            }
+        }
+        
+        alert(testFinally());
+        alert(testWithoutFinally());
+        
+    </script>
+</body>
+</html>

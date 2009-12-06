@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Capabilities Detection Example</title>
+    <script type="text/javascript">
+        
+        //need to wait until onload so body is available    
+        window.onload = function(){
+        
+            function getWindowWidth(){
+                if (window.innerWidth){
+                    return window.innerWidth;
+                } else if (document.documentElement.clientWidth){
+                    return document.documentElement.clientWidth;
+                } else if (document.body.clientWidth){
+                    return document.body.clientWidth;
+                }
+            }
+            
+                    
+            //determine if the browser has Netscape-style plugins
+            var hasNSPlugins = !!(navigator.plugins && navigator.plugins.length);
+            
+            //determine if the browser has basic DOM Level 1 capabilities
+            var hasDOM1 = !!(document.getElementById && document.createElement && 
+                           document.getElementsByTagName);
+            
+            alert("Window width: " + getWindowWidth());
+            alert("Supports Netscape plugins? " + hasNSPlugins);
+            alert("Supports Core DOM 1? " + hasDOM1);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

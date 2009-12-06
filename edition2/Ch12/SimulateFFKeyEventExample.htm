@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Simulating Firefox Keyboard Events Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+    <input type="text" value="" id="myTextbox" />
+    <input type="button" value="Send keypress to the textbox" id="myBtn" />
+    <p>This example works only in Firefox.</p>
+    <script type="text/javascript">
+    
+    (function(){
+        var btn = document.getElementById("myBtn");
+        var textbox = document.getElementById("myTextbox")
+        
+        EventUtil.addHandler(btn, "keypress", function(event){
+            alert(event.charCode);
+        });
+
+        EventUtil.addHandler(btn, "click", function(event){
+            //create event object
+            var event = document.createEvent("KeyEvents");
+            
+            //initialize the event object
+            event.initKeyEvent("keypress", true, true, document.defaultView, false, false, 
+                               false, false, 65, 65);
+            
+            //fire the event
+            textbox.dispatchEvent(event);
+
+        });
+
+    })();
+    </script>
+</body>
+</html>

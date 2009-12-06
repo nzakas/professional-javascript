@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Event Target Example</title>
+    <script type="text/javascript" src="EventTarget.js"></script>
+</head>
+<body>
+    <div id="myDiv" style="background:red;"></div>
+
+    <script type="text/javascript">
+        function object(o){
+            function F(){}
+            F.prototype = o;
+            return new F();
+        }
+            
+        function inheritPrototype(subType, superType){
+            var prototype = object(superType.prototype);   //create object
+            prototype.constructor = subType;               //augment object
+            subType.prototype = prototype;                 //assign object
+        }
+        
+        function Person(name, age){
+            EventTarget.call(this);
+            this.name = name;
+            this.age = age;
+        }
+        
+        inheritPrototype(Person,EventTarget);
+        
+        Person.prototype.say = function(message){
+            this.fire({type: "message", message: message});
+        };
+        
+        
+        
+        function handleMessage(event){
+            alert(event.target.name + " says: " + event.message);
+        }
+
+        var person = new Person("Nicholas", 29);
+        
+        person.addHandler("message", handleMessage);
+        
+        person.say("Hi there.");
+
+    </script>
+</body>
+</html>

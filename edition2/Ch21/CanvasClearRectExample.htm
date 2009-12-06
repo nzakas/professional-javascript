@@ -1,0 +1,33 @@
+<html>
+ <head>
+    <title>Canvas Clear Rect Example</title>
+ </head>
+ <body>
+    <p>Not all browsers support the <code>canvas</code> tag. Firefox 1.5, Safari 2.0, and Opera 9.0 do.</p>
+    <canvas id="drawing" width="200" height="200">Your browser doesn't support the canvas tag.</canvas>
+    <script type="text/javascript">
+        window.onload = function(){
+            var drawing = document.getElementById("drawing");
+            
+            //make sure <canvas> is completely supported
+            if (drawing.getContext){
+            
+                var context = drawing.getContext("2d");
+            
+                //draw a red rectangle
+                context.fillStyle = "#ff0000";
+                context.fillRect(10, 10, 50, 50);
+            
+                //draw a blue rectangle that's semi-transparent
+                context.fillStyle = "rgba(0,0,255,0.5)";
+                context.fillRect(30, 30, 50, 50);
+                
+                //clear a rectangle that overlaps both of the previous rectangles
+                context.clearRect(40, 40, 10, 10);                
+            }                
+        };
+
+    </script>
+    <p>This example based on <a href="http://developer.mozilla.org/en/docs/Canvas_tutorial:Basic_usage">Mozilla's documentation</a></p>
+    </body>
+</html>

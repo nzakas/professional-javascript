@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>DOM Range Example</title>
+        <script type="text/javascript">
+            function extractContent() {
+                var p1 = document.getElementById("p1");
+                var helloNode = p1.firstChild.firstChild;
+                var worldNode = p1.lastChild;
+                var range = document.createRange();
+                
+                range.setStart(helloNode, 2);
+                range.setEnd(worldNode, 3);
+                var fragment = range.extractContents();
+                p1.parentNode.appendChild(fragment);
+                
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+        <p id="p1"><b>Hello</b> world!</p>
+        </div>
+        <input type="button" value="Extract Content" onclick="extractContent()" />  
+        <p><strong>Note:</strong> This example uses DOM ranges and will only work in browsers that support DOM ranges. This example will fail in Internet Explorer.</p>
+      
+    </body>
+</html>

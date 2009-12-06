@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Timeout Example 3</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var num = 0;
+            var max = 100;
+            
+            function incrementNumber() {
+                num++;
+            
+                //if the max has not been reached, set another timeout
+                if (num < max) {
+                    setTimeout(incrementNumber, 500);
+                } else {
+                    alert("Done");
+                }
+            }
+            
+            setTimeout(incrementNumber, 500);
+
+
+
+        </script>
+    </body>
+</html>

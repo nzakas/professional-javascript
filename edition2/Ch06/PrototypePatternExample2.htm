@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Prototype Pattern Example 2</title>
+    <script type="text/javascript">
+    
+        function Person(){
+        }
+        
+        Person.prototype.name = "Nicholas";
+        Person.prototype.age = 29;
+        Person.prototype.job = "Software Engineer";
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+        
+        var person1 = new Person();
+        var person2 = new Person();
+        
+        person1.name = "Greg";
+        alert(person1.name);   //"Greg" – from instance
+        alert(person2.name);   //"Nicholas" – from prototype
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

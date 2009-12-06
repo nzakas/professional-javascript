@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Getter/Setter Example</title>
+</head>
+<body>
+    <script>
+        //define on existing object
+        var person = { _name: null };
+        person.__defineGetter__("name", function(){
+            return this._name;
+        });
+        person.__defineSetter__("name", function(value){
+            if (typeof value == "string"){
+                this._name = value;
+            }
+        });
+        
+        //define in constructor
+        function Person(){
+            this._name = null;
+        
+            this.__defineGetter__("name", function(){
+                return this._name;
+            });
+        
+            this.__defineSetter__("name", function(value){
+                if (typeof value == "string"){
+                    this._name = value;
+                }
+            });
+        }
+
+        
+        person.name = "Nicholas";
+        alert(person.name);    //"Nicholas"
+        
+        var person2 = new Person();
+        person2.name = "Michael";
+        alert(person2.name);   //"Michael"
+        
+
+    </script>
+</body>
+</html>

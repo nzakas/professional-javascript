@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>IE Computed Styles Example</title>
+    <style type="text/css">
+        #myDiv {
+            background-color: blue;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+        function showComputedStyles(){
+            var myDiv = document.getElementById("myDiv");
+            var computedStyle = myDiv.currentStyle;
+            alert(computedStyle.backgroundColor);   //"red"
+            alert(computedStyle.width);             //"100px"
+            alert(computedStyle.height);            //"200px"
+            alert(computedStyle.border);            //"1px solid black"
+            alert(computedStyle.borderLeftWidth);   //"1px"
+        }
+    </script>
+</head>
+<body>
+    <div id="myDiv" style="background-color: red; border: 1px solid black"></div>
+    <input type="button" value="Show Computed Styles" onclick="showComputedStyles()" />
+    <p>(This example works only in IE.)</p>
+</body>
+</html>

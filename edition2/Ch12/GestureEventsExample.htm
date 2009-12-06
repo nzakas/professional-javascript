@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Gesture Events Example</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+    <p>Touch anywhere on the screen with two fingers. This only works on an iPhone or iPod Touch running iPhone 2.x software.</p>
+    <div id="output"> 
+    </div>
+    <script type="text/javascript">
+        function handleGestureEvent(event){        
+            var output = document.getElementById("output");
+            switch(event.type){
+                case "gesturestart":
+                    output.innerHTML = "Gesture started (rotation=" + event.rotation + ",scale=" + event.scale + ")";
+                    break;
+                case "gestureend":
+                    output.innerHTML += "<br>Gesture ended (rotation=" + event.rotation + ",scale=" + event.scale + ")";
+                    break;
+                case "gesturechange":
+                    output.innerHTML += "<br>Gesture changed (rotation=" + event.rotation + ",scale=" + event.scale + ")";
+                    break;
+            }
+        }
+        
+        document.addEventListener("gesturestart", handleGestureEvent, false);
+        document.addEventListener("gestureend", handleGestureEvent, false);
+        document.addEventListener("gesturechange", handleGestureEvent, false);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Document Fragment Example</title>
+</head>
+<body>
+    <ul id="myList"></ul>
+    <input type="button" value="Add Items" onclick="addItems()" />
+
+    <script type="text/javascript">
+        function addItems(){
+        
+            var fragment = document.createDocumentFragment();
+            var ul = document.getElementById("myList");
+            var li = null;
+            
+            for (var i=0; i < 3; i++){
+                li = document.createElement("li");
+                li.appendChild(document.createTextNode("Item " + (i+1)));
+                fragment.appendChild(li);
+            }
+            
+            ul.appendChild(fragment);    
+
+            
+        }
+
+    </script>
+</body>
+</html>

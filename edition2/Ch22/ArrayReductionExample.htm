@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Array Reduction Example</title>
+</head>
+<body>
+    <p>This is known to work only in Firefox 3+.</p>
+    <script type="application/javascript;version=1.8">
+        
+        var values = [1,2,3,4,5];
+        var sum = values.reduce(function(prev, cur, index, array){
+            return prev + cur;
+        });
+        alert(sum);
+
+
+    </script>
+</body>
+</html>

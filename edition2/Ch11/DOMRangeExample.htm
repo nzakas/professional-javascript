@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>DOM Range Example</title>
+        <script type="text/javascript">
+            function useRanges() {
+                var range1 = document.createRange();
+                var range2 = document.createRange();
+                var oP1 = document.getElementById("p1");
+                range1.selectNode(oP1);
+                range2.selectNodeContents(oP1);
+                
+                document.getElementById("txtStartContainer1").value = range1.startContainer.tagName;
+                document.getElementById("txtStartOffset1").value = range1.startOffset;
+                document.getElementById("txtEndContainer1").value = range1.endContainer.tagName;
+                document.getElementById("txtEndOffset1").value = range1.endOffset;
+                document.getElementById("txtCommonAncestor1").value = range1.commonAncestorContainer.tagName;
+
+                document.getElementById("txtStartContainer2").value = range2.startContainer.tagName;
+                document.getElementById("txtStartOffset2").value = range2.startOffset;
+                document.getElementById("txtEndContainer2").value = range2.endContainer.tagName;
+                document.getElementById("txtEndOffset2").value = range2.endOffset;
+                document.getElementById("txtCommonAncestor2").value = range2.commonAncestorContainer.tagName;
+            }
+        </script>
+    </head>
+    <body>
+        <p id="p1"><b>Hello</b> world!</p>
+        <input type="button" value="Use Ranges" onclick="useRanges()" />        
+        <table border="0">
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>range1</legend>
+                    Start Container: <input type="text" id="txtStartContainer1" /><br />
+                    Start Offset: <input type="text" id="txtStartOffset1" /><br />
+                    End Container: <input type="text" id="txtEndContainer1" /><br />
+                    End Offset: <input type="text" id="txtEndOffset1" /><br />
+                    Common Ancestor: <input type="text" id="txtCommonAncestor1" /><br />    
+                </fieldset>
+            </td>
+            <td>
+                <fieldset>
+                    <legend>range2</legend>
+                    Start Container: <input type="text" id="txtStartContainer2" /><br />
+                    Start Offset: <input type="text" id="txtStartOffset2" /><br />
+                    End Container: <input type="text" id="txtEndContainer2" /><br />
+                    End Offset: <input type="text" id="txtEndOffset2" /><br />
+                    Common Ancestor: <input type="text" id="txtCommonAncestor2" /><br />
+                </fieldset>
+            </td>
+        </tr>
+        </table>
+        <p><strong>Note:</strong> This example uses DOM ranges and will only work in browsers that support DOM ranges. This example will fail in Internet Explorer.</p>
+
+    </body>
+</html>
