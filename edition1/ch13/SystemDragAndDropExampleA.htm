@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDrop() {
+                alert("Dropped!");
+            }
+        </script>
+    </head>
+    <body>
+        <p>Highlight some of the text in the textbox on the left and drag it
+        into the textbox on the right.</p>
+        <input type="text" value="drag this text" /><input type="text" ondrop="handleDrop()" />
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Plugins Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            if (navigator.mimeTypes) {
+                document.writeln("<h3>Loaded Plugins (Mozilla only):</h3>");
+                document.writeln("<ul>");
+                for (var i=0; i < navigator.plugins.length; i++) {
+                    document.writeln("<li>" + navigator.plugins[i].name + " (" 
+                        + navigator.plugins[i].description + ")</li>");
+                
+                    document.writeln("<ul>");
+                    
+                    for (var j=0; j < navigator.plugins[i].length; j++) {
+                        document.writeln("<li>" + navigator.plugins[i][j].type + "</li>");
+                    }
+                    
+                    document.writeln("</ul>");
+                }
+                document.writeln("</ul>");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Simulated Drag And Drop Example</title>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript">
+            
+            var iDiffX = 0;
+            var iDiffY = 0;
+                   
+            function handleMouseMove() {
+                var oEvent = EventUtil.getEvent();
+                var oDiv = document.getElementById("div1");
+                oDiv.style.left = oEvent.clientX - iDiffX;
+                oDiv.style.top = oEvent.clientY - iDiffY;
+            }
+                       
+            function handleMouseDown() {
+                var oEvent = EventUtil.getEvent();
+                var oDiv = document.getElementById("div1");
+                iDiffX = oEvent.clientX - oDiv.offsetLeft;
+                iDiffY = oEvent.clientY - oDiv.offsetTop;
+            
+                EventUtil.addEventHandler(document.body, "mousemove", handleMouseMove);
+                EventUtil.addEventHandler(document.body, "mouseup", handleMouseUp);
+            }
+            
+            function handleMouseUp() {
+                var oEvent = EventUtil.getEvent();
+                EventUtil.removeEventHandler(document.body, "mousemove", handleMouseMove);
+                EventUtil.removeEventHandler(document.body, "mouseup", handleMouseUp);
+                
+                if (isOverDropTarget(oEvent.clientX,oEvent.clientY)) {
+                    alert("dropped!");
+                    var oDiv = document.getElementById("div1");
+                    var oTarget = document.getElementById("divDropTarget");
+                    oDiv.style.left = oTarget.offsetLeft;
+                    oDiv.style.top = oTarget.offsetTop;
+                }                
+            }
+            
+            function isOverDropTarget(iX, iY) {
+                var oTarget = document.getElementById("divDropTarget");
+                var iX1 = oTarget.offsetLeft;
+                var iX2 = iX1 + oTarget.offsetWidth;
+                var iY1 = oTarget.offsetTop;
+                var iY2 = iY1 + oTarget.offsetHeight;
+                
+                return (iX >= iX1 && iX <= iX2 && iY >= iY1 && iY <= iY2);
+            }
+            
+        </script>
+        <style type="text/css">
+            #div1 {
+                background-color: red;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                z-index: 10;
+            }
+            
+            #divDropTarget {
+                background-color: blue;
+                height: 200px;
+                width: 200px;
+                position: absolute;
+                left: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Try dragging the red square onto the blue square.</p>
+        <div id="div1" onmousedown="handleMouseDown(event)"></div>
+        <div id="divDropTarget"></div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>OnError Example</title>
+        <script type="text/javascript">
+            alert("Syntax error.";
+            window.onerror = function (sMessage, sUrl, sLine) {
+                alert("An error occurred:\n" + sMessage + "\nURL: " + sUrl + "\nLine Number: " + sLine);
+                return true;
+            }
+        </script>
+    </head>
+    <body onload="nonExistentFunction()">
+        <p>The syntax error in this page occurs before the <code>onerror</code>
+        event handler is assigned, therefore the browser intercepts the error
+        and the custom error message isn't displayed.</p>
+    </body>
+</html>

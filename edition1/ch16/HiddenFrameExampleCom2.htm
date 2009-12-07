@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Hidden Frame Example (Response)</title>
+        <script type="text/javascript">
+        
+            window.onload = function () {
+                parent.handleResponse(document.forms["formResponse"].result.value);
+            };
+        </script>
+ 
+    </head>
+    <body>
+        <form name="formResponse">
+            <textarea name="result">This is some data coming from the server.</textarea>
+        </form>
+    </body>
+</html>

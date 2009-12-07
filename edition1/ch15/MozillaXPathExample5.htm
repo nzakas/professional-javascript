@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Mozilla XPath Example</title>   
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="xmldom.js"></script>   
+        <script type="text/javascript">
+            if (isMoz) {
+                Element.prototype.selectSingleNode = function (sXPath) {
+                    var oEvaluator = new XPathEvaluator();
+                    var oResult = oEvaluator.evaluate(sXPath, oXmlDom.documentElement, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        
+                    if (oResult != null) {
+                        return oResult.singleNodeValue;
+                    } else {
+                        return null;
+                    }              
+                }
+            }        
+        </script>
+         
+    </head>
+    <body>
+        <p>This example gets the first node matching the expression <code>employee/name</code>.</p>
+        <script type="text/javascript">
+            var oXmlDom = document.implementation.createDocument("","",null);
+            
+            oXmlDom.async = false;
+            
+            oXmlDom.load("employees.xml");
+            
+            alert(oXmlDom.documentElement.selectSingleNode("employee/name").xml);
+
+            
+        </script>
+ 
+ 
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>IE XML DOM Example</title>
+        <script type="text/javascript">
+        function createXMLDOM() {
+        
+            var arrSignatures = ["MSXML2.DOMDocument.5.0", "MSXML2.DOMDocument.4.0",
+                                 "MSXML2.DOMDocument.3.0", "MSXML2.DOMDocument",
+                                 "Microsoft.XmlDom"];
+                                 
+            for (var i=0; i < arrSignatures.length; i++) {
+                try {
+                
+                    var oXmlDom = new ActiveXObject(arrSignatures[i]);
+                    
+                    return oXmlDom;
+                
+                } catch (oError) {
+                    //ignore
+                }
+            }              
+            
+            throw new Error("MSXML not installed on your system.");           
+        }               
+        </script>        
+    </head>
+    <body>
+        <p>This example loads an XML file <em>asynchronously</em>.</p>
+        <script type="text/javascript">
+            var oXmlDom = createXMLDOM();
+            
+            oXmlDom.async = true;
+            
+            oXmlDom.onreadystatechange = function () {
+                if (oXmlDom.readyState == 4) {
+                    alert("Tag name of the root element is " + oXmlDom.documentElement.tagName);
+                    alert("The root element has this many children: " + oXmlDom.documentElement.childNodes.length);
+
+                }
+            };
+            
+            oXmlDom.load("test.xml");
+            
+        </script>
+ 
+ 
+    </body>
+</html>

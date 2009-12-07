@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Focus On First Example</title>
+        <script type="text/javascript" src="formutil.js"></script>
+    </head>
+    <body onload="FormUtil.focusOnFirst()">
+        <form method="post" action="javascript:alert('Submitted!')">
+            <!-- hidden field -->
+            <input type="hidden" name="hidden1" value="hidden value" />
+            
+            <!-- textbox that should get focus -->
+            <input type="text" name="textbox1" value="" />
+            
+            <!-- submit button -->
+            <input type="submit" value="Submit Form" />
+       </form>
+    </body> 
+</html> 

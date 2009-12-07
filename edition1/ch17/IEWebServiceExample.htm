@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>IE Web Service Example</title>
+        <script type="text/javascript">
+        
+        var iCallID = null;
+        var sWSDL = "http://www.xmethods.net/sd/2001/TemperatureService.wsdl";
+        
+        function callWebService() {        
+            //get the value from the textbox
+            var sZip = document.getElementById("txtZip").value;
+                
+            //get reference to the service element
+            var oService = document.getElementById("service");
+                
+            //tell the service element to parse the WSDL file
+            oService.useService(sWSDL, "Temperature");
+               
+            //make the call using the zip code the user entered
+            iCallID = oService.Temperature.callService("getTemp", sZip);
+        }
+        
+        function onWebServiceResult() {
+            var oResult = event.result;
+            
+            //make sure the result ID matches the call ID
+            if (oResult.id == iCallID) {
+        
+                //get the <div> to display results
+                var oDiv = document.getElementById("divResult");
+                                
+                //is there an error?
+                if (oResult.error) {
+                    alert("An error occurred:" + oResult.errorDetail.string);        
+                } else {
+                    alert("It is currently " + oResult.value + " degrees in that zip code.");
+                }
+            }
+        }
+
+        </script>
+    </head>
+    <body>
+        <p><input type="text" id="txtZip" size="10" /><input type="button" value="Get Temperature" onclick="callWebService()" />
+        <div id="service" style="behavior:url(webservice.htc)" onresult="onWebServiceResult()"></div>
+    </body>
+</html>

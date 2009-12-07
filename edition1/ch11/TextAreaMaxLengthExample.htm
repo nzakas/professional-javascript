@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>TextArea Max Length Example</title>
+        <script type="text/javascript" src="textutil.js"></script>
+    </head>
+    <body>
+        <p>Try typing in the textbox. You can only type 25 characters.</p>
+        <form method="post" action="javascript:alert('Submitted')">
+            <textarea rows="10" cols="25" maxlength="25" onkeypress="return TextUtil.isNotMax(this)"></textarea>
+            <input type="submit" value="Submit Form" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Document Open/Close Example</title>
+    </head>
+    <body>
+        <p>This example pops up a new window and then writes a string to it.</p>
+        <p>Do to new popup blockers, this code can only run when you click the following button:</p>
+        <p><input type="button" value="Click Me" onclick="showPopup()" />
+        <script type="text/javascript">
+            function showPopup() {
+                var oNewWin = window.open("about:blank", "newwindow", 
+                                          "height=150,width=300,top=10,left=10,resizable=yes");
+                
+                oNewWin.document.open();
+                oNewWin.document.write("<html><head><title>New Window</title></head>");
+                oNewWin.document.write("<body>This is a new window!</body></html>");
+                oNewWin.document.close();        
+            }
+        </script>        
+    </body>
+</html>

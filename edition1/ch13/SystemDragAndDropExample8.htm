@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDragDropoEvent(oEvent) {
+               
+                switch(oEvent.type) {
+                    case "dragstart":
+                        oEvent.dataTransfer.effectAllowed = "move";
+                        break;
+                        
+                    case "dragenter":
+                        oEvent.dataTransfer.dropEffect = "move";
+                        break;
+                        
+                    case "dragover":
+                        oEvent.returnValue = false;
+                        break;
+                    case "drop":
+                        oEvent.returnValue = false;
+                        oEvent.srcElement.innerHTML = oEvent.dataTransfer.getData("text");
+                }
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the text in the textbox to the red square.
+        The text will be "moved" to the red square.</p>
+        <p><input type="text" value="drag this text" ondragstart="handleDragDropoEvent(event)" />
+        <div style="background-color: red; height: 100px; width: 100px"
+             ondragenter="handleDragDropoEvent(event)"               
+             ondragover="handleDragDropoEvent(event)" 
+             ondrop="handleDragDropoEvent(event)"></div>        
+        </p>
+
+    </body>
+</html>

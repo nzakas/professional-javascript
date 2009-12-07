@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Flash Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+        
+            var aProperties = new Array("X_POS", "Y_POS",
+                "X_SCALE", "Y_SCALE", "CURRENT_FRAME",
+                "TOTAL_FRAMES", "ALPHA", "VISIBLE", "WIDTH",
+                "HEIGHT", "ROTATION", "TARGET", "FRAMES_LOADED",
+                "NAME", "DROP_TARGET", "URL", "HIGH_QUALITY",
+                "FOCUS_RECT", "SOUND_BUF_TIME");
+
+            function getProperty() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                var selProperties = document.getElementById("selProperties");
+                 
+                alert(aProperties[selProperties.selectedIndex] + " = " + oFlashMovie.TGetProperty("/", selProperties.selectedIndex));
+            }
+        
+            window.onload = function () {
+                var selProperties = document.getElementById("selProperties");
+                
+                for (var i=0; i < aProperties.length; i++) {
+                    ListUtil.add(selProperties, aProperties[i]);
+                    
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <object type="application/x-shockwave-flash" data="ExampleMovie.swf" 
+        width="200" height="200" id="ExampleMovie">
+            <param name="movie" value="ExampleMovie.swf" />
+        </object>
+        <p><select id="selProperties">
+        
+        </select><input type="button" value="Get Property Value" onclick="getProperty()" /></p>
+               
+    </body>
+</html>

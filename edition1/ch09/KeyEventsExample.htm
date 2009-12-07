@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Key Events Example</title>
+        <script type="text/javascript">
+            function handleEvent(oEvent) {
+                var oTextbox = document.getElementById("txt1");
+                oTextbox.value += "\n>" + oEvent.type;             
+            }
+        </script>
+    </head>
+    <body>
+        <p>Type some characters into the first textbox.</p>
+        <p><textarea id="txtInput" rows="15" cols="50"
+            onkeydown="handleEvent(event)"
+            onkeyup="handleEvent(event)"
+            onkeypress="handleEvent(event)"></textarea></p>
+        <p><textarea id="txt1" rows="15" cols="50"></textarea></p>
+    </body>
+</html>

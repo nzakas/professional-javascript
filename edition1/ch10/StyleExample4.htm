@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Style Example</title>
+        <script type="text/javascript">
+            function useMethods() {
+                var oDiv = document.getElementById("div1");
+                alert(oDiv.style.item(0));    //outputs "background-color"
+                alert(oDiv.style.getPropertyValue("background-color")); 
+                oDiv.style.removeProperty("background-color");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1" style="background-color: red; height: 50px; width: 50px"></div><br />
+        <input type="button" value="Use Methods" onclick="useMethods()" />
+        <p><strong>Note: </strong> Internet Explorer does not support DOM style methods so this example will fail.</p>
+
+    </body>
+</html>

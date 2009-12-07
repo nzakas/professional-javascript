@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>InnerText Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                padding: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function useInnerText() {
+                var oDiv = document.getElementById("div1");
+                oDiv.innerText = oDiv.innerText;
+            }
+        </script>
+ 
+    </head>
+    <body>
+        <div id="div1" class="special"><b>Hello</b> world</div>
+        <input type="button" value="Use InnerText" onclick="useInnerText()" />
+        <p><strong>Note: </strong> Firefox does not support the <code>innerText</code> property so this example will fail.</p>
+    </body>
+</html>

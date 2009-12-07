@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<p><strong>Note:</strong> The latest versions of Firefox seem to have fixed the string concatenation problem. If you are using Firefox 1.0 or later, the string buffer may actually take longer than normal string concatenation.</p>
+<script type="text/javascript">
+function StringBuffer() {
+    this.__strings__ = new Array;
+}
+
+StringBuffer.prototype.append = function (str) {
+    this.__strings__.push(str);
+};
+
+StringBuffer.prototype.toString = function () {
+    return this.__strings__.join("");
+};
+
+var d1 = new Date();
+var str = "";
+for (var i=0; i < 10000; i++) {
+    str += "text";
+}
+var d2 = new Date();
+
+document.write("Concatenation with plus: " + (d2.getTime() - d1.getTime()) + " milliseconds");
+
+var buffer = new StringBuffer();
+d1 = new Date();
+for (var i=0; i < 10000; i++) {
+    buffer.append("text");
+}
+var result = buffer.toString();
+d2 = new Date();
+
+document.write("<br />Concatenation with StringBuffer: " + (d2.getTime() - d1.getTime()) + " milliseconds");
+
+</script>
+ 
+</body>
+</html>

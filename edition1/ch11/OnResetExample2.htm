@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>OnReset Example</title>
+    </head>
+    <body>
+        <form method="post" action="javascript:alert('Submitted')" onreset="alert('I am resetting')">
+            <p>Type some values into the textboxes and then press Reset.</p>
+            
+            <!-- regular textbox -->
+            <label for="txtName">Name:</label><br />
+            <input type="text" id="txtName" name="txtName" /><br />
+            
+            <!-- password textbox -->
+            <label for="txtPassword">Password:</label><br />
+            <input type="password" id="txtPassword" name="txtPassword" /><br />
+            
+            <!-- age comboxbox (drop-down) -->
+            <label for="selAge">Age:</label><br />
+            <select name="selAge" id="selAge">
+                <option>18-21</option>
+                <option>22-25</option>
+                <option>26-29</option>
+                <option>30-35</option>
+                <option>Over 35</option>
+            </select><br />
+            
+            <!-- multiline textbox -->
+            <label for="txtComments">Comments:</label><br />
+            <textarea rows="10" cols="50" id="txtComments" name="txtComments"></textarea><br />
+            
+            <!-- submit button -->
+            <input type="submit" value="Submit Form" />
+            
+            <!-- reset button -->
+            <input type="button" value="Reset" onclick="document.forms[0].reset()" />
+      
+        </form>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Listbox Shift Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+            function shiftUp() {
+                var oListbox = document.getElementById("selListbox");
+                var oTxtIndex = document.getElementById("txtIndex"); 
+                ListUtil.shiftUp(oListbox, parseInt(oTxtIndex.value));
+            }
+            
+            function shiftDown() {
+                var oListbox = document.getElementById("selListbox");
+                var oTxtIndex = document.getElementById("txtIndex");     
+                ListUtil.shiftDown(oListbox, parseInt(oTxtIndex.value));
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox" size="5">
+                 <option>Original Value 0</option>
+                 <option>Original Value 1</option>
+                 <option>Original Value 2</option>
+                 <option>Original Value 3</option>
+                 <option>Original Value 4</option>
+            </select><br />
+            Click the "Shift Up" or "Shift Down" button to move the item with this position:<br />
+            <input type="text" id="txtIndex" /><br />
+            <input type="button" value="Shift Up" onclick="shiftUp()" />
+            <input type="button" value="Shift Down" onclick="shiftDown()" />
+       </form>
+    </body>
+</html>

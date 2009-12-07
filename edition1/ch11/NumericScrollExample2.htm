@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Numeric Scroll Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript" src="textutil.js"></script>
+    </head>
+    <body>
+        <p>Type a number into the textbox, then press the up or down arrow. The value won't
+        decrement below 0 and won't increment above 100.</p>
+        <form method="post" action="javascript:alert('Submitted')">
+                <input type="text" onkeypress="return TextUtil.allowChars(this, event)" 
+                    validchars="0123456789" onblur=" TextUtil.blurAllow(this)" 
+                    onkeydown=" TextUtil.numericScroll(this, event)" 
+                    max="100" min="0" />
+            <input type="submit" value="Submit Form" />
+        </form>
+    </body>
+</html>

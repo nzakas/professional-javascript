@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Add/Remove Event Handlers Example</title>
+        <script type="text/javascript">
+                var EventUtil = new Object;
+                EventUtil.addEventHandler = function (oTarget, sEventType, fnHandler) {
+                    if (oTarget.addEventListener) {
+                        oTarget.addEventListener(sEventType, fnHandler, false);
+                    } else if (oTarget.attachEvent) {
+                        oTarget.attachEvent("on" + sEventType, fnHandler);
+                    } else {
+                        oTarget["on" + sEventType] = fnHandler;
+                    }
+                };
+                        
+                EventUtil.removeEventHandler = function (oTarget, sEventType, fnHandler) {
+                    if (oTarget.removeEventListener) {
+                        oTarget.removeEventListener(sEventType, fnHandler, false);
+                    } else if (oTarget.detachEvent) {
+                        oTarget.detachEvent("on" + sEventType, fnHandler);
+                    } else { 
+                        oTarget["on" + sEventType] = null;
+                    }
+                };
+        
+        
+                function handleClick() {
+                    alert("Click!");
+                    var oDiv = document.getElementById("div1");
+                    EventUtil.removeEventHandler(oDiv, "click", handleClick);
+                }
+                
+                window.onload = function() {
+                    var oDiv = document.getElementById("div1");                
+                    EventUtil.addEventHandler(oDiv, "click", handleClick);
+                }
+        </script>
+    </head>
+    <body>
+
+         <div id="div1" style="background-color: red; width: 100px; height: 100px"></div>
+    </body>
+</html>

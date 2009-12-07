@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function Polygon(iSides) {
+    this.sides  = iSides;
+}
+
+Polygon.prototype.getArea = function () {
+    return 0;
+};    
+
+function Triangle(iBase, iHeight) {
+    Polygon.call(this, 3);
+    this.base = iBase;
+    this.height = iHeight;
+}
+
+Triangle.prototype.getArea = function () {
+    return 0.5 * this.base * this.height;
+};    
+
+function Rectangle(iLength, iWidth) {
+    Polygon.call(this, 4);
+    this.length = iLength;
+    this.width = iWidth;
+}
+
+Rectangle.prototype.getArea = function () {
+    return this.length * this.width;
+};    
+
+
+var triangle = new Triangle(12, 4);
+var rectangle = new Rectangle(22, 10);
+
+alert(triangle.sides);
+alert(triangle.getArea());
+
+alert(rectangle.sides);
+alert(rectangle.getArea());
+
+</script>
+ 
+</body>
+</html>

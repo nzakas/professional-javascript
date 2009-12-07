@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Cross-Browser Flash Detect Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            function detectFlash() {
+                if (navigator.mimeTypes.length > 0) {
+                    return navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin != null;
+                } else if (window.ActiveXObject) {
+                    try {
+                        new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+                        return true;
+                    } catch (oError) {
+                        return false;
+                    }
+                } else {
+                    //no way to detect!
+                    return false;
+                }
+            }
+            
+            if (detectFlash()){
+                alert("You have Flash installed.");
+            } else {
+                alert("You do not have Flash installed.");
+            }
+
+        </script>
+    </body>
+</html>

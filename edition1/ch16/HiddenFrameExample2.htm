@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Hidden Frame Example (Main)</title>
+        <script type="text/javascript">
+        
+            var oHiddenFrame = null;
+            
+            function getServerInfo() {
+                if (oHiddenFrame == null) {
+                    oHiddenFrame = document.createElement("iframe");
+                    oHiddenFrame.name = "hiddenFrame";
+                    oHiddenFrame.id = "hiddenFrame";
+                    oHiddenFrame.style.height = "0px";
+                    oHiddenFrame.style.width = "0px";
+                    oHiddenFrame.style.position = "absolute";
+                    oHiddenFrame.style.visibility = "hidden";
+                    document.body.appendChild(oHiddenFrame);                
+                }
+            
+                setTimeout(function () {
+                    frames["hiddenFrame"].location.href = "HiddenFrameExampleCom2.htm";
+                }, 10);
+            }
+        
+            function handleResponse(sResponseText) {
+                alert("The server sent back this message: " + sResponseText);
+            }
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a call to the server using a hidden frame.</p>
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

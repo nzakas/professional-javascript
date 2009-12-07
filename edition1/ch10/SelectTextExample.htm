@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Select Text Example</title>
+        <script type="text/javascript">
+            function selectText() {
+                var oTextbox1 = document.getElementById("txt1");
+                oTextbox1.focus();
+                oTextbox1.select();
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" size="12" id="txt1" value="initial value" /><br />
+        <input type="button" value="Select Text" onclick="selectText()" />
+    </body>
+</html>

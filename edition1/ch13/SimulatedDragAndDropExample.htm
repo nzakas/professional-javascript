@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Simulated Drag And Drop Example</title>
+        <script type="text/javascript">
+        
+            function handleMouseMove(oEvent) {
+                var oDiv = document.getElementById("div1");
+                oDiv.style.left = oEvent.clientX;
+                oDiv.style.top = oEvent.clientY;
+            }
+                                  
+        </script>
+        <style type="text/css">
+            #div1 {
+                background-color: red;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body onmousemove="handleMouseMove(event)">
+        <p>Try moving your mouse around.</p>
+        <p><div id="div1"></div> </p>
+    </body>
+</html>

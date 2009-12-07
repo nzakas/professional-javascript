@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Listbox Remove Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+            function removeItem() {
+                var oListbox = document.getElementById("selListbox");
+                var oTxtIndex = document.getElementById("txtIndex");
+     
+                ListUtil.remove(oListbox, parseInt(oTxtIndex.value));
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox" size="5">
+                 <option>Original Value 0</option>
+                 <option>Original Value 1</option>
+                 <option>Original Value 2</option>
+                 <option>Original Value 3</option>
+                 <option>Original Value 4</option>
+            </select><br />
+            Click the "Remove" button to remove the item with this position:<br />
+            <input type="text" id="txtIndex" /><br />
+            <input type="button" value="Remove" onclick="removeItem()" />
+       </form>
+    </body>
+</html>

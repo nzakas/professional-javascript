@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                if ((isMinIE5_5 && isWin) || (isMinMoz1 && isUnix) 
+                   || (isMinSafari1 && isMac)) {
+
+                  document.getElementById("divLogin").style.visibility = "visible";
+                  document.getElementById("divError").style.visibility = "hidden"
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <form method="post" action="DoLogin.jsp">
+            <div style="border: 2px dashed blue; background-color: #dedede; height: 300px; padding: 10px">
+                <div id="divError" style="position: absolute; left: 20px; top: 100px; ">
+                    This Web application requires one of the following:
+                    <ul>
+                        <li>Internet Explorer 5.5 or higher for Windows</li>
+                        <li>Mozilla 1.0 or higher for Unix</li>
+                        <li>Safari 1.0 or higher for Macintosh</li>
+                    </ul>
+                    <noscript>
+                      <p>This Web application also requires JavaScript (if you are using one of the above browsers, make sure that JavaScript is enabled).</p>
+                    </noscript>
+                </div>
+                <div id="divLogin" style="position: absolute; left: 20px; top: 100px; visibility: hidden">
+                    <table border="0" width="100%" height="100%"><tr><td align="center">
+                    <table border="0">
+                        <tr>
+                            <td>Username:</td><td><input type="text" name="txtUsername" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td><td><input type="password" name="txtPassword" /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td><td><input type="Submit" value="Login" /></td>
+                        </tr>
+                    </table>
+                </td></tr></table>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

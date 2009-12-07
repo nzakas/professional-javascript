@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Listbox Selected Index Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+            function showSelectedIndexes() {
+                var oListbox = document.getElementById("selListbox");
+                var arrIndexes = ListUtil.getSelectedIndexes(oListbox);
+                alert("There are " + arrIndexes.length + " option selected."
+                      + "The options have the indexes " + arrIndexes + ".");
+            } 
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox" size="5" multiple="multiple">
+                 <option>Original Value 0</option>
+                 <option>Original Value 1</option>
+                 <option>Original Value 2</option>
+                 <option>Original Value 3</option>
+                 <option>Original Value 4</option>
+            </select><br />
+            Select more than one option (by using the Shift or Ctrl keys) in the listbox and click "Show Selected Indexes".<br />
+            <input type="button" value="Show Selected Indexes" onclick="showSelectedIndexes()" />
+       </form>
+    </body>
+</html>

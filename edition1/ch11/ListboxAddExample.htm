@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Listbox Add Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+            function addItem() {
+                var oListbox = document.getElementById("selListbox");
+                var oTxtName = document.getElementById("txtName");
+                var oTxtValue = document.getElementById("txtValue");
+     
+                ListUtil.add(oListbox, oTxtName.value, oTxtValue.value);
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox" size="5">
+                 <option>Original Value</option>
+            </select><br />
+            Click the "Add" button to add an item with the following information:<br />
+            Name: <input type="text" id="txtName" /><br />
+            Value: <input type="text" id="txtValue" /><br />
+            <input type="button" value="Add" onclick="addItem()" />
+       </form>
+    </body>
+<html>

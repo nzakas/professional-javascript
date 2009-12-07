@@ -1,0 +1,30 @@
+<html>
+    <head>
+	      <title>Cross-Browser Web Service Example</title>
+        
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="stringbuffer.js"></script>
+        <script type="text/javascript" src="http.js"></script>
+        <script type="text/javascript" src="webservice.js"></script>
+        <script>
+            function callWebService() {           
+            
+                var sZip = document.getElementById("txtZip").value;
+                
+                var oService = new TemperatureService();
+                var fResult = oService.send(sZip);
+                
+                alert("It is currently " + fResult + " degrees in that zip code.");                    
+            }
+
+        </script>
+    </head>
+    <body>
+        <p>This example uses the cross-browser <code>TemperatureService</code> object
+        to get the temperature in a given zip code. By default, this will not work in
+        newer browsers.</p>
+        <p><input type="text" id="txtZip" size="10" />
+        <input type="button" value="Get Temperature" onclick="callWebService()" /></p>
+    </body>
+
+</html>

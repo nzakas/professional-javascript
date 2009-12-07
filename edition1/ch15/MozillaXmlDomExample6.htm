@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Mozilla XML DOM Example</title>
+        <script type="text/javascript">
+        Node.prototype.__defineGetter__("xml", function () {
+            var oSerializer = new XMLSerializer();
+            return oSerializer.serializeToString(this, "text/xml");
+        });
+        </script>
+ 
+    </head>
+    <body>
+        <p>This example loads an XML file and displays the contents in an alert.</p>
+        <script type="text/javascript">
+            var oXmlDom = document.implementation.createDocument("","",null);
+            
+            oXmlDom.async = false;
+            oXmlDom.load("errors.xml");
+            
+            var reError = />([\s\S]*?)Location:([\s\S]*?)Line Number (\d+), Column (\d+):<sourcetext>([\s\S]*?)(?:\-*\^)/;
+        
+            if (oXmlDom.documentElement.tagName == "parsererror") {
+                reError.test(oXmlDom.xml);
+                alert("An error occurred:\nDescription: "
+                    + RegExp.$1 + "\n"
+                    + "File: " + RegExp.$2 + "\n"
+                    + "Line: " + RegExp.$3 + "\n"
+                    + "Line Pos: " + RegExp.$4 + "\n"
+                    + "Source: " + RegExp.$5);
+            }
+
+            
+        </script>
+ 
+ 
+    </body>
+</html>

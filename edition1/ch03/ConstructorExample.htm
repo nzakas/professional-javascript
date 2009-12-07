@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Constructor Example</title>
+</head>
+<body>
+<script type="text/javascript">
+function Car(sColor, iDoors, iMpg) {
+    this.color = sColor;
+    this.doors = iDoors;
+    this.mpg = iMpg;
+    this.showColor = function () {
+        alert(this.color)
+    };
+}
+
+var oCar1 = new Car("red", 4, 23);
+var oCar2 = new Car("blue", 3, 25);
+oCar1.showColor();    //outputs "red"
+oCar2.showColor();    //outputs "blue"
+
+
+</script>
+ 
+</body>
+</html>

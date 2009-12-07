@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Allow Characters Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript" src="textutil.js"></script>
+    </head>
+    <body>
+        <p>Try typing in the textbox. You can only type number characters.</p>
+        <form method="post" action="javascript:alert('Submitted')">
+            <textarea rows="10" cols="25" validchars="0123456789V" onkeypress="return TextUtil.allowChars(this, event)"></textarea>
+            <input type="submit" value="Submit Form" />
+        </form>
+    </body>
+</html>

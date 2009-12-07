@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>XML HTTP Request Example</title>
+        <script type="text/javascript">
+        
+                if (typeof XMLHttpRequest == "undefined" && window.ActiveXObject) {
+                    function XMLHttpRequest() {
+                
+                        var arrSignatures = ["MSXML2.XMLHTTP.5.0", "MSXML2.XMLHTTP.4.0",
+                                             "MSXML2.XMLHTTP.3.0", "MSXML2.XMLHTTP",
+                                             "Microsoft.XMLHTTP"];
+                                         
+                        for (var i=0; i < arrSignatures.length; i++) {
+                            try {
+                        
+                                var oRequest = new ActiveXObject(arrSignatures[i]);
+                            
+                                return oRequest;
+                        
+                            } catch (oError) {
+                                //ignore
+                            }
+                        }          
+                
+                        throw new Error("MSXML is not installed on your system.");               
+                    }
+                }
+
+                
+                function getServerInfo() {
+                        var oRequest = new XMLHttpRequest();
+                        oRequest.open("get", "example.txt", false);
+                        oRequest.send(null);
+                        alert("Status is " + oRequest.status + " (" + oRequest.statusText + ")");
+                        alert("Response text is: " + oRequest.responseText);
+                }
+
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a call to the server using an XML HTTP request.
+        This example works in all browsers that support an XML HTTP request object.</p>
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

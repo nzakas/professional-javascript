@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>InnerHTML Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                padding: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function useInnerHTML() {
+                var oDiv = document.getElementById("div1");
+                oDiv.innerHTML = "<b>Hello</b> world";
+            }
+        </script>
+ 
+    </head>
+    <body>
+        <div id="div1" class="special">This is my original text</div>
+        <input type="button" value="Use InnerHTML" onclick="useInnerHTML()" />
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+	      <title>Applet Example</title>
+        <script>
+            function changeAppletMessage() {   
+                var oApplet = document.applets["ExampleApplet"] || document.getElementById("ExampleApplet");
+                var oTextbox = document.getElementById("txtMessage");
+                oApplet.setMessage(oTextbox.value);                                   
+            }
+        </script>
+    </head>
+    <body>
+        <p>Enter the message you want to see in the applet.</p>
+        <p><input type="text" id="txtMessage" size="10" />
+        <input type="button" value="Set Message" onclick="changeAppletMessage()" />
+        </p>
+                
+        <object type="application/x-java-applet" code="ExampleApplet.class"
+                width="100" height="100" border="1" id="ExampleApplet">
+            <comment>
+                <applet code="ExampleApplet.class" width="100" height="100" 
+                        name="ExampleApplet"></applet>
+            </comment>            
+        </object>
+    </body>
+</html>

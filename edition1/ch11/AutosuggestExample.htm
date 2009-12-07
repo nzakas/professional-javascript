@@ -1,0 +1,26 @@
+<html>
+    <head>
+	<title>Autosuggest Textbox Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript" src="textutil.js"></script>
+        <script type="text/javascript">
+            var arrColors = ["red", "orange", "yellow", "green", "blue", "indigo", 
+                             "violet", "brown", "black", "tan", "ivory", "navy",
+                             "aqua", "white", "purple", "pink", "gray", "silver"];
+            arrColors.sort();
+            
+            function setText(oListbox, sTextboxId) {
+                var oTextbox = document.getElementById(sTextboxId);
+                if (oListbox.selectedIndex > -1) {
+                    oTextbox.value = oListbox.options[oListbox.selectedIndex].text;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>Type in a color in lowercase:<br />
+        <input type="text" value="" id="txtColor" onkeyup="TextUtil.autosuggest(this, arrColors, 'lstColors')" /><br />
+        <select id="lstColors" size="5" style="width: 200px" onclick="setText(this, 'txtColor')"></select>
+        </p>
+    </body>
+</html>

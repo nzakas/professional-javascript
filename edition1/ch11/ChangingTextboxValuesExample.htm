@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Changing a Textbox Value Example</title>
+        <script type="text/javascript">
+            function setValues() {
+                var oTextbox1 = document.getElementById("txt1");
+                var oTextbox2 = document.getElementById("txt2");
+                oTextbox1.value = "first textbox";
+                oTextbox2.value = "second textbox";
+
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" size="12" id="txt1" /><br />
+        <textarea rows="5" cols="25" id="txt2"></textarea><br />
+        <input type="button" value="Set Values" onclick="setValues()" />
+    </body>
+</html>

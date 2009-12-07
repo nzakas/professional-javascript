@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Try Catch Example</title>
+        <script type="text/javascript">
+                try {
+                    eval("a ++ b");        //causes SyntaxError
+                } catch (oException) {
+                    if (oException.name == "SyntaxError") {
+                        alert("Syntax Error: " + oException.message);
+                    } else {
+                        alert("An unexpected error occurred: " + oException.message);
+                    }
+                }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

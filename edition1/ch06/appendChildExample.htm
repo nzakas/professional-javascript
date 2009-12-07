@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>appendChild() Example</title>
+        <script type="text/javascript">
+            function appendMessage() {
+                var oNewP = document.createElement("p");
+                var oText = document.createTextNode("Hello Universe!");
+                oNewP.appendChild(oText);
+                document.body.appendChild(oNewP);
+            }
+        </script>
+    </head>
+    <body onload="appendMessage()">
+        <p>Hello World!</p>
+    </body>
+</html>

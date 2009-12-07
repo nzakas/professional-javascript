@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Try Catch Example</title>
+        <script type="text/javascript">
+                function assert(bCondition, sErrorMessage) {
+                    if (!bCondition) {
+                        throw new Error(sErrorMessage);
+                    }
+                }
+        
+                function addTwoNumbers(a, b) {
+                    assert(arguments.length == 2, "Two numbers are required.");
+                    return a + b;
+                }
+                
+                try {
+                    result = addTwoNumbers(90);
+                } catch (oException) {
+                    alert(oException.message);      //outputs "Two numbers are required."
+                }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

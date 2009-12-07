@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<script type="text/javascript">
+function createCar(color, doors, mpg) {
+    var tempcar = new Object;
+    tempcar.color = color;
+    tempcar.doors = doors;
+    tempcar.mpg = mpg;
+    tempcar.showColor = function () {
+        alert(this.color)
+    };
+
+    return tempcar;
+}
+
+var car1 = createCar("red", 4, 23);
+var car2 = createCar("blue", 3, 25);
+car1.showColor();    //outputs "red"
+car2.showColor();    //outputs "blue"
+
+
+</script>
+ 
+</body>
+</html>

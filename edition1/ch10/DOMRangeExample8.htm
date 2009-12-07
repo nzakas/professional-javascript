@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>DOM Range Example</title>
+        <script type="text/javascript">
+            function insertContent() {
+                var oP1 = document.getElementById("p1");
+                var oHello = oP1.firstChild.firstChild;
+                var oWorld = oP1.lastChild;
+                var oRange = document.createRange();
+                
+                var oSpan = document.createElement("span");
+                oSpan.style.backgroundColor = "yellow";
+                                
+                oRange.setStart(oHello, 2);
+                oRange.setEnd(oWorld, 3);
+                oRange.surroundContents(oSpan);
+                                
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> World</p>
+        <input type="button" value="Insert Content" onclick="insertContent()" />    
+        <p><strong>Note:</strong> This example uses DOM ranges and will only work in browsers that support DOM ranges. This example will fail in Internet Explorer.</p>
+    
+    </body>
+</html>

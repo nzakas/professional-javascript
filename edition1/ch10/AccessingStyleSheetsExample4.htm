@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Accessing Style Sheets Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                height: 10px;
+                width: 10px;
+                margin: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function changeBackgroundColor() {
+                var oDiv = document.getElementById("div1");
+                oDiv.style.backgroundColor = "blue";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1" class="special"></div>
+        <div id="div2" class="special"></div>
+        <div id="div3" class="special"></div>
+        
+        <input type="button" value="Change Background Color" onclick="changeBackgroundColor()" />
+    </body>
+</html>

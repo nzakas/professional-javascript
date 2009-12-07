@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Flash Example</title>
+        <script type="text/javascript">
+        
+            function ExampleMovie_DoFSCommand(sCommand, vArgument) {
+                alert("The command is \"" + sCommand + "\" and the argument is \"" + vArgument + "\".");
+            }
+        
+        </script>
+        <script language="VBScript">
+            Sub ExampleMovie_FSCommand(ByVal sCommand, ByVal vArgument)
+                call ExampleMovie_DoFSCommand(sCommand, vArgument)
+            end sub
+        </script>        
+
+    </head>
+    <body>
+        <p>This example shows how a Flash Movie can pass information to a JavaScript
+        function using <code>fscommand()</code> from within the movie. Currently, Firefox has problems with this example (it won't work).</p>
+        <object type="application/x-shockwave-flash" data="ExampleMovie4.swf"
+            width="300" height="300" id="ExampleMovie">
+            <param name="movie" value="ExampleMovie4.swf" />
+        </object>
+
+    </body>
+</html>

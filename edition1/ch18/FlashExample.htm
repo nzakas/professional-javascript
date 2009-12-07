@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Flash Example</title>
+        <script type="text/javascript">
+            function startMovie() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                oFlashMovie.Play();
+            }
+        
+            function stopMovie() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                oFlashMovie.StopPlay();
+            }
+        
+            function rewindMovie() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                oFlashMovie.Rewind();
+            }
+            
+            function displayFrameCount() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                
+                if (typeof oFlashMovie == "function") {
+                    alert("There are " + oFlashMovie.TotalFrames() + " frames in the movie.");
+                } else {
+                    alert("There are " + oFlashMovie.TotalFrames + " frames in the movie.");
+                }
+            }
+        
+            function displayIsMoviePlaying() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                
+                if (oFlashMovie.IsPlaying()) {
+                    alert("The movie is playing.");
+                } else {
+                    alert("The movie is stopped.");
+                }
+            }
+        
+        </script>
+
+    </head>
+    <body>
+        <object type="application/x-shockwave-flash" data="ExampleMovie.swf" 
+        width="200" height="200" id="ExampleMovie">
+            <param name="movie" value="ExampleMovie.swf" />
+            <param name="play" value="false" />
+        </object>
+        <p>
+        <input type="button" value="Play" onclick="startMovie()" />
+        <input type="button" value="Stop" onclick="stopMovie()" />
+        <input type="button" value="Rewind" onclick="rewindMovie()" />
+        <br />
+        <input type="button" value="How Many Frames?" onclick="displayFrameCount()" />
+        <br />
+        <input type="button" value="Is Movie Playing?" onclick="displayIsMoviePlaying()" />
+        
+    </body>
+</html>

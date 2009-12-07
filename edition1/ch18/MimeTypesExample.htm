@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>MIME Types Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            if (navigator.mimeTypes) {
+                document.writeln("<h3>Supported MIME Types (Mozilla only):</h3>");
+                document.writeln("<ul>");
+                for (var i=0; i < navigator.mimeTypes.length; i++) {
+                    document.writeln("<li>" + navigator.mimeTypes[i].type + " (" 
+                        + navigator.mimeTypes[i].description + ", " 
+                        + navigator.mimeTypes[i].suffixes + ")</li>");
+                    
+                }
+                document.writeln("</ul>");
+            }
+        </script>
+    </body>
+</html>

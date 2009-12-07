@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Mouse Events Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript">
+        
+            EventUtil.addEventHandler(window, "load", function () {
+                var oDiv = document.getElementById("div1");
+                
+                EventUtil.addEventHandler(oDiv, "mouseover", handleEvent);
+                EventUtil.addEventHandler(oDiv, "mouseout", handleEvent);
+                EventUtil.addEventHandler(oDiv, "mousedown", handleEvent);
+                EventUtil.addEventHandler(oDiv, "mouseup", handleEvent);
+                EventUtil.addEventHandler(oDiv, "click", handleEvent);
+                EventUtil.addEventHandler(oDiv, "dblclick", handleEvent);                
+                
+            });
+            
+            function handleEvent() {
+                var oEvent = EventUtil.getEvent();
+                
+                var oTextbox = document.getElementById("txt1");
+                oTextbox.value += "\n>" + oEvent.type;
+                oTextbox.value += "\n    target is " + oEvent.target.tagName;
+                if (oEvent.relatedTarget) {
+                    oTextbox.value += "\n    relatedTarget is " + oEvent.relatedTarget.tagName;
+                }
+            }
+   
+        </script>
+    </head>
+    <body>
+
+        <p>Use your mouse to click and double click the red square.</p>
+        <div style="width: 100px; height: 100px; background-color: red" id="div1"></div>
+        <p><textarea id="txt1" rows="15" cols="50"></textarea></p>
+    </body>
+</html>

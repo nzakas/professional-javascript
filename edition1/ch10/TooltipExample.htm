@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Style Example</title>
+        <script type="text/javascript">
+            function showTip(oEvent) {
+                var oDiv = document.getElementById("divTip1");
+                oDiv.style.visibility = "visible";
+                oDiv.style.left = oEvent.clientX + 5;
+                oDiv.style.top = oEvent.clientY + 5;
+            }
+
+            function hideTip(oEvent) {
+                var oDiv = document.getElementById("divTip1");
+                oDiv.style.visibility = "hidden";
+            }
+        </script>
+    </head>
+    <body>
+        <p>Move your mouse over the red square.</p>
+        <div id="div1" 
+             style="background-color: red; height: 50px; width: 50px"
+             onmouseover="showTip(event)" onmouseout="hideTip(event)"></div>
+
+         <div id="divTip1" 
+              style="background-color: yellow; position: absolute; visibility: hidden; padding: 5px">
+            <span style="font-weight: bold">Custom Tooltip</span><br />
+            More details can go here.
+         </div>
+    </body>
+</html>

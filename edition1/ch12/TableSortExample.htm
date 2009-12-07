@@ -1,0 +1,68 @@
+<html>
+    <head>
+	<title>Table Sort Example</title>
+        <script type="text/javascript">
+        
+            function compareTRs(oTR1, oTR2) {
+                var sValue1 = oTR1.cells[0].firstChild.nodeValue;
+                var sValue2 = oTR2.cells[0].firstChild.nodeValue;
+
+                return sValue1.localeCompare(sValue2);
+            }
+
+    
+            function sortTable(sTableID) {
+                var oTable = document.getElementById(sTableID);
+                var oTBody = oTable.tBodies[0];
+                var colDataRows = oTBody.rows;
+                var aTRs = new Array;
+        
+                for (var i=0; i < colDataRows.length; i++) {
+                    aTRs[i] = colDataRows[i];
+                }
+        
+                aTRs.sort(compareTRs);
+        
+                var oFragment = document.createDocumentFragment();
+                for (var i=0; i < aTRs.length; i++) {
+                    oFragment.appendChild(aTRs[i]);
+                }
+       
+                oTBody.appendChild(oFragment);
+            }
+
+    
+        </script>
+    </head>
+
+    <body>
+        <p>Click on the table header to sort in ascending order.</p>
+        <table border="1" id="tblSort">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('tblSort')" style="cursor:pointer">Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Smith</td>
+                </tr>
+                <tr>
+                    <td>Johnson</td>
+                </tr>
+                <tr>
+                    <td>Henderson</td>
+                </tr>
+                <tr>
+                    <td>Williams</td>
+                </tr>
+                <tr>
+                    <td>Gilliam</td>
+                </tr>
+                <tr>
+                    <td>Walker</td>
+                </tr>
+            </tbody>
+        </table>        
+    </body>
+</html>

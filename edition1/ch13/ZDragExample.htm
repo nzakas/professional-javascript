@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Simulated Drag And Drop Example</title>
+        <script type="text/javascript" src="zdragdroplib.js"></script>
+        <script type="text/javascript">
+ 
+            function doLoad() {
+                var oDraggable = new zDraggable(document.getElementById("div1"), zDraggable.DRAG_X | zDraggable.DRAG_Y);
+                var oDropTarget = new zDropTarget(document.getElementById("divDropTarget"));
+                oDraggable.addDropTarget(oDropTarget);
+                oDropTarget.addEventListener("drop", function (oEvent) { 
+                    oEvent.relatedTarget.moveTo(oDropTarget.getLeft(), oDropTarget.getTop());
+                });
+            }
+            
+        </script>
+        <style type="text/css">
+            #div1 {
+                background-color: red;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                z-index: 10;
+            }
+            
+            #divDropTarget {
+                background-color: blue;
+                height: 200px;
+                width: 200px;
+                position: absolute;
+                left: 300px;                
+            }
+        </style>
+    </head>
+    <body onload="doLoad()">
+        <p>Try dragging the red square onto the blue square.</p>
+        <div id="div1"></div>
+        <div id="divDropTarget"></div>
+    </body>
+</html>

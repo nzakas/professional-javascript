@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>OuterHTML Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                padding: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function useOuterHTML() {
+                var oDiv = document.getElementById("div1");
+                oDiv.outerHTML = "<p>This is a paragraph</p>";
+            }
+        </script>
+ 
+    </head>
+    <body>
+        <div id="div1" class="special">This is my original text</div>
+        <input type="button" value="Use OuterHTML" onclick="useOuterHTML()" />
+        <p><strong>Note: </strong> Firefox does not support the <code>outerHTML</code> property so this example will fail.</p>
+
+    </body>
+</html>

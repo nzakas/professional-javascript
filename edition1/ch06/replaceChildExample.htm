@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>replaceChild() Example</title>
+        <script type="text/javascript">
+            function replaceMessage() {
+                var oNewP = document.createElement("p");
+                var oText = document.createTextNode("Hello Universe!");
+                oNewP.appendChild(oText);
+                var oOldP = document.body.getElementsByTagName("p")[0];
+                oOldP.parentNode.replaceChild(oNewP, oOldP);
+            }
+        </script>
+    </head>
+    <body onload="replaceMessage()">
+        <p>Hello World!</p>
+    </body>
+</html>

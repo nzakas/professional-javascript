@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>insertBefore() Example</title>
+        <script type="text/javascript">
+            function addMessages() {
+                var arrText = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"];
+                
+                var oFragment = document.createDocumentFragment();
+                
+                for (var i=0; i < arrText.length; i++) {
+                    var oP = document.createElement("p");
+                    var oText = document.createTextNode(arrText[i]);
+                    oP.appendChild(oText);
+                    oFragment.appendChild(oP);
+                }
+                
+                document.body.appendChild(oFragment);
+
+            }
+        </script>
+    </head>
+    <body onload="addMessages()">
+
+    </body>
+</html>

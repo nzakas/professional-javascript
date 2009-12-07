@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Mozilla Web Service Example</title>
+        <script type="text/javascript">
+				
+        var sWSDL = "http://www.xmethods.net/sd/2001/TemperatureService.wsdl";
+				var sPort = "TemperaturePort";
+        var oProxy = null;
+				
+				//the callback object for proxy creation
+        var oProxyCreateCallback = {
+            onLoad: function(oCreatedProxy) {
+        		
+                oProxy = oCreatedProxy;
+                oProxy.setListener(oGetTempCallback);
+        		
+            },
+        		
+            onError: function(sError) {
+                alert(sError);
+            }		
+        				
+        };	
+				
+				//the callback object for the getTemp() method
+        var oGetTempCallback = {
+            getTempCallback: function (iDegrees) {
+        		    alert("It is currently " + iDegrees + " degrees in that zip code.");
+        		}
+        }				
+
+				//creates the proxy
+        function createProxy() {
+           try {
+                var oFactory = new WebServiceProxyFactory();
+                oFactory.createProxyAsync(sWSDL, sPort, "", true, oProxyCreateCallback);
+            } catch (oError) {
+                alert(oError.message);
+            }					
+        }
+        
+				//calls the web srevice
+        function callWebService() {                        
+        
+            if (oProxy) {
+                var sZip = document.getElementById("txtZip").value;    
+                oProxy.getTemp(sZip);   
+            } else {
+                alert("Proxy not available.");
+            }
+                     
+        }
+				
+				//create the proxy when the page loads so it will be ready 
+				//when the button is pressed
+				window.onload = createProxy;
+				
+        </script>
+    </head>
+    <body>
+		    <p>This example uses the Mozilla <acronym title="Web Services Description Language">WSDL</acronym> proxy
+				to make an <em>asynchronous</em> call to <code>getTemp</code>.
+        <p><input type="text" id="txtZip" size="10" /><input type="button" value="Get Temperature" onclick="callWebService()" />
+    </body>
+</html>

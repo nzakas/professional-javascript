@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Blur vs. Change Example</title>
+    </head>
+    <body>
+        <p>Type a few characters in the textbox and then tab to the Submit button.
+        Then, click on the textbox and tab back to the Submit button without
+        changing the text.</p>
+        <form method="post" action="javascript:alert('Submitted!')">
+            <!-- hidden field -->
+            <input type="hidden" name="hidden1" value="hidden value" />
+            
+            <!-- textbox that should get focus -->
+            <input type="text" name="textbox1" value="" onblur="alert('Blur')" onchange="alert('Change')"/>
+            
+            <!-- submit button -->
+            <input type="submit" value="Submit Form" />
+       </form>
+    </body> 
+</html> 

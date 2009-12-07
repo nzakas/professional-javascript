@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Exception Test</title>
+       <script type="text/javascript">
+            function handleLoad() {
+                 window.openMySpecialWindow();
+                 alert("Loaded");
+            }
+
+            function handleClick() {
+                alert("Clicked");
+            }
+        </script>
+    </head>
+    <body onload="handleLoad()">
+        <p>Even though an error occurs when the page is loaded, you can still
+        click the button and have it work correctly.</p>
+        <input type="button" value="Click Me" onclick="handleClick()" />
+    </body>
+</html>

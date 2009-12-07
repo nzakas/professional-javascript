@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Example</title>
+        <script type="text/javascript" src="xbObjects.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+_classes.registerClass("ClassA");
+
+function ClassA(sColor) {
+    _classes.defineClass("ClassA", prototypeFunction);
+
+    this.init(sColor);
+
+    function prototypeFunction() {
+        
+        ClassA.prototype.init = function (sColor) {
+            this.parentMethod("init");
+            this.color = sColor;
+        };
+
+        ClassA.prototype.sayColor = function () {
+            alert(this.color);
+        };
+
+    }
+}
+
+var objA = new ClassA("red");
+objA.sayColor();    //outputs "red"
+
+</script>
+ 
+</body>
+</html>

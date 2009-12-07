@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Debug Example</title>
+        <script type="text/javascript">
+                function assert(bCondition, sErrorMessage) {
+                    if (!bCondition) {
+                        throw new Error(sErrorMessage);
+                    }
+                }
+
+        
+                function divide(iNum1, iNum2) {
+                    assert(arguments.length == 2, "divide() requires two arguments.");
+                    assert(typeof iNum1 == "number" && typeof iNum2 == "number", 
+                                      "divide() requires two numbers for arguments.");
+                
+                    return iNum1.valueOf() / iNum2.valueOf();
+                }
+                
+                alert(divide("a"));
+
+
+        </script>
+    </head>
+    <body>
+        <p>This page uses assertions to throw a custom JavaScript error.</p>
+    </body>
+</html>

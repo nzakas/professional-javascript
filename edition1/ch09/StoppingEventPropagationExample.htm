@@ -1,0 +1,19 @@
+<html onclick="alert('html')">
+    <head>
+        <title>Stopping Event Propagation Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript">
+            function handleClick(oEvent) {
+                alert("input");
+                if (isIE) {
+                    oEvent.cancelBubble = true;
+                } else {
+                    oEvent.stopPropagation();
+                }
+            }
+        </script>
+    </head>
+    <body onclick="alert('body')">
+        <input type="button" value="Click Me" onclick="handleClick(event)" />
+    </body>
+</html>

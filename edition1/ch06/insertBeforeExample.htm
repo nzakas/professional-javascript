@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>insertBefore() Example</title>
+        <script type="text/javascript">
+            function insertMessage() {
+                var oNewP = document.createElement("p");
+                var oText = document.createTextNode("Hello Universe!");
+                oNewP.appendChild(oText);
+                var oOldP = document.getElementsByTagName("p")[0];
+                document.body.insertBefore(oNewP, oOldP);
+            }
+        </script>
+    </head>
+    <body onload="insertMessage()">
+        <p>Hello World!</p>
+    </body>
+</html>

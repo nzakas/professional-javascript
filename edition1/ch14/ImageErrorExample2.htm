@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Image Error Test</title>
+        <script type="text/javascript">
+            function handleLoad() {
+                document.images[0].onerror = function () {
+                    alert("An error occurred loading the image."); 
+                };
+                
+                document.images[0].src = "blue.gif";
+            }
+        </script>
+    </head>
+    <body onload="handleLoad()">
+        <p>The image below attempts to load a file that doesn't exist.</p>
+        <img />
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Retrieving a Textbox Value Example</title>
+        <script type="text/javascript">
+            function getValues() {
+                var oTextbox1 = document.getElementById("txt1");
+                var oTextbox2 = document.getElementById("txt2");
+                alert("The value of txt1 is \"" + oTextbox1.value + "\"\n" +
+                      "The value of txt2 is \"" + oTextbox2.value + "\"");
+
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" size="12" id="txt1" /><br />
+        <textarea rows="5" cols="25" id="txt2"></textarea><br />
+        <input type="button" value="Get Values" onclick="getValues()" />
+    </body>
+</html>

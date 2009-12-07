@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Example</title>
+        <script type="text/javascript" src="zinherit.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+function ClassX() {
+    this.messageX = "This is the X message.";
+
+    if (typeof ClassX._initialized == "undefined") {
+        
+        ClassX.prototype.sayMessageX = function () {
+            alert(this.messageX);
+        };
+
+        ClassX._initialized = true;
+    }
+}
+
+function ClassY() {
+    this.messageY = "This is the Y message.";
+
+    if (typeof ClassY._initialized == "undefined") {
+        
+        ClassY.prototype.sayMessageY = function () {
+            alert(this.messageY);
+        };
+
+        ClassY._initialized = true;
+    }
+}
+
+function ClassZ() {
+    ClassX.apply(this);
+    ClassY.apply(this);
+    this.messageZ = "This is the Z message.";
+
+    if (typeof ClassZ._initialized == "undefined") {
+        
+        ClassZ.prototype.inheritFrom(ClassX);
+        ClassZ.prototype.inheritFrom(ClassY);
+
+        ClassZ.prototype.sayMessageZ = function () {
+            alert(this.messageZ);
+        };
+
+        ClassZ._initialized = true;
+    }
+}
+
+var objZ = new ClassZ();
+objZ.sayMessageX();
+objZ.sayMessageY();
+objZ.sayMessageZ();
+</script>
+ 
+</body>
+</html>

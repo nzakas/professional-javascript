@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>MIME Types Example</title>
+        <script type="text/javascript">
+        
+            function findPlugin() {
+                var sType = document.getElementById("txtMimeType").value;
+                
+                if (navigator.mimeTypes) {
+                    if (navigator.mimeTypes[sType]) {
+                        if (navigator.mimeTypes[sType].enabledPlugin) {
+                            alert("The MIME type \"" + sType + "\" uses the plugin \""
+                                  + navigator.mimeTypes[sType].enabledPlugin.name + "\".");
+                        } else {
+                            alert("The MIME type \"" + sType + "\" has no registered plugin.");
+                        }
+                    } else {
+                        alert("The MIME type \"" + sType + "\" is not registered.");
+                    }  
+                } else {
+                    alert("Browser doesn't support navigator.mimeTypes.");
+                }        
+            }
+            
+        </script>
+    </head>
+    <body>
+        <p>Type the name of the <acronym title="Multipurpose Internet Mail Extension">MIME</acronym>
+        you want to check and click the Find Plugin button (Mozilla only).</p>
+        <p><input type="text" id="txtMimeType" />
+        <input type="button" value="Find Plugin" onclick="findPlugin()" /></p>
+    </body>
+</html>

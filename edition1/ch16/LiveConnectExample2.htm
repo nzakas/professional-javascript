@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>LiveConnect Example</title>
+        <script type="text/javascript">
+        
+                function httpPost(sURL, sParams) {
+                                       
+                    var oURL = new java.net.URL(sURL);
+                    var oConnection = oURL.openConnection();
+                
+                    oConnection.setDoInput(true);
+                    oConnection.setDoOutput(true);
+                    oConnection.setUseCaches(false);                
+                    oConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");                
+                
+                    var oOutput = new java.io.DataOutputStream(oConnection.getOutputStream());
+                    oOutput.writeBytes(sParams);
+                    oOutput.flush();
+                    oOutput.close();
+                
+                    var sLine = "", sResponseText = "";
+                
+                    var oInput = new java.io.DataInputStream(oConnection.getInputStream());                                
+                    sLine = oInput.readLine();
+                    
+                    while (sLine != null){                                
+                        sResponseText += sLine + "\n";
+                        sLine = oInput.readLine();
+                    }
+                                                  
+                    oInput.close();                                  
+                
+                    return sResponseText;                         
+                }
+                
+                function addPostParam(sParams, sParamName, sParamValue) {
+                    if (sParams.length > 0) {
+                        sParams += "&";
+                    }
+                    return sParams + encodeURIComponent(sParamName) + "=" 
+                                   + encodeURIComponent(sParamValue);
+                }
+                
+                function getServerInfo() {
+                    var sParams = "";
+                    sParams = addPostParam(sParams, "name", "Nicholas");
+                    sParams = addPostParam(sParams, "book", "Professional JavaScript");
+                    var sResponseText = httpPost("http://localhost/reflectpost.php", sParams);
+                        
+                    alert("Response text is: " + sResponseText);
+                }
+
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a call to the server using LiveConnect.
+        This example will only work when run in a Web server environment. You'll need
+        to change the URL <code>http://localhost/reflectpost.php</code> to point to a valid
+        file on the server. If this works, you should see the same values that
+        were POSTed to the URL.</p>
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

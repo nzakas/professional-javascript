@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>OnError Example</title>
+        <script type="text/javascript">
+            window.onerror = function (sMessage, sUrl, sLine) {
+                alert("An error occurred:\n" + sMessage + "\nURL: " + sUrl + "\nLine Number: " + sLine);
+                return true;
+            }
+            alert("Syntax error.";
+        </script>
+    </head>
+    <body onload="nonExistentFunction()">
+        <p>The syntax error on this page comes <em>after</em> the <code>onerror</code>
+        event handler is defined, so the custom dialog catches it.</p>
+        <p><strong>Note:</strong> This may not work in newer browsers with tighter security restrictions.</p>
+    </body>
+</html>

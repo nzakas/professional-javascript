@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>OnError Example</title>
+        <script type="text/javascript">
+            window.onerror = function (sMessage, sUrl, sLine) {
+                alert("An error occurred:\n" + sMessage + "\nURL: " + sUrl + "\nLine Number: " + sLine);
+                return true;
+            }
+        </script>
+    </head>
+    <body onload="nonExistentFunction()">
+    </body>
+</html>

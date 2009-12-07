@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Listbox Selected Index Example</title>
+        <script type="text/javascript">
+            function showSelectedIndex() {
+                var oListbox = document.getElementById("selListbox");
+                alert(oListbox.selectedIndex);
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox" size="5">
+                 <option>Original Value 0</option>
+                 <option>Original Value 1</option>
+                 <option>Original Value 2</option>
+                 <option>Original Value 3</option>
+                 <option>Original Value 4</option>
+            </select><br />
+            Select an option in the listbox and click "Show Selected Index".<br />
+            <input type="button" value="Show Selected Index" onclick="showSelectedIndex()" />
+       </form>
+    </body>
+</html>

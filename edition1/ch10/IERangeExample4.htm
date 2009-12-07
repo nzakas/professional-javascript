@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>IE Range Example</title>
+        <script type="text/javascript">
+            //This example shows what happens when you try to use
+            //pasteHTML() while HTML code is selected.
+            function useRanges() {
+                var oRange = document.body.createTextRange();
+                var oP1 = document.getElementById("p1");
+                oRange.moveToElementText(oP1);
+                oRange.pasteHTML("<p><em>Howdy</em> World</p>");
+                alert(document.body.innerHTML);
+            }
+        </script>
+    </head>
+    <body><p id="p1"><b>Hello</b> World</p>
+        <input type="button" value="Use Ranges" onclick="useRanges()" />      
+        <p><strong>Note:</strong> This example uses Internet Explorer ranges and will only work on Internet Explorer.</p>
+  
+    </body>
+</html>

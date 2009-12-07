@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>removeChild() Example</title>
+        <script type="text/javascript">
+            function removeMessage() {
+                var oP = document.body.getElementsByTagName("p")[0];
+                oP.parentNode.removeChild(oP);
+            }
+        </script>
+    </head>
+    <body onload="removeMessage()">
+        <p>Hello World!</p>
+    </body>
+</html>

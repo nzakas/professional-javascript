@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<script type="text/javascript">
+function selectFrom(iFirstValue, iLastValue) {
+    var iChoices = iLastValue - iFirstValue + 1;
+    return Math.floor(Math.random() * iChoices + iFirstValue);
+}
+
+//select from between 2 and 10
+var iNum = selectFrom(2, 10);
+
+var aColors = ["red", "green", "blue", "yellow", "black", "purple", "brown"];
+var sColor = aColors[selectFrom(0, aColors.length-1)];
+
+alert(sColor);
+</script>
+ 
+</body>
+</html>

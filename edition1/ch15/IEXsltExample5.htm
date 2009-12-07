@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>IE XSLT Example</title>   
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="xmldom.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                var oXmlDom = new XmlDom();
+                var oXslDom = new ActiveXObject("Msxml2.FreeThreadedDOMDocument");
+                
+                oXmlDom.load("employees.xml");
+                oXslDom.load("employees3.xslt");
+                
+                var oTemplate = new ActiveXObject("Msxml2.XSLTemplate");
+                oTemplate.stylesheet = oXslDom;
+                
+                var oProcessor = oTemplate.createProcessor();
+                oProcessor.input = oXmlDom;
+                oProcessor.addParameter("message", "Hello World!");  
+                oProcessor.setStartMode("position-first");              
+                oProcessor.transform();                
+
+                var oDiv = document.getElementById("divResult");
+                oDiv.innerHTML = oProcessor.output;
+                
+      
+
+            }
+        </script>           
+    </head>
+    <body>
+        <p>This example loads employees.xml and transforms it using employees3.xslt. 
+        The parameter <code>message</code> is passed in and is equal to &quot;Hello
+        World!&quot;. The start mode is set to "position-first", so the employee's position is first and
+        the name is second. The resulting code is then displayed.</p>
+        <div id="divResult"></div>
+    </body>
+</html>

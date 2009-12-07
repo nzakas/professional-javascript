@@ -1,0 +1,18 @@
+<html>
+    <head>
+	      <title>Applet Example</title>
+        <script>            
+            function getMessageFromApplet(sMessage) {   
+                alert("Applet says: " + sMessage);                                
+            }
+        </script>
+    </head>
+    <body>
+        <p>This page defines a function that is called by the applet once
+        it is loaded.</p>                
+        <object type="application/x-java-applet" code="ExampleApplet3.class"
+                width="400" height="50" id="ExampleApplet">
+            <param name="mayscript" value="true" />         
+        </object>
+    </body>
+</html>

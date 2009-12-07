@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Tab Forward Example</title>
+        <script type="text/javascript" src="formutil.js"></script>
+    </head>
+    <body>
+        <p>Enter your phone number below (U.S. style ###-###-####):</p>
+        <form method="post" action="javascript:alert('Submitted')">
+        <input type="text" size="3" maxlength="3" value="" onkeyup="FormUtil.tabForward(this)" />
+        <input type="text" size="3" maxlength="3" value="" onkeyup="FormUtil.tabForward(this)" />
+        <input type="text" size="4" maxlength="4" value="" onkeyup="FormUtil.tabForward(this)" /><br />
+        <input type="submit" value="Submit Form" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Try Catch Example</title>
+        <script type="text/javascript">
+                try {
+                    eval("a ++ b");        //causes error
+                } catch (oException) {
+                    alert("An exception occurred.");
+                    try {
+                        var arrErrors = new Array(10000000000000000000000);  //causes error
+                        arrErrors.push(exception);
+                    } catch (oException2) {
+                        alert("Another exception occurred.");
+                    }
+                } finally {
+                    alert("All done.");
+                }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

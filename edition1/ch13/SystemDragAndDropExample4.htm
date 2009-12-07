@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDragDropEvent(oEvent) {
+                var oTextbox = document.getElementById("txt1");
+                oTextbox.value +=  oEvent.type + "\n";
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the text from the textbox to the red square.
+        No drop target events fire.</p>
+        <p><input type="text" value="drag this text"
+                  ondragstart="handleDragDropEvent(event)" ondrag="handleDragDropEvent(event)"
+                  ondragend="handleDragDropEvent(event)" />
+        <div style="background-color: red; height: 100px; width: 100px"
+             ondragenter="handleDragDropEvent(event)" ondragover="handleDragDropEvent(event)" 
+             ondragleave="handleDragDropEvent(event)" ondrop="handleDragDropEvent(event)"></div></p>
+        <p><textarea rows="10" cols="25" readonly="readonly" id="txt1"></textarea></p>        
+    </body>
+</html>

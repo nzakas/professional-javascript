@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Cross-Browser HTTP Request Example</title>
+        <script type="text/javascript" src="http.js"></script>
+        <script type="text/javascript">               
+                
+                function getServerInfo() {
+                    var sURL = "http://localhost/example.txt";
+                    Http.get(sURL, function (sData) {
+                        alert("Data from server: " + sData);
+                    });
+
+                }
+
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a GET request. This example will only work
+        on a Web server. You must replace <code>http://localhost/example.txt</code>
+        with the appropriate location of a file on your server.</p>
+        
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

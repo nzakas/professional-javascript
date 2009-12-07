@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Listbox Move Example</title>
+        <script type="text/javascript" src="listutil.js"></script>
+        <script type="text/javascript">
+            function moveItem() {
+                var oListbox1 = document.getElementById("selListbox1");
+                var oListbox2 = document.getElementById("selListbox2");
+                var oTxtIndex = document.getElementById("txtIndex");
+     
+                ListUtil.move(oListbox1, oListbox2, parseInt(oTxtIndex.value));
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <select id="selListbox1" size="5">
+                 <option>Original Value 1-0</option>
+                 <option>Original Value 1-1</option>
+                 <option>Original Value 1-2</option>
+                 <option>Original Value 1-3</option>
+                 <option>Original Value 1-4</option>
+            </select>
+            <select id="selListbox2" size="5">
+                 <option>Original Value 2-0</option>
+                 <option>Original Value 2-1</option>
+                 <option>Original Value 2-2</option>
+                 <option>Original Value 2-3</option>
+                 <option>Original Value 2-4</option>
+            </select>
+            <p>Click the "Move" button to move the item with this position to the second list:<br />
+            <input type="text" id="txtIndex" /><br />
+            <input type="button" value="Move" onclick="moveItem()" /></p>
+       </form>
+    </body>
+</html>

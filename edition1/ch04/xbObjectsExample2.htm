@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Example</title>
+        <script type="text/javascript" src="xbObjects.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+_classes.registerClass("Polygon");
+
+function Polygon(iSides) {
+    
+    _classes.defineClass("Polygon", prototypeFunction);
+
+    this.init(iSides);
+    
+    function prototypeFunction() {
+    
+        Polygon.prototype.init = function(iSides) {
+            this.parentMethod("init");
+            this.sides = iSides;            
+        };
+    
+        Polygon.prototype.getArea = function () {
+            return 0;
+        };    
+    
+    }
+}
+
+_classes.registerClass("Triangle", "Polygon");
+
+function Triangle(iBase, iHeight) {
+
+    _classes.defineClass("Triangle", prototypeFunction);
+    
+    this.init(iBase,iHeight);
+    
+    function prototypeFunction() {
+        Triangle.prototype.init = function(iBase, iHeight) {
+            this.parentMethod("init", 3);
+            this.base = iBase;
+            this.height = iHeight;
+        };
+        
+        Triangle.prototype.getArea = function () {
+            return 0.5 * this.base * this.height;
+        };    
+    }
+    
+}
+
+_classes.registerClass("Rectangle", "Polygon");
+
+function Rectangle(iLength, iWidth) {
+
+    _classes.defineClass("Rectangle", prototypeFunction);
+    
+    this.init(iLength, iWidth);
+    
+    function prototypeFunction() {
+        Rectangle.prototype.init = function(iLength, iWidth) {
+            this.parentMethod("init", 4);
+            this.length = iLength;
+            this.width = iWidth;
+        }
+    
+       Rectangle.prototype.getArea = function () {
+            return this.length * this.width;
+       };    
+        
+    }
+}
+
+var triangle = new Triangle(12, 4);
+var rectangle = new Rectangle(22, 10);
+
+alert(triangle.sides);
+alert(triangle.getArea());
+
+alert(rectangle.sides);
+alert(rectangle.getArea());
+
+</script>
+ 
+</body>
+</html>

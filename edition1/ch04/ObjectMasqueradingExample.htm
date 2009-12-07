@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Example</title>
+</head>
+<body>
+<script type="text/javascript">
+function ClassA(sColor) {
+    this.color = sColor;
+    this.sayColor = function () {
+        alert(this.color);
+    };
+}
+
+function ClassB(sColor, sName) {
+    this.newMethod = ClassA;
+    this.newMethod(sColor);
+    delete this.newMethod;
+    
+    this.name = sName;
+    this.sayName = function () {
+        alert(this.name);
+    };    
+}
+
+var objA = new ClassA("red");
+var objB = new ClassB("blue", "Nicholas");
+objA.sayColor();
+objB.sayColor();
+objB.sayName();
+
+</script>
+ 
+</body>
+</html>

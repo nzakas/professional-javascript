@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+    <desc>
+		An image of a square and a circle.
+	   </desc>
+    <defs>
+        <rect id="rect1" width="200" height="200" fill="red" x="10" y="10" stroke="black"/>
+        <circle id="circle1" r="100" fill="white" stroke="black" cx="200" cy="200"/>
+    </defs>
+    <g>
+        <use xlink:href="#rect1" />
+        <use xlink:href="#circle1" />
+    </g>
+</svg>

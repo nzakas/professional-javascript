@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Debug Example</title>
+        <script type="text/javascript">
+        
+                function test_function() {
+                    opera.postError("Entering function.");
+                
+                    var iNumber1 = 5;
+                    var iNumber2 = 10;
+                
+                    opera.postError ("Before calculation.");
+                    var iResult = iNumber1 + iNumber2;
+                    opera.postError ("After calculation.");
+                
+                    opera.postError ("Leaving function.");
+                }
+                
+                test_function();
+
+
+        </script>
+    </head>
+    <body>
+        <p>This example works in Opera only.</p>
+    </body>
+</html>

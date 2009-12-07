@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDragDropEvent(oEvent) {
+               
+                switch(oEvent.type) {
+                    case "dragover":
+                    case "dragenter":
+                        oEvent.returnValue = false;
+                        break;
+                    case "drop":
+                        alert(oEvent.dataTransfer.getData("text"));
+                }
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the text from the textbox to the red square.
+        It will show you the selected text when dropped.</p>
+        <p><input type="text" value="drag this text" />
+        <div style="background-color: red; height: 100px; width: 100px"
+             ondragenter="handleDragDropEvent(event)"               
+             ondragover="handleDragDropEvent(event)" 
+             ondrop="handleDragDropEvent(event)"></div></p>
+
+    </body>
+</html>

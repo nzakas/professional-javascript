@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Hidden Frame Example (Main)</title>
+        <script type="text/javascript">
+            function getServerInfo() {
+                parent.frames["hiddenFrame"].location.href = "HiddenFrameExampleCom.htm";
+            }
+        
+            function handleResponse(sResponseText) {
+                alert("The server sent back this message: " + sResponseText);
+            }
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a call to the server using a hidden frame.</p>
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

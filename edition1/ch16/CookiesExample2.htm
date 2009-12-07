@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Cookies Example</title>   
+        <script type="text/javascript">
+                              
+                function getCookie(sName) {
+                
+                    var sRE = "(?:; )?" + sName + "=([^;]*);?";
+                    var oRE = new RegExp(sRE);
+                    
+                    if (oRE.test(document.cookie)) {
+                        return decodeURIComponent(RegExp["$1"]);
+                    } else {
+                        return null;
+                    }
+                
+                }                
+
+                window.onload = function () {
+                
+                    var sName = getCookie("personName");
+                    var sEmail = getCookie("personEmail");
+                
+                    if (sName && sEmail) {
+                        var oForm = document.forms["feedbackForm"];
+                        oForm.personName.value = sName;
+                        oForm.personEmail.value = sEmail;
+                    }
+                };
+               
+        </script>           
+    </head>
+    <body>
+        <p>This is a sample feedback form using cookies. This example requires
+        you to use PHP for server-side processing.</p>
+        <form name="feedbackForm" method="post" action="submitfeedback.php">
+                <p>Name: <input type="text" name="personName" /><br />
+                E-mail Address: <input type="text" name="personEmail" /><br />
+                Feedback:<br /> <textarea rows="10" cols="50" name="feedbackText"></textarea><br />
+                <input type="checkbox" name="rememberMe" value="yes" /> Remember Me<br />
+                <input type="submit" value="Submit Feedback" />
+        </form>
+        
+ 
+    </body>
+</html>

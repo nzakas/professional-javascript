@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+        
+            function handleMouseMove(oEvent) {
+                if (oEvent.button == 1) {
+                    oEvent.srcElement.dragDrop();
+                }
+            }
+            
+            function handleDragDropEvent(oEvent) {
+                oEvent.dataTransfer.setData("URL", "http://www.wrox.com/");
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the red square into another browser window.</p>
+        <p><div style="background-color: red; height: 100px; width: 100px"
+                onmousemove="handleMouseMove(event)" 
+                ondragstart="handleDragDropEvent(event)">http://www.wrox.com</div> </p>
+    </body>
+</html>

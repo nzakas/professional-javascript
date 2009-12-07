@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Style Example</title>
+        <script type="text/javascript">
+            function toggle(sDivId) {
+                var oDiv = document.getElementById(sDivId);
+                oDiv.style.display = (oDiv.style.display == "none") ? "block" : "none";
+            }
+        </script>
+    </head>
+    <body>
+        <div style="background-color: blue; color: white; font-weight: bold; padding: 10px; cursor: pointer"
+             onclick="toggle('divContent1')">Click Here</div>
+        <div style="border: 3px solid blue; height: 100px; padding: 10px"
+             id="divContent1">This is some content
+        to show and hide.</div>
+        <p>&nbsp;</p>
+        <div style="background-color: blue; color: white; font-weight: bold; padding: 10px; cursor: pointer"
+             onclick="toggle('divContent2')">Click Here</div>
+        <div style="border: 3px solid blue; height: 100px; padding: 10px"
+             id="divContent2">This is some content
+        to show and hide.</div>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Cross-Browser XML DOM Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="xmldom.js"></script>
+    </head>
+    <body>
+        <p>This example loads an invalid XML file and displays an error message in an alert.</p>
+        <script type="text/javascript">
+        var oXmlDom = new XmlDom();
+        oXmlDom.onreadystatechange = function () {
+            if (oXmlDom.readyState == 4) {
+
+                if (oXmlDom.parseError != 0) {
+                    var oError = oXmlDom.parseError;
+                    alert("An error occurred:\nError Code: "
+                          + oError.errorCode + "\n"
+                          + "Line: " + oError.line + "\n"
+                          + "Line Pos: " + oError.linepos + "\n"
+                          + "Reason: " + oError.reason);
+
+                }
+            }
+        };
+        
+        oXmlDom.load("errors.xml");
+
+        </script>
+ 
+ 
+    </body>
+</html>

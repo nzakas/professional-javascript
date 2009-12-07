@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Tabular Data Control Example</title>
+        <script type="text/javascript">
+        
+            var oDataset = null;
+            
+            function getFirstRecord() {
+                oDataset.moveFirst();
+                setValues(oDataset.fields(0).value, oDataset.fields(1).value);
+            }
+            
+            function getLastRecord() {
+                oDataset.moveLast();
+                setValues(oDataset.fields(0).value, oDataset.fields(1).value);
+            }
+            
+            function getNextRecord() {
+                
+                oDataset.moveNext();
+
+                if (!oDataset.EOF) {
+                    setValues(oDataset.fields(0).value, oDataset.fields(1).value);
+                } else {
+                    oDataset.moveLast();
+                    alert("No more records to display.");
+                }
+            }
+            
+            function getPreviousRecord() {
+                oDataset.movePrevious();
+
+                if (!oDataset.BOF) {
+                    setValues(oDataset.fields(0).value, oDataset.fields(1).value);
+                } else {
+                    oDataset.moveFirst();
+                    alert("No more records to display.");
+                }
+            }
+            
+            function setValues(sFirstName, sLastName) {
+                var oFirstName = document.getElementById("txtFirstName");
+                var oLastName = document.getElementById("txtLastName");
+                oFirstName.value = sFirstName;
+                oLastName.value = sLastName;
+                
+            }
+            
+            window.onload = function () {
+                oDataset = document.getElementById("TextData").recordset;           
+            };
+        
+        </script>
+    </head>
+    <body>
+        <p>This example shows the user of the tabular data control. This examle
+        will only work in Internet Explorer on Windows.</p>
+        
+        <object classid="CLSID:333C7BC4-460F-11D0-BC04-0080C7055A83" id="TextData">
+            <param name="DataURL" value="Names.txt" />
+            <param name="FieldDelim" value="," />
+            <param name="UseHeader" value="true" />
+        </object>
+        
+        <p>First Name: <input type="text" id="txtFirstName" /><br />
+        Last Name: <input type="text" id="txtLastName" /></p>
+        <p><input type="button" value="First Record" onclick="getFirstRecord()" />
+        <input type="button" value="Last Record" onclick="getLastRecord()" />
+        <br /><input type="button" value="Next Record" onclick="getNextRecord()" />
+        <input type="button" value="Previous Record" onclick="getPreviousRecord()" /></p>
+        
+        
+
+
+    </body>
+</html>

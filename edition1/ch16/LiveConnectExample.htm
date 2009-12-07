@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>LiveConnect Example</title>
+        <script type="text/javascript">
+        
+                function httpGet(sURL) {
+                    var sResponseText = "";
+                    var oURL = new java.net.URL(sURL);
+                    var oStream = oURL.openStream();
+                    var oReader = new java.io.BufferedReader(new java.io.InputStreamReader(oStream));
+                    
+                    var sLine = oReader.readLine();
+                    while (sLine != null) {
+                        sResponseText += sLine + "\n";
+                        sLine = oReader.readLine();
+                    }
+                    
+                    oReader.close();
+                    return sResponseText;
+                }
+                
+
+                
+                function getServerInfo() {
+                        var sResponseText = httpGet("http://localhost/example.txt");
+                        
+                        alert("Response text is: " + sResponseText);
+                }
+
+        </script>
+    </head>
+    <body>
+        <p>Click the button to make a call to the server using LiveConnect.
+        This example will only work when run in a Web server environment. You'll need
+        to change the URL <code>http://localhost/example.txt</code> to point to a valid
+        file on the server.</p>
+        <input type="button" onclick="getServerInfo()" value="Get Server info" />
+    </body>
+</html>

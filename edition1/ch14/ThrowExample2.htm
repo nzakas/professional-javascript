@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Try Catch Example</title>
+        <script type="text/javascript">
+                function addTwoNumbers(a, b) {
+                    if (arguments.length < 2) {
+                        throw new Error("Two numbers are required.");
+                    } else {
+                        return a + b;
+                    }
+                }
+                
+                try {
+                    result = addTwoNumbers(90);
+                } catch (oException) {
+                    alert(oException.message);      //outputs "Two numbers are required."
+                }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

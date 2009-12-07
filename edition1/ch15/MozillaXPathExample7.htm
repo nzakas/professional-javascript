@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Mozilla XPath Example</title>   
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="xmldom.js"></script>           
+    </head>
+    <body>
+        <p>This example determines if any nodes match the expression <code>employee/name</code>.</p>
+        <script type="text/javascript">
+            var oXmlDom = document.implementation.createDocument("","",null);
+            
+            oXmlDom.async = false;
+            
+            oXmlDom.load("employees.xml");
+            
+            var oEvaluator = new XPathEvaluator();
+            var oResult = oEvaluator.evaluate("employee/name", oXmlDom.documentElement, null, XPathResult.BOOLEAN_TYPE, null);
+
+            alert(oResult.booleanValue);
+            
+        </script>
+ 
+ 
+    </body>
+</html>

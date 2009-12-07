@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>OuterText Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                padding: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function useOuterText() {
+                var oDiv = document.getElementById("div1");
+                oDiv.outerText = "This is some new text not inside a DIV.";
+            }
+        </script>
+ 
+    </head>
+    <body>
+        <div id="div1" class="special">This is my original DIV</div>
+        <input type="button" value="Use OuterText" onclick="useOuterText()" />
+        <p><strong>Note: </strong> Firefox does not support the <code>innerText</code> property so this example will fail.</p>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDragDropEvent(oEvent) {
+               
+                switch(oEvent.type) {
+                    case "dragover":
+                    case "dragenter":
+                        oEvent.returnValue = false;
+                        break;
+                    case "drop":
+                        alert(oEvent.dataTransfer.getData("URL"));
+                }
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the link to the red square.
+        It will show you the URL when dropped.</p>
+        <p><a href="http://www.wrox.com" target="_blank">Wrox Home Page</a>
+        <div style="background-color: red; height: 100px; width: 100px"
+             ondragenter="handleDragDropEvent(event)"               
+             ondragover="handleDragDropEvent(event)" 
+             ondrop="handleDragDropEvent(event)"></div></p>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Flash Example</title>
+        <script type="text/javascript">
+        
+            function setMessage() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                var txtMessage = document.getElementById("txtMessage");
+                oFlashMovie.SetVariable("/:jsMessage", txtMessage.value);
+            }
+            
+            function getMessage() {
+                var oFlashMovie = document.getElementById("ExampleMovie");
+                alert("The current message is \"" + oFlashMovie.GetVariable("/:jsMessage") + "\".");
+            }
+        </script>
+
+    </head>
+    <body>
+        <object type="application/x-shockwave-flash" data="ExampleMovie2.swf" 
+        width="200" height="200" id="ExampleMovie">
+            <param name="movie" value="ExampleMovie2.swf" />
+        </object>
+        <p><input type="text" id="txtMessage" value="New Message" /><input type="button" value="Set Message" onclick="setMessage()" /><br />
+        <input type="button" value="Get Current Message" onclick="getMessage()" /></p>
+               
+    </body>
+</html>

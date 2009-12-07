@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>MIME Types Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            if (navigator.mimeTypes) {
+                document.writeln("<h3>Supported MIME Types (Mozilla only):</h3>");
+                document.writeln("<ul>");
+                for (var i=0; i < navigator.mimeTypes.length; i++) {
+                    document.writeln("<li>" + navigator.mimeTypes[i].type + " (" 
+                        + navigator.mimeTypes[i].description + ", " 
+                        + navigator.mimeTypes[i].suffixes + ")</li>");
+                        
+                    if (navigator.mimeTypes[i].enabledPlugin) {
+                        var oPlugin = navigator.mimeTypes[i].enabledPlugin;
+                        document.writeln("<ul>");
+                        document.writeln("<li>Name: " + oPlugin.name + "</li>");
+                        document.writeln("<li>" + oPlugin.description + "</li>");
+                        document.writeln("<li>MIME types supported: " + oPlugin.length + "</li>");
+                        document.writeln("<li>Filename: " + oPlugin.filename + "</li>");
+                        document.writeln("</ul>");
+                    }
+                    
+                }
+                document.writeln("</ul>");
+            }
+        </script>
+    </body>
+</html>

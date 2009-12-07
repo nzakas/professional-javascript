@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>System Drag And Drop Example</title>
+        <script type="text/javascript">
+            function handleDragDropEvent(oEvent) {
+                var oTextbox = document.getElementById("txt1");
+                oTextbox.value +=  oEvent.type + "\n";
+            }                        
+        </script>
+    </head>
+    <body>
+        <p>Try dragging the text from the left textbox to the right one.</p>
+        <p><input type="text" value="drag this text" />
+        <input type="text" ondragenter="handleDragDropEvent(event)" 
+               ondragover="handleDragDropEvent(event)" ondragleave="handleDragDropEvent(event)" 
+               ondrop="handleDragDropEvent(event)" /></p>
+        <p><textarea rows="10" cols="25" readonly="readonly" id="txt1"></textarea></p>        
+    </body>
+</html>

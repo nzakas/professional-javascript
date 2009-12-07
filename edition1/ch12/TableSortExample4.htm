@@ -1,0 +1,118 @@
+<html>
+    <head>
+	<title>Table Sort Example</title>
+        <script type="text/javascript">
+        
+            function convert(sValue, sDataType) {
+                switch(sDataType) {
+                    case "int":
+                        return parseInt(sValue);
+                    case "float":
+                        return parseFloat(sValue);
+                    case "date":
+                        return new Date(Date.parse(sValue));
+                    default:
+                        return sValue.toString();
+                
+                }
+            }
+        
+            function generateCompareTRs(iCol, sDataType) {
+        
+                return  function compareTRs(oTR1, oTR2) {
+                            var vValue1 = convert(oTR1.cells[iCol].firstChild.nodeValue, sDataType);
+                            var vValue2 = convert(oTR2.cells[iCol].firstChild.nodeValue, sDataType);
+        
+                            if (vValue1 < vValue2) {
+                                return -1;
+                            } else if (vValue1 > vValue2) {
+                                return 1;
+                            } else {
+                                return 0;
+                            }
+                        };
+            }
+           
+            function sortTable(sTableID, iCol, sDataType) {
+                var oTable = document.getElementById(sTableID);
+                var oTBody = oTable.tBodies[0];
+                var colDataRows = oTBody.rows;
+                var aTRs = new Array;
+        
+                for (var i=0; i < colDataRows.length; i++) {
+                    aTRs[i] = colDataRows[i];
+                }
+        
+                if (oTable.sortCol == iCol) {
+                    aTRs.reverse();
+                } else {
+                    aTRs.sort(generateCompareTRs(iCol, sDataType));
+                }
+        
+                var oFragment = document.createDocumentFragment();
+                for (var i=0; i < aTRs.length; i++) {
+                    oFragment.appendChild(aTRs[i]);
+                }
+       
+                oTBody.appendChild(oFragment);
+                oTable.sortCol = iCol;
+            }
+
+        </script>
+    </head>
+    <body>
+        <p>Click on the table header to sort in ascending order.</p>
+        <table border="1" id="tblSort">
+            <thead>
+                <tr>
+                    <th onclick="sortTable('tblSort', 0)" 
+                        style="cursor:pointer">Last Name</th>
+                    <th onclick="sortTable('tblSort', 1)" 
+                        style="cursor:pointer">First Name</th>
+                    <th onclick="sortTable('tblSort', 2, 'date')" 
+                        style="cursor:pointer">Birthday</th>
+                    <th onclick="sortTable('tblSort', 3, 'int')" 
+                        style="cursor:pointer">Siblings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Smith</td>
+                    <td>John</td>
+                    <td>7/12/1978</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Johnson</td>
+                    <td>Betty</td>
+                    <td>10/15/1977</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Henderson</td>
+                    <td>Nathan</td>
+                    <td>2/25/1949</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Williams</td>
+                    <td>James</td>
+                    <td>7/8/1980</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Gilliam</td>
+                    <td>Michael</td>
+                    <td>7/22/1949</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Walker</td>
+                    <td>Matthew</td>
+                    <td>1/14/2000</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>        
+    </body>
+</html>

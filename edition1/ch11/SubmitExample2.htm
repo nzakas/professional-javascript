@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Submit Example</title>
+    </head>
+    <body>
+        <form id="form1" method="post" action="javascript:alert('Submitted')">
+            <!-- regular textbox -->
+            <label for="txtName">Name:</label><br />
+            <input type="text" id="txtName" name="txtName" /><br />
+            
+            <!-- password textbox -->
+            <label for="txtPassword">Password:</label><br />
+            <input type="password" id="txtPassword" name="txtPassword" /><br />
+            
+            <!-- age comboxbox (drop-down) -->
+            <label for="selAge">Age:</label><br />
+            <select name="selAge" id="selAge">
+                <option>18-21</option>
+                <option>22-25</option>
+                <option>26-29</option>
+                <option>30-35</option>
+                <option>Over 35</option>
+            </select><br />
+            
+            <!-- multiline textbox -->
+            <label for="txtComments">Comments:</label><br />
+            <textarea rows="10" cols="50" id="txtComments" name="txtComments"></textarea><br />
+            
+            <!-- submit button -->
+            <input type="image" src="submit.gif" />
+      
+        </form>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <title>Mozilla XSLT Example</title>   
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="xmldom.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                var oXmlDom = new XmlDom();
+                var oXslDom = new XmlDom();
+                
+                oXmlDom.async = false;
+                oXslDom.async = false;
+                
+                oXmlDom.load("employees.xml");
+                oXslDom.load("employees2.xslt");
+
+                var oProcessor = new XSLTProcessor();
+                oProcessor.importStylesheet(oXslDom);
+                oProcessor.setParameter(null, "message", "Hello World!");
+
+                var oResultFragment = oProcessor.transformToFragment(oXmlDom, document);
+                var oDiv = document.getElementById("divResult");
+                
+                oDiv.appendChild(oResultFragment);            
+
+            }
+        </script>           
+    </head>
+    <body>
+        <p>This example loads employees.xml and transforms it using employees2.xslt. 
+        The parameter <code>message</code> is passed in and is equal to &quot;Hello
+        World!&quot;. The resulting code is then displayed.</p>
+        <div id="divResult"></div>
+    </body>
+</html>

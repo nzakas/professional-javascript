@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Computed Style Example</title>
+        <style type="text/css">
+            div.special {
+                background-color: red;
+                height: 10px;
+                width: 10px;
+                margin: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            function getBackgroundColor() {
+                var oDiv = document.getElementById("div1");
+                alert(document.defaultView.getComputedStyle(oDiv, null).backgroundColor);
+            }
+        </script>
+ 
+    </head>
+    <body>
+        <div id="div1" class="special"></div>
+        <input type="button" value="Get Background Color" onclick="getBackgroundColor()" />
+        <p><strong>Note:</strong> This example uses the DOM style methods and will fail in Internet Explorer.</p>
+    </body>
+</html>

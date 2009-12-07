@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Factory Example</title>
+</head>
+<body>
+<script type="text/javascript">
+function createCar(sColor, iDoors, iMpg) {
+    var oTempCar = new Object;
+    oTempCar.color = sColor;
+    oTempCar.doors = iDoors;
+    oTempCar.mpg = iMpg;
+    oTempCar.showColor = function () {
+        alert(this.color)
+    };
+
+    return oTempCar;
+}
+
+var oCar1 = createCar("red", 4, 23);
+var oCar2 = createCar("blue", 3, 25);
+oCar1.showColor();    //outputs "red"
+oCar2.showColor();    //outputs "blue"
+
+
+</script>
+ 
+</body>
+</html>

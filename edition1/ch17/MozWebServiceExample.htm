@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Mozilla Web Service Example</title>
+        <script type="text/javascript">
+        
+        var sURL = "http://services.xmethods.net:80/soap/servlet/rpcrouter";
+				var sTargetNamespace = "urn:xmethods-Temperature";  
+        
+        function callWebService() {                        
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
+            } catch (e) {
+                alert(e);
+                return false;
+            }
+            
+            var sZip = document.getElementById("txtZip").value;                
+            var arrParams = new Array;
+            arrParams[0] = new SOAPParameter(sZip, "zipcode");
+            
+            var oSoapCall = new SOAPCall();
+            oSoapCall.transportURI = sURL;
+            oSoapCall.encode(0, "getTemp", sTargetNamespace, 0, null, arrParams.length, arrParams);
+            oSoapCall.asyncInvoke(onWebServiceResult);
+        }
+
+        
+        function onWebServiceResult(oResponse,oSoapCall,iError) {
+                               
+            if (iError != 0) {
+      					alert("An unspecified error occurred.");
+            } else if (oResponse.fault != null) {
+                alert("An error occurred (code=" + oResponse.fault.faultCode + ", string=" + oResponse.fault.faultString + ")");        
+            } else {
+                var oParams = oResponse.getParameters(false, {});
+                alert("It is currently " + oParams[0].element.firstChild.nodeValue + " degrees in that zip code.");
+            }
+        }
+				
+        </script>
+    </head>
+    <body>
+        <p><input type="text" id="txtZip" size="10" /><input type="button" value="Get Temperature" onclick="callWebService()" />
+    </body>
+</html>

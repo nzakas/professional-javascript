@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Mouse Events Example</title>
+        <script type="text/javascript">
+            function handleEvent(oEvent) {
+                var oTextbox = document.getElementById("txt1");
+                oTextbox.value += "\n>" + oEvent.type;
+                oTextbox.value += "\n    target is " + oEvent.srcElement.tagName;
+                
+                if (oEvent.fromElement) {
+                    oTextbox.value += "\n    fromElement is " + oEvent.fromElement.tagName;
+                }
+                
+                if (oEvent.toElement) {
+                    oTextbox.value += "\n    toElement is " + oEvent.toElement.tagName;
+                }
+                
+                
+            }
+        </script>
+    </head>
+    <body>
+        <p>Use your mouse to click and double click the red square.</p>
+        <div style="width: 100px; height: 100px; background-color: red"
+             onmouseover="handleEvent(event)"
+             onmouseout="handleEvent(event)"
+             onmousedown="handleEvent(event)"
+             onmouseup="handleEvent(event)"
+             onclick="handleEvent(event)"
+             ondblclick="handleEvent(event)" id="div1"></div>
+        <p><textarea id="txt1" rows="15" cols="50"></textarea></p>
+    </body>
+</html>

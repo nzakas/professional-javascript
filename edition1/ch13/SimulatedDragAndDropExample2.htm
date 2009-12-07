@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Simulated Drag And Drop Example</title>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript">
+                   
+            function handleMouseMove() {
+                var oEvent = EventUtil.getEvent();
+                var oDiv = document.getElementById("div1");
+                oDiv.style.left = oEvent.clientX;
+                oDiv.style.top = oEvent.clientY;
+            }
+                       
+            function handleMouseDown() {
+                EventUtil.addEventHandler(document.body, "mousemove", handleMouseMove);
+                EventUtil.addEventHandler(document.body, "mouseup", handleMouseUp);
+            }
+            
+            function handleMouseUp() {
+                EventUtil.removeEventHandler(document.body, "mousemove", handleMouseMove);
+                EventUtil.removeEventHandler(document.body, "mouseup", handleMouseUp);
+            }
+            
+        </script>
+        <style type="text/css">
+            #div1 {
+                background-color: red;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Try dragging the red square.</p>
+        <p><div id="div1" onmousedown="handleMouseDown()"></div> </p>
+    </body>
+</html>

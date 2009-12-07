@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Block Paste Example</title>
+        <script type="text/javascript" src="detect.js"></script>
+        <script type="text/javascript" src="eventutil.js"></script>
+        <script type="text/javascript" src="textutil.js"></script>
+    </head>
+    <body>
+        <p>Try typing in the textbox. You can only type number characters. Paste some non-number characters and click somewhere else.</p>
+        <form method="post" action="javascript:alert('Submitted')">
+            <input type="text" validchars="0123456789" 
+                onkeypress="return TextUtil.allowChars(this, event)"
+                onblur="return TextUtil.blurAllow(this)"></textarea>
+            <input type="submit" value="Submit Form" />
+        </form>
+    </body>
+</html>

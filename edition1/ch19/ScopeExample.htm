@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Scope Example</title>
+    </head>
+    <body>
+        <p>In this example, the <code>var</code> statement isn't used to define
+        the variable <code>sMyFirstName</code>, so it is created as a variable
+        at the <code>window</code> scope. This is proved because the second function
+        can also access the variable and display it in an alert.</p>
+        <script type="text/javascript">
+
+            function sayFirstName() {
+                sMyFirstName = "Nicholas";
+                alert(sMyFirstName);
+            }
+            
+            function sayFirstNameToo() {
+                alert(sMyFirstName);
+            }
+            
+            sayFirstName();
+            sayFirstNameToo();
+        </script>
+    </body>
+</html>
+
+
